@@ -31,15 +31,14 @@ class KTcpSocket
 {
 	public:
         KTcpSocket(int port, std::string host = "127.0.0.1");
-        ~KTcpSocket();
+        virtual ~KTcpSocket();
 		static void end(void);
-        void writeBuffer(const byte* buffer, size_t len);
-        void readBuffer(byte* buffer, size_t len);
+        virtual void writeBuffer(const byte* buffer, size_t len);
+        virtual void readBuffer(byte* buffer, size_t len);
+        virtual void buildAddr(void);
+        virtual void connectToHost(void);
 
-	protected:
-        void buildAddr(void);
-        void connectToHost(void);
-
+    protected:
 		SOCKET _sock;
 		SOCKADDR_IN _sin;
 		int _port;

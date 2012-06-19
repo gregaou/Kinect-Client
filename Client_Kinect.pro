@@ -7,12 +7,14 @@ SOURCES += main.cpp \
     kPaquet.cpp \
     kClientPaquet.cpp \
     kServerPaquet.cpp \
-    kTcpSocket.cpp
+    kTcpSocket.cpp \
+    kVerboseTcpSocket.cpp
 
 HEADERS += \
     kPaquet.h \
     kClientPaquet.h \
     kServerPaquet.h \
     kTcpSocket.h \
-    byte.h
+    byte.h \
+    kVerboseTcpSocket.h
 

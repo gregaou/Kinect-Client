@@ -1,6 +1,7 @@
 #include <iostream>
 #include <exception>
 
+#include "kVerboseTcpSocket.h"
 #include "kPaquet.h"
 #include "kClientPaquet.h"
 #include "kServerPaquet.h"
@@ -14,7 +15,9 @@ int main()
 
     try
     {
-        sock = new KTcpSocket(1337);
+        sock = new KVerboseTcpSocket(1337);
+        sock->buildAddr();
+        sock->connectToHost();
 
         while (true)
         {

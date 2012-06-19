@@ -18,10 +18,7 @@ KTcpSocket::KTcpSocket(int port, std::string host) :
 
     _sock = socket(PF_INET, SOCK_STREAM, 0);
 	if (_sock == INVALID_SOCKET)
-        throw std::runtime_error("Unable to initialize the socket");
-
-    buildAddr();
-	connectToHost();
+        throw std::runtime_error("unable to initialize the socket");
 }
 
 KTcpSocket::~KTcpSocket()
@@ -48,24 +45,27 @@ void KTcpSocket::writeBuffer(const byte* buffer, size_t len)
     r = send(_sock, (const char*)buffer, len, 0);
 
     /* Paquet successffuly send */
-    if (r == len)
+    if (r == (int)len)
         return;
 
+    /* Error */
+    if (r <= 0)
+    {
+        msg << "an error occured writting reading data ";
+        if (r == SOCKET_ERROR)
+            msg << "(send() error " << errno << ")";
+        if (r == 0)
+            msg << "(connexion lost)";
+
+        throw std::runtime_error(msg.str());
+    }
+
     /* Paquet partially send (should not occur) */
-    if (r < len)
+    if (r < (int)len)
     {
         msg << r << "/" << len << " bytes written";
         throw std::runtime_error(msg.str());
     }
-
-    /* Error */
-    msg << "an error occured writting reading data ";
-    if (r == SOCKET_ERROR)
-        msg << "(send() error " << errno << ")";
-    if (r == 0)
-        msg << "(connexion lost)";
-
-    throw std::runtime_error(msg.str());
 }
 
 void KTcpSocket::readBuffer(byte* buffer, size_t len)
@@ -117,19 +117,15 @@ void KTcpSocket::buildAddr()
 
 void KTcpSocket::connectToHost()
 {
-    if (_sock == INVALID_SOCKET)
-        throw std::runtime_error("Coudn't connect : invalid socket");
-
     std::ostringstream msg;
-    msg << "Connexion to " << _host << ":" << _port;
+
+    if (_sock == INVALID_SOCKET)
+        throw std::runtime_error("coudn't connect : invalid socket");
 
     if (connect(_sock, (SOCKADDR*)&_sin, sizeof(_sin)) == SOCKET_ERROR)
     {
-        msg << " failed";
+        msg << "Connexion to " << _host << ":" << _port << " failed";
         throw std::runtime_error(msg.str());
     }
-
-    msg << " successed";
-    std::cout << msg.str() << std::endl;
 }
 
