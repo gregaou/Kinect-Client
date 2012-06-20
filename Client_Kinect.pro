@@ -1,14 +1,15 @@
 TEMPLATE = app
 CONFIG += console
 CONFIG -= qt
-LIBS += -lws2_32
+LIBS += -lws2_32 -lpthread
 
 SOURCES += main.cpp \
     kPaquet.cpp \
     kClientPaquet.cpp \
     kServerPaquet.cpp \
     kTcpSocket.cpp \
-    kVerboseTcpSocket.cpp
+    kVerboseTcpSocket.cpp \
+    kClient.cpp
 
 HEADERS += \
     kPaquet.h \
@@ -16,5 +17,6 @@ HEADERS += \
     kServerPaquet.h \
     kTcpSocket.h \
     byte.h \
-    kVerboseTcpSocket.h
+    kVerboseTcpSocket.h \
+    kClient.h
 

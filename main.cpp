@@ -1,53 +1,71 @@
-#include <iostream>
-#include <exception>
+//#include <iostream>
+//#include <exception>
 
-#include "kVerboseTcpSocket.h"
-#include "kPaquet.h"
-#include "kClientPaquet.h"
-#include "kServerPaquet.h"
+//#include "kClient.h"
+//#include "kVerboseTcpSocket.h"
+//#include "kPaquet.h"
+//#include "kClientPaquet.h"
+//#include "kServerPaquet.h"
 
 using namespace std;
 
 int main()
 {
-    int r = EXIT_SUCCESS;
+	int r = 42;
+	/*
+	int r = EXIT_SUCCESS;
+	KClient* c = 0;
     KTcpSocket* sock = 0;
 
-    try
-    {
-        sock = new KVerboseTcpSocket(1337);
-        sock->buildAddr();
-        sock->connectToHost();
+	cout << "Debut du programme" << endl;
 
-        while (true)
-        {
-            string msg;
+	try
+	{
+		c = new KClient();
+		sock = c->socket();
+	}
+	catch (exception& e)
+	{
+		delete c;
+		cout << e.what() << endl;
+		KTcpSocket::end();
+		return EXIT_FAILURE;
+	}
 
-            cout << "Message : ";
-            cin >> msg;
-            if (msg.size() <= 1)
-                break;
+	cout << "client connected" << endl;
 
-            KClientPaquet cp(msg);
-            cp.send(sock);
+	while (true)
+	{
+		string msg;
 
-            KServerPaquet sp(sock);
-            string answer((const char*)sp.data(), sp.bodySize());
-            answer.push_back('\0');
+		cout << "Message : ";
+		cin >> msg;
+		if (msg.size() <= 1)
+			break;
 
-            cout << "Server : " << answer << " (" << (int)sp.id() << ")" <<  endl;
-        }
-    }
-    catch (exception& e)
-    {
-        cout << "Exception : " << e.what() << endl;
-        r = EXIT_FAILURE;
-    }
+		try
+		{
+			KClientPaquet cp(msg);
+			cp.send(sock);
 
-    if (sock)
-        delete sock;
+			KServerPaquet sp(sock);
+			string answer((const char*)sp.data(), sp.bodySize());
+			answer.push_back('\0');
 
-    KTcpSocket::end();
+			cout << "Server : " << answer << " (" << (int)sp.id() << ")" <<  endl;
+		}
+		catch (exception& e)
+		{
+			cout << "Exception : " << e.what() << endl;
+			r = EXIT_FAILURE;
+			break;
+		}
+	}
+
+	KTcpSocket::end();
+	*/
+
+//	cout << "rerzer" << endl;
 
     return r;
 }
