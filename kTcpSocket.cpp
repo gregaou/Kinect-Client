@@ -73,16 +73,17 @@ void KTcpSocket::readBuffer(byte* buffer, size_t len)
     int r;
     std::ostringstream msg;
     fd_set set;
-    struct timeval t;
+//    struct timeval t;
 
     msg << "an error occured while reading data ";
 
     FD_ZERO(&set);
     FD_SET(_sock, &set);
-    t.tv_sec = 2;
-    t.tv_usec = 0;
+//    t.tv_sec = 2;
+//    t.tv_usec = 0;
 
-    r = select(_sock+1, &set, NULL, NULL, &t);
+//    r = select(_sock+1, &set, NULL, NULL, &t);
+    r = select(_sock+1, &set, NULL, NULL, NULL);
 
     if (r < 0)
     {

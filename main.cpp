@@ -1,28 +1,22 @@
-//#include <iostream>
-//#include <exception>
+#include <iostream>
+#include <exception>
 
-//#include "kClient.h"
-//#include "kVerboseTcpSocket.h"
-//#include "kPaquet.h"
-//#include "kClientPaquet.h"
-//#include "kServerPaquet.h"
+#include "kClient.h"
+#include "kVerboseTcpSocket.h"
+#include "kPaquet.h"
+#include "kClientPaquet.h"
+#include "kServerPaquet.h"
 
 using namespace std;
 
 int main()
 {
-	int r = 42;
-	/*
-	int r = EXIT_SUCCESS;
-	KClient* c = 0;
-    KTcpSocket* sock = 0;
-
-	cout << "Debut du programme" << endl;
+    int r = EXIT_SUCCESS;
+    KClient* c = 0;
 
 	try
 	{
-		c = new KClient();
-		sock = c->socket();
+        c = new KClient();
 	}
 	catch (exception& e)
 	{
@@ -30,9 +24,7 @@ int main()
 		cout << e.what() << endl;
 		KTcpSocket::end();
 		return EXIT_FAILURE;
-	}
-
-	cout << "client connected" << endl;
+    }
 
 	while (true)
 	{
@@ -40,32 +32,14 @@ int main()
 
 		cout << "Message : ";
 		cin >> msg;
-		if (msg.size() <= 1)
-			break;
+        if (msg == "close" || msg == "exit" || msg == "quit")
+            break;
 
-		try
-		{
-			KClientPaquet cp(msg);
-			cp.send(sock);
-
-			KServerPaquet sp(sock);
-			string answer((const char*)sp.data(), sp.bodySize());
-			answer.push_back('\0');
-
-			cout << "Server : " << answer << " (" << (int)sp.id() << ")" <<  endl;
-		}
-		catch (exception& e)
-		{
-			cout << "Exception : " << e.what() << endl;
-			r = EXIT_FAILURE;
-			break;
-		}
+        if (!c->sendQuery(msg))
+            break;
 	}
 
-	KTcpSocket::end();
-	*/
-
-//	cout << "rerzer" << endl;
+    KTcpSocket::end();
 
     return r;
 }
