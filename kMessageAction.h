@@ -2,8 +2,6 @@
 #define KMESSAGEACTION_H
 
 #include "kAction.h"
-//#include "network/kServerListener.h"
-//#include "network/kServerPaquet.h"
 #include "network/network.h"
 
 class KMessageAction: public KAction

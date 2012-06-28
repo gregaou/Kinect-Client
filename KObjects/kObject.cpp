@@ -1,4 +1,6 @@
+#include <string.h>
 #include "kObject.h"
+#include "../kQueryErrorException.h"
 
 KObject::KObject(const char* className, int sensorId) :
 	_className(className),
@@ -32,11 +34,9 @@ std::string* KObject::buildQuery(const std::string& method, const std::string& a
 void KObject::processQuery(std::string* query) const
 {
 	if (!_client->sendQuery(*query))
-	{
-		std::ostringstream err;
-		std::cout << "Error " << _client->lastCode() << " : "  << _client->lastMessage() << std::endl;
-		throw std::runtime_error(err.str());
-	}
+		throw KQueryErrorException(_client->lastCode(), _client->lastMessage());
+
+	delete query;
 }
 
 KClient* KObject::getClient()
@@ -46,5 +46,21 @@ KClient* KObject::getClient()
 	#endif
 
 	return client;
+}
+
+std::vector<std::string>* KObject::splitString(const std::string& str, const char* sep)
+{
+	std::vector<std::string>* res = new std::vector<std::string>();
+	size_t sepLen = strlen(sep);
+	size_t beg = 0, end = 0;
+
+	do
+	{
+		end = str.find(sep, beg, sepLen);
+		res->push_back(str.substr(beg, end-beg));
+		beg = end + sepLen;
+	} while (end != std::string::npos);
+
+	return res;
 }
 

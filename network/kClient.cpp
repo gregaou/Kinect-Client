@@ -1,6 +1,7 @@
 #include "kClient.h"
 #include "kClientPaquet.h"
-#include "kAction.h"
+#include "../kAction.h"
+#include "../kConnectionException.h"
 
 const int KClient::PORT = 1337;
 const std::string KClient::HOST = "192.168.3.23";
@@ -41,8 +42,7 @@ KClient::KClient(int port, std::string host) :
 
 KClient::~KClient()
 {
-    if (pthread_cancel(_serverListener))
-        std::cout << "pthread_cancel failed" << std::endl;
+	pthread_cancel(_serverListener);
     if (_socket)
         delete _socket;
     if (_messagePaquet)
@@ -83,6 +83,12 @@ void* KClient::listenerRoutine(void* p)
 			action->exec();
 			delete action;
 		}
+		catch (KConnectionException& e)
+		{
+			std::cout << "Connection lost : " << e.what() << std::endl;
+			std::cout << "Please restart the client." << std::endl;
+			return NULL;
+		}
 		catch (std::exception& e)
 		{
 			std::cout << "Warning : " << e.what() << std::endl;
@@ -102,7 +108,7 @@ ServerCode KClient::lastCode() const
 	return _lastCode;
 }
 
-std::string KClient::lastMessage() const
+const std::string& KClient::lastMessage() const
 {
 	return _lastMessage;
 }
@@ -127,5 +133,10 @@ bool KClient::sendQuery(const std::string& query, unsigned int ms_timeout)
 	_lastMessage = std::string((const char*)_messagePaquet->data(), _messagePaquet->bodySize());
 	_lastMessage.push_back('\0');
 
-	return (_lastCode == QueryOK);
+	return codeOk(_lastCode);
+}
+
+bool KClient::codeOk(ServerCode c)
+{
+	return (c == QueryOK);
 }

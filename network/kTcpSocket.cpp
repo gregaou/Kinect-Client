@@ -1,5 +1,5 @@
-#include <typeinfo>
 #include "kTcpSocket.h"
+#include "../kConnectionException.h"
 
 static bool first = true;
 
@@ -54,11 +54,12 @@ void KTcpSocket::writeBuffer(const byte* buffer, size_t len)
     {
         msg << "an error occured writting reading data ";
         if (r == SOCKET_ERROR)
-            msg << "(send() error " << errno << ")";
-        if (r == 0)
-            msg << "(connexion lost)";
-
-        throw std::runtime_error(msg.str());
+		{
+			msg << "(send() error " << errno << ")";
+			throw std::runtime_error(msg.str());
+		}
+		if (r == 0)
+			throw KConnectionException(msg.str());
     }
 
     /* Paquet partially send (should not occur) */
@@ -101,11 +102,8 @@ void KTcpSocket::readBuffer(byte* buffer, size_t len)
 			msg << "(recv() failed)" << errno;
             throw std::runtime_error(msg.str());
         }
-        if (r == 0)
-        {
-            msg << "(connexion lost)";
-            throw std::runtime_error(msg.str());
-        }
+		if (r == 0)
+			throw KConnectionException(msg.str());
     }
 }
 

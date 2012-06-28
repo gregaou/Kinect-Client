@@ -11,7 +11,7 @@
 #include "kServerPaquet.h"
 #include "kServerListener.h"
 
-//#define SINGLETON
+#define SINGLETON
 
 typedef void (*kCallback)(const std::vector<byte>& frame);
 class KClient
@@ -34,9 +34,10 @@ class KClient
 		/* Getters */
         KTcpSocket* socket(void) const;
 		ServerCode lastCode(void) const;
-		std::string lastMessage(void) const;
+		const std::string& lastMessage(void) const;
 
 		bool sendQuery(const std::string& query, unsigned int ms_timeout = QUERY_MS_TIMEOUT);
+		static bool codeOk(ServerCode c);
 
 	protected:
         static void* listenerRoutine(void* p);

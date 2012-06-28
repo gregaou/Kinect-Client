@@ -3,8 +3,11 @@
 
 typedef enum ServerCode
 {
-	ColorStream = 3,
-	SkeletonStream = 2,
+	ColorStream = 2,
+	SkeletonStream = 3,
+	BadArgument = 101,
+	InvalidOperation = 102,
+
 	/* ... */
 	QueryOK = 1
 } ServerCode;
