@@ -4,24 +4,18 @@ CONFIG -= qt
 LIBS += -lpthread
 
 SOURCES += main.cpp \
-    kAction.cpp \
-    KObjects/kObject.cpp \
-    KObjects/kinectSensor.cpp \
-    KObjects/kinectSensorCollection.cpp \
     network/kVerboseTcpSocket.cpp \
     network/kTcpSocket.cpp \
     network/kServerPaquet.cpp \
     network/kPaquet.cpp \
     network/kClientPaquet.cpp \
-    network/kClient.cpp
+    network/kClient.cpp \
+    kActions/kAction.cpp \
+    kObjects/kObject.cpp \
+    kObjects/kinectSensorCollection.cpp \
+    kObjects/kinectSensor.cpp
 
 HEADERS += \
-    kAction.h \
-    kMessageAction.h \
-    KObjects/kObject.h \
-    KObjects/kinectSensor.h \
-    KObjects/kinectSensorCollection.h \
-    KObjects/kObjects.h \
     network/kVerboseTcpSocket.h \
     network/kTcpSocket.h \
     network/kServerPaquet.h \
@@ -37,10 +31,20 @@ HEADERS += \
     enums/enums.h \
     enums/skeletonTrackingState.h \
     enums/jointTrackingState.h \
-    kConnectionException.h \
-    kQueryErrorException.h \
     enums/colorImageFormat.h \
-    KObjects/colorImagePoint.h \
-    KObjects/skeletonPoint.h \
-    KObjects/depthImagePoint.h
+    kActions/kActions.h \
+    kActions/kMessageAction.h \
+    kActions/kKinectSensorCollectionStatusChangedAction.h \
+    kActions/kAction.h \
+    kExceptions.h/kQueryErrorException.h \
+    kExceptions/kQueryErrorException.h \
+    kExceptions/kConnectionException.h \
+    kObjects/skeletonPoint.h \
+    kObjects/kObjects.h \
+    kObjects/kObject.h \
+    kObjects/kinectSensorCollection.h \
+    kObjects/kinectSensor.h \
+    kObjects/kEventHander.h \
+    kObjects/depthImagePoint.h \
+    kObjects/colorImagePoint.h
 

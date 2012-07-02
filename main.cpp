@@ -2,29 +2,24 @@
 #include <exception>
 
 #include "network/network.h"
-#include "KObjects/kObjects.h"
-#include "kQueryErrorException.h"
+#include "kObjects/kObjects.h"
+#include "kExceptions/kQueryErrorException.h"
 
 using namespace std;
 
 void kinectProcess(void);
 
+void statusChanged(KinectStatus status)
+{
+	cout << "Status changed to " << status << endl;
+}
+
 int main()
 {
 	int r = EXIT_SUCCESS;
-	#ifdef SINGLETON
-		KClient* client;
-	#endif
 
 	try
 	{
-		/* Initializing */
-		#ifdef SINGLETON
-			client = KClient::instance();
-		#else
-			client = new KClient();
-		#endif
-
 		kinectProcess();
 	}
 	catch (exception& e)
@@ -34,28 +29,31 @@ int main()
 	}
 
 	/* Closing */
-    KTcpSocket::end();
-	#ifdef SINGLETON
-		KClient::deleteInstance();
-	#else
-		delete client;
-	#endif
+	KClient::deleteInstance();
+	KinectSensorCollection::deleteInstance();
+	KTcpSocket::end();
 
     return r;
 }
 
 void kinectProcess()
 {
-	KinectSensorCollection sensors = KinectSensor::KinectSensors();
+	/*
+	KinectSensorCollection* sensors = KinectSensor::KinectSensors();
+	sensors->setStatusChangeCb(kEventHandler<KinectStatus>(statusChanged));
+
+	while (true);
+	//*/
+	KinectSensorCollection sensors = *(KinectSensor::KinectSensors());
 	KinectSensor sensor;
 	int i, nsensors = sensors.size();
 
-	std::cout << nsensors << " sensors" << std::endl;
+	cout << nsensors << " sensors" << endl;
 
 	for (i=0; i<nsensors; i++)
 	{
 		KinectStatus status = sensors[i].getStatus();
-		std::cout << "status " << i << " : " << status << std::endl;
+		cout << "status " << i << " : " << status << endl;
 
 		if (status == Connected)
 		{
@@ -67,7 +65,7 @@ void kinectProcess()
 	if (i == nsensors)
 		throw runtime_error("No Kinect found");
 
-	std::cout << "Elevation angle : " << sensor.getElevationAngle() << std::endl;
+	cout << "Elevation angle : " << sensor.getElevationAngle() << endl;
 	int angle = sensor.getElevationAngle();
 	int inc = 10;
 
@@ -83,18 +81,19 @@ void kinectProcess()
 		}
 		catch (KQueryErrorException& e)
 		{
+			cout << e.what() << endl;
 			switch (e.code())
 			{
 				case InvalidOperation:
 					angle -= inc;
 					break;
 				case BadArgument:
-					std::cout << "invalid angle " << angle << std::endl;
+					cout << "invalid angle " << angle << endl;
 					return;
 				default:
 					throw runtime_error(e.what());
 			}
 		}
 	}
+	//*/
 }
-

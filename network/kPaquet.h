@@ -27,4 +27,4 @@ class KPaquet
 		std::vector<byte> _data;
 };
 
-#endif // KPAQUET_H
+#endif

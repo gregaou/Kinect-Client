@@ -5,9 +5,11 @@ typedef enum ServerCode
 {
 	ColorStream = 2,
 	SkeletonStream = 3,
+	/* ... */
 	BadArgument = 101,
 	InvalidOperation = 102,
-
+	/* ... */
+	KinectSensorCollectionStatusChanged = 200,
 	/* ... */
 	QueryOK = 1
 } ServerCode;

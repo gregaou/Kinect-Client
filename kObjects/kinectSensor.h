@@ -10,11 +10,11 @@
 
 class KinectSensorCollection;
 
-class KinectSensor : KObject
+class KinectSensor : public KObject
 {
 	public:
-		KinectSensor(int id = -1) : KObject("KinectSensor", id)
-		{}
+		KinectSensor(int id = -1);
+		~KinectSensor(void);
 
 		/* Members */
 //		AudioSource& getAudioSource(void) const			{ return AudioSource(id); }
@@ -26,8 +26,8 @@ class KinectSensor : KObject
 		void setElevationAngle(int angle)				{ setQuery<int>(__func__, angle); }
 
 		bool isRunning(void) const						{ return (bool)getQuery<int>(__func__); }
-		static KinectSensorCollection KinectSensors(void) ;//{ return sensors(); }
 
+		static KinectSensorCollection* KinectSensors(void);
 		int getMinElevationAngle(void) const			{ return getQuery<int>(__func__); }
 		int getMaxElevationAngle(void) const			{ return getQuery<int>(__func__); }
 
@@ -78,7 +78,6 @@ class KinectSensor : KObject
 		void start(void)								{ processQuery(buildQuery(__func__)); }
 		void stop(void)									{ processQuery(buildQuery(__func__)); }
 
-		/* Events */
 };
 
 #endif

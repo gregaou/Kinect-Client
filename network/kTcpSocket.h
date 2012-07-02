@@ -45,4 +45,4 @@ class KTcpSocket
 		std::string _host;
 };
 
-#endif // TCPSOCKET_H
+#endif

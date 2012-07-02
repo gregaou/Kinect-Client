@@ -1,24 +1,21 @@
 #include "kClient.h"
 #include "kClientPaquet.h"
-#include "../kAction.h"
-#include "../kConnectionException.h"
+#include "../kActions/kAction.h"
+#include "../kExceptions/kConnectionException.h"
 
 const int KClient::PORT = 1337;
-const std::string KClient::HOST = "192.168.3.23";
+const std::string KClient::HOST = "192.168.56.1";
 const unsigned int KClient::QUERY_MS_TIMEOUT = 5000;
 
-#ifdef SINGLETON
-	KClient* KClient::client = 0;
-#else
-	KClient* client = 0;
-#endif
+KClient* KClient::client = 0;
 
 KClient::KClient(int port, std::string host) :
     _socket(0),
     _listener(0),
 	_messagePaquet(0),
 	_lastCode((ServerCode)0),
-	_lastMessage()
+	_lastMessage(),
+	_sensors(0)
 {
 	try
     {
@@ -49,7 +46,6 @@ KClient::~KClient()
         delete _messagePaquet;
 }
 
-#ifdef SINGLETON
 KClient* KClient::instance()
 {
 	if (!client)
@@ -66,7 +62,6 @@ void KClient::deleteInstance()
 	delete client;
 	client = 0;
 }
-#endif
 
 void* KClient::listenerRoutine(void* p)
 {
@@ -79,7 +74,7 @@ void* KClient::listenerRoutine(void* p)
 		{
 			paquet = new KServerPaquet(listener->_socket);
 
-			KAction* action = KAction::getAction(listener, paquet);
+			KAction* action = KAction::getAction(instance(), paquet);
 			action->exec();
 			delete action;
 		}
@@ -111,6 +106,26 @@ ServerCode KClient::lastCode() const
 const std::string& KClient::lastMessage() const
 {
 	return _lastMessage;
+}
+
+KServerListener* KClient::listener(void) const
+{
+	return _listener;
+}
+
+const std::list<KinectSensor*>& KClient::sensors(void) const
+{
+	return _sensors;
+}
+
+void KClient::addSensor(KinectSensor* sensor)
+{
+	_sensors.push_back(sensor);
+}
+
+void KClient::removeSensor(KinectSensor* sensor)
+{
+	_sensors.remove(sensor);
 }
 
 bool KClient::sendQuery(const std::string& query, unsigned int ms_timeout)

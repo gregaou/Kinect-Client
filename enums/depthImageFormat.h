@@ -12,4 +12,4 @@ typedef enum DepthImageFormat
 	Resolution80x60Fps30
 } DepthImageFormat;
 
-#endif // DEPTHIMAGEFORMAT_H
+#endif

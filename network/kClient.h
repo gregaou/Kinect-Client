@@ -4,6 +4,7 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <list>
 #include <pthread.h>
 #include "byte.h"
 #include "codes.h"
@@ -11,31 +12,31 @@
 #include "kServerPaquet.h"
 #include "kServerListener.h"
 
-#define SINGLETON
+class KinectSensor;
 
-typedef void (*kCallback)(const std::vector<byte>& frame);
 class KClient
 {
-	#ifdef SINGLETON
-		private:
-			KClient(int port = PORT, std::string host = HOST);
-			~KClient(void);
-		protected:
-			static KClient* client;
-		public:
-			static KClient* instance(void);
-			static void deleteInstance(void);
-	#else
-		public:
-			KClient(int port = PORT, std::string host = HOST);
-			~KClient(void);
-	#endif
+	private:
+		KClient(int port = PORT, std::string host = HOST);
+		~KClient(void);
+
+	protected:
+		static KClient* client;
+
+	public:
+		static KClient* instance(void);
+		static void deleteInstance(void);
 
 		/* Getters */
         KTcpSocket* socket(void) const;
 		ServerCode lastCode(void) const;
 		const std::string& lastMessage(void) const;
+		KServerListener* listener(void) const;
+		const std::list<KinectSensor*>& sensors(void) const;
 
+		/* Methods */
+		void addSensor(KinectSensor* sensor);
+		void removeSensor(KinectSensor* sensor);
 		bool sendQuery(const std::string& query, unsigned int ms_timeout = QUERY_MS_TIMEOUT);
 		static bool codeOk(ServerCode c);
 
@@ -55,8 +56,9 @@ class KClient
 
 		ServerCode _lastCode;
 		std::string _lastMessage;
+		std::list<KinectSensor*> _sensors;
 };
 
 extern KClient* client;
 
-#endif // KCLIENT_H
+#endif

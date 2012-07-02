@@ -1,5 +1,5 @@
 #include "kTcpSocket.h"
-#include "../kConnectionException.h"
+#include "../kExceptions/kConnectionException.h"
 
 static bool first = true;
 

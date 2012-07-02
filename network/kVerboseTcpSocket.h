@@ -15,4 +15,4 @@ class KVerboseTcpSocket : public KTcpSocket
         virtual void connectToHost(void);
 };
 
-#endif // KVERBOSETCPSOCKET_H
+#endif

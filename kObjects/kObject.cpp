@@ -1,11 +1,11 @@
 #include <string.h>
 #include "kObject.h"
-#include "../kQueryErrorException.h"
+#include "../kExceptions/kQueryErrorException.h"
 
 KObject::KObject(const char* className, int sensorId) :
 	_className(className),
 	_sensorId(sensorId),
-	_client(getClient())
+	_client(KClient::instance())
 {
 
 }
@@ -39,15 +39,6 @@ void KObject::processQuery(std::string* query) const
 	delete query;
 }
 
-KClient* KObject::getClient()
-{
-	#ifdef SINGLETON
-	KClient* client = KClient::instance();
-	#endif
-
-	return client;
-}
-
 std::vector<std::string>* KObject::splitString(const std::string& str, const char* sep)
 {
 	std::vector<std::string>* res = new std::vector<std::string>();
@@ -62,5 +53,20 @@ std::vector<std::string>* KObject::splitString(const std::string& str, const cha
 	} while (end != std::string::npos);
 
 	return res;
+}
+
+void KObject::checkRet(std::vector<int>& n, int size)
+{
+	for (unsigned int i=0; i<n.size(); i++)
+		if (n[i] == size)
+			return;
+
+	throw std::runtime_error("invalid answer from server");
+}
+
+void KObject::checkRet(int n, int size)
+{
+	std::vector<int> tab(1, n);
+	checkRet(tab, size);
 }
 

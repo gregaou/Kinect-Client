@@ -11,6 +11,7 @@ class KServerPaquet : public KPaquet
         byte id(void) const;
 		byte* data(void);
 		std::vector<byte> vectorData(void);
+		std::string stringData(void);
 
 	protected:
         virtual unsigned int headerSize(void) const;
@@ -21,4 +22,4 @@ class KServerPaquet : public KPaquet
         static const int _headerSize = 9;
 };
 
-#endif // KSERVERPAQUET_H
+#endif

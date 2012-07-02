@@ -1,13 +1,19 @@
 #include "kinectSensor.h"
 
-//KinectSensor::KinectSensor(int id) :
-//	KObject("KinectSensor", id)
-//{
-//}
-
-KinectSensorCollection KinectSensor::KinectSensors()
+KinectSensor::KinectSensor(int id) :
+	KObject("KinectSensor", id)
 {
-	return sensors();
+	_client->addSensor(this);
+}
+
+KinectSensor::~KinectSensor()
+{
+	_client->removeSensor(this);
+}
+
+KinectSensorCollection* KinectSensor::KinectSensors(void)
+{
+	return KinectSensorCollection::instance();
 }
 
 void KinectSensor::MapDepthFrameToColorFrame
@@ -32,6 +38,7 @@ void KinectSensor::MapDepthFrameToColorFrame
 	std::vector<std::string>* res = splitString(lastMessage(), SEP);
 
 	/* Checking the result */
+	checkRet(depthPixelData.size(), res->size());
 
 	for (unsigned int i=0; i<res->size(); i+=2)
 	{
@@ -68,6 +75,7 @@ ColorImagePoint KinectSensor::MapDepthToColorImagePoint
 	std::vector<std::string>* res = splitString(lastMessage(), SEP);
 
 	/* Checking the result */
+	checkRet(2, res->size());
 
 	int x = valueOf<int>((*res)[0]);
 	int y = valueOf<int>((*res)[1]);
@@ -99,6 +107,7 @@ SkeletonPoint KinectSensor::MapDepthToSkeletonPoint
 	std::vector<std::string>* res = splitString(lastMessage(), SEP);
 
 	/* Checking the result */
+	checkRet(3, res->size());
 
 	int x = valueOf<int>((*res)[0]);
 	int y = valueOf<int>((*res)[1]);
@@ -129,6 +138,7 @@ ColorImagePoint KinectSensor::MapSkeletonPointToColor
 	std::vector<std::string>* res = splitString(lastMessage(), SEP);
 
 	/* Checking the result */
+	checkRet(2, res->size());
 
 	int x = valueOf<int>((*res)[0]);
 	int y = valueOf<int>((*res)[1]);
@@ -158,6 +168,7 @@ DepthImagePoint KinectSensor::MapSkeletonPointToDepth
 	std::vector<std::string>* res = splitString(lastMessage(), SEP);
 
 	/* Checking the result */
+	checkRet(4, res->size());
 
 	int x = valueOf<int>((*res)[0]);
 	int y = valueOf<int>((*res)[1]);

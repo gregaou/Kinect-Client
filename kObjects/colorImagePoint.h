@@ -30,4 +30,4 @@ class ColorImagePoint : public KObject
 
 
 
-#endif // COLORIMAGEPOINT_H
+#endif

@@ -3,4 +3,4 @@
 
 typedef unsigned char byte;
 
-#endif // BYTE_H
+#endif

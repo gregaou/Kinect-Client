@@ -31,13 +31,15 @@ class KObject
 		KObject(const char* className = "unknown class", int sensorId = -1);
 		~KObject() {}
 		static std::vector<std::string>* splitString(const std::string& str, const char* sep);
+		int sensorId(void) const	{ return _sensorId; }
 
 	protected:
 		std::string* buildQuery(const std::string& method, const std::vector<std::string>& args = std::vector<std::string>()) const;
 		std::string* buildQuery(const std::string& method, const std::string& arg) const;
 		void processQuery(std::string* query) const;
-		static KClient* getClient(void);
 		const std::string& lastMessage(void) const	{ return _client->lastMessage(); }
+		static void checkRet(std::vector<int>& n, int size);
+		static void checkRet(int n, int size);
 
 		template<typename T>
 		T getQuery(const std::string& method) const
@@ -58,4 +60,4 @@ class KObject
 		KClient* _client;
 };
 
-#endif // KOBJECT_H
+#endif

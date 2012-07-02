@@ -21,4 +21,4 @@ class KClientPaquet : public KPaquet
 		std::string _query;
 };
 
-#endif // KCLIENTPAQUET_H
+#endif

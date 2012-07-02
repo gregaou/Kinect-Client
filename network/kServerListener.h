@@ -22,4 +22,4 @@ class KServerListener
 };
 
 
-#endif // KSERVERLISTENER_H
+#endif

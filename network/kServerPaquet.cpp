@@ -47,3 +47,11 @@ std::vector<byte> KServerPaquet::vectorData()
 
 	return array;
 }
+
+std::string KServerPaquet::stringData()
+{
+	std::string str =std::string((const char*)data(), bodySize());
+	str.push_back('\0');
+
+	return str;
+}
