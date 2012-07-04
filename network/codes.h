@@ -10,6 +10,7 @@ typedef enum ServerCode
 	InvalidOperation = 102,
 	/* ... */
 	KinectSensorCollectionStatusChanged = 200,
+	KinectSensorColorImageFrameReady = 201,
 	/* ... */
 	QueryOK = 1
 } ServerCode;

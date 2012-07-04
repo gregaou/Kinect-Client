@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <exception>
 
 #include "network/network.h"
@@ -7,11 +8,38 @@
 
 using namespace std;
 
+int nbImages = 0;
+
 void kinectProcess(void);
 
-void statusChanged(KinectStatus status)
+void statusChanged(KObject* sender, KinectStatus status)
 {
 	cout << "Status changed to " << status << endl;
+}
+
+void colorFrameReady(KObject* sender, ColorImageFrameReadyEventArgs& e)
+{
+	ColorImageFrame* frame = e.openColorImageFrame();
+
+	ostringstream name;
+	name << "../image" << nbImages++ << ".jpg";
+	ofstream f(name.str().c_str(), ios::out);
+
+	if (!f)
+	{
+		cout << "unable to open " << name << endl;
+		return;
+	}
+
+	byte* img = new byte[frame->getPixelDataLength()];
+	frame->CopyPixelDataTo(img);
+
+	f.write((const char*)img, (streamsize)frame->getPixelDataLength());
+	f.close();
+
+	delete img;
+
+	cout << "image saved to " << name.str().c_str() << endl;
 }
 
 int main()
@@ -43,10 +71,11 @@ void kinectProcess()
 	sensors->setStatusChangeCb(kEventHandler<KinectStatus>(statusChanged));
 
 	while (true);
-	//*/
+	/*/
 	KinectSensorCollection sensors = *(KinectSensor::KinectSensors());
 	KinectSensor sensor;
 	int i, nsensors = sensors.size();
+	sensors.setStatusChangeCb(kEventHandler<KinectStatus>(statusChanged));
 
 	cout << nsensors << " sensors" << endl;
 
@@ -58,6 +87,7 @@ void kinectProcess()
 		if (status == Connected)
 		{
 			sensor = sensors[i];
+			sensor.start();
 			break;
 		}
 	}
@@ -65,13 +95,42 @@ void kinectProcess()
 	if (i == nsensors)
 		throw runtime_error("No Kinect found");
 
+	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(colorFrameReady));
+	while (true);
+
+	/*
+	vector<short> t;
+	for (int i=0; i<320*240; i++)
+		t.push_back(1);
+
+	vector<ColorImagePoint>* v = new vector<ColorImagePoint>();
+	sensor.MapDepthFrameToColorFrame(Resolution320x240Fps30, t, RgbResolution1280x960Fps12, v);
+
+	SkeletonPoint point = sensor.MapDepthToSkeletonPoint(
+								Resolution320x240Fps30,
+								10,
+								10,
+								42);
+	cout << "(" << point.getX() << ", " << point.getY() << ", " << point.getZ() << ")" << endl;
+
+	DepthImagePoint p = sensor.MapSkeletonPointToDepth(point, Resolution320x240Fps30);
+	cout << "(" << p.getX() << ", " << p.getY() << ")";
+	cout << " " << p.getDepth() << " " << p.getPalyerIndex() << endl;
+	return;
+	*/
+
 	cout << "Elevation angle : " << sensor.getElevationAngle() << endl;
-	int angle = sensor.getElevationAngle();
-	int inc = 10;
+	int angle = sensor.getElevationAngle(), min, max;
+	int inc = 2;
+
+	min = sensor.getMinElevationAngle();
+	max = sensor.getMaxElevationAngle();
+
+	cout << min << " <= angle <= " << max << endl;
 
 	while (true)
 	{
-		if (angle + inc > 27 || angle + inc < -27)
+		if (angle + inc > max || angle + inc < min)
 			inc *= -1;
 		angle += inc;
 
@@ -95,5 +154,7 @@ void kinectProcess()
 			}
 		}
 	}
+
+	sensor.stop();
 	//*/
 }

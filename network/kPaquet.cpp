@@ -38,7 +38,7 @@ void KPaquet::setUint32(byte* data, unsigned int v, int start)
 
 void KPaquet::setBodySize(unsigned int size)
 {
-    _data.resize(headerSize() + size);
+	_data.resize(headerSize() + size);
 }
 
 void KPaquet::build()

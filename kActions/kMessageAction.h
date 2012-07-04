@@ -7,9 +7,9 @@
 class KMessageAction: public KAction
 {
 	public:
-		KMessageAction(KServerListener* listener, KServerPaquet* paquet) :
-			_listener(listener),
-			_paquet(paquet)
+		KMessageAction(KServerPaquet* paquet, KServerListener* listener) :
+			_paquet(paquet),
+			_listener(listener)
 		{}
 
 		virtual void exec(void)
@@ -20,8 +20,8 @@ class KMessageAction: public KAction
 		}
 
 	protected:
-		KServerListener* _listener;
 		KServerPaquet* _paquet;
+		KServerListener* _listener;
 };
 
 #endif

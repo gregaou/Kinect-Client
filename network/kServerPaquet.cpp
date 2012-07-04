@@ -50,7 +50,7 @@ std::vector<byte> KServerPaquet::vectorData()
 
 std::string KServerPaquet::stringData()
 {
-	std::string str =std::string((const char*)data(), bodySize());
+	std::string str = std::string((const char*)data(), bodySize());
 	str.push_back('\0');
 
 	return str;

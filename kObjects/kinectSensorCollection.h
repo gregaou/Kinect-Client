@@ -2,7 +2,7 @@
 #define KINECTSENSORCOLLECTION_H
 
 #include "kObject.h"
-#include "kEventHander.h"
+#include "kEventHandler.h"
 #include "kinectSensor.h"
 
 class KinectSensor;

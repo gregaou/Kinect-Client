@@ -31,6 +31,7 @@ class KClient
         KTcpSocket* socket(void) const;
 		ServerCode lastCode(void) const;
 		const std::string& lastMessage(void) const;
+		byte* lastData(void) const;
 		KServerListener* listener(void) const;
 		const std::list<KinectSensor*>& sensors(void) const;
 
@@ -40,11 +41,12 @@ class KClient
 		bool sendQuery(const std::string& query, unsigned int ms_timeout = QUERY_MS_TIMEOUT);
 		static bool codeOk(ServerCode c);
 
+		static const unsigned int QUERY_MS_TIMEOUT;
+
 	protected:
         static void* listenerRoutine(void* p);
         static const int PORT;
-        static const std::string HOST;
-        static const unsigned int QUERY_MS_TIMEOUT;
+		static const std::string HOST;
 
 		KTcpSocket* _socket;
         pthread_t _serverListener;

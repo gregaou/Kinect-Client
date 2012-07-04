@@ -96,15 +96,22 @@ void KTcpSocket::readBuffer(byte* buffer, size_t len)
 
     if (FD_ISSET(_sock, &set))
     {
-        r = recv(_sock, (char*)buffer, len, 0);
-        if (r < 0)
-        {
-			msg << "(recv() failed)" << errno;
-            throw std::runtime_error(msg.str());
-        }
-		if (r == 0)
-			throw KConnectionException(msg.str());
-    }
+		size_t n = 0;
+
+		while (n < len)
+		{
+			r = recv(_sock, (char*)buffer+n, len-n, 0);
+			if (r < 0)
+			{
+				msg << "(recv() failed)" << errno;
+				throw std::runtime_error(msg.str());
+			}
+			if (r == 0)
+				throw KConnectionException(msg.str());
+
+		   n += r;
+		}
+	}
 }
 
 void KTcpSocket::buildAddr()

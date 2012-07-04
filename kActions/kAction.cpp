@@ -14,8 +14,10 @@ KAction* KAction::getAction(KClient* client, KServerPaquet* paquet)
 			return NULL;
 			*/
 		case KinectSensorCollectionStatusChanged:
-			return new KKinectSensorCollectionStatusChangedAction(paquet, client->sensors());
+			return new KKinectSensorCollectionStatusChangedAction(paquet);
+		case KinectSensorColorImageFrameReady:
+			return new KKinectSensorColorFrameReadyAction(paquet, client->sensors());
 		default:
-			return new KMessageAction(client->listener(), paquet);
+			return new KMessageAction(paquet, client->listener());
 	}
 }

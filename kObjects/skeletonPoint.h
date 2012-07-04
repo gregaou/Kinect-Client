@@ -6,7 +6,7 @@
 class SkeletonPoint : public KObject
 {
 	public:
-		SkeletonPoint (int x = 0, int y = 0, int z = 0, int id = -1) :
+		SkeletonPoint (float x = 0, float y = 0, float z = 0, int id = -1) :
 			KObject("SkeletonPoint", id),
 			_x(x),
 			_y(y),
@@ -14,12 +14,12 @@ class SkeletonPoint : public KObject
 		{}
 
 		/* Properties */
-		int getX(void) const	{ return _x; }
-		void setX(int x)		{ _x = x;    }
-		int getY(void) const	{ return _y; }
-		void setY(int y)		{ _y = y;    }
-		int getZ(void) const	{ return _z; }
-		void setZ(int z)		{ _z = z;	 }
+		float getX(void) const	{ return _x; }
+		void setX(float x)		{ _x = x;    }
+		float getY(void) const	{ return _y; }
+		void setY(float y)		{ _y = y;    }
+		float getZ(void) const	{ return _z; }
+		void setZ(float z)		{ _z = z;	 }
 
 		/* Methods */
 		bool equals(const SkeletonPoint& skeletonPoint)
@@ -30,7 +30,7 @@ class SkeletonPoint : public KObject
 		}
 
 	protected:
-		int _x, _y, _z;
+		float _x, _y, _z;
 };
 
 #endif

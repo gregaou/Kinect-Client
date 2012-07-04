@@ -13,7 +13,9 @@ SOURCES += main.cpp \
     kActions/kAction.cpp \
     kObjects/kObject.cpp \
     kObjects/kinectSensorCollection.cpp \
-    kObjects/kinectSensor.cpp
+    kObjects/kinectSensor.cpp \
+    kObjects/colorImageFrameReadyEventArgs.cpp \
+    kObjects/colorImageFrame.cpp
 
 HEADERS += \
     network/kVerboseTcpSocket.h \
@@ -44,7 +46,10 @@ HEADERS += \
     kObjects/kObject.h \
     kObjects/kinectSensorCollection.h \
     kObjects/kinectSensor.h \
-    kObjects/kEventHander.h \
     kObjects/depthImagePoint.h \
-    kObjects/colorImagePoint.h
+    kObjects/colorImagePoint.h \
+    kObjects/colorImageFrameReadyEventArgs.h \
+    kObjects/kEventHandler.h \
+    kObjects/colorImageframe.h \
+    kActions/kKinectSensorColorFrameReadyAction.h
 

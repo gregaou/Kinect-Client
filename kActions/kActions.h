@@ -4,5 +4,6 @@
 #include "kAction.h"
 #include "kMessageAction.h"
 #include "kKinectSensorCollectionStatusChangedAction.h"
+#include "kKinectSensorColorFrameReadyAction.h"
 
 #endif

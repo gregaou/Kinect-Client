@@ -31,9 +31,9 @@ std::string* KObject::buildQuery(const std::string& method, const std::string& a
 	return buildQuery(method, std::vector<std::string>(1, arg));
 }
 
-void KObject::processQuery(std::string* query) const
+void KObject::processQuery(std::string* query, int timeout) const
 {
-	if (!_client->sendQuery(*query))
+	if (!_client->sendQuery(*query, timeout))
 		throw KQueryErrorException(_client->lastCode(), _client->lastMessage());
 
 	delete query;
@@ -55,13 +55,13 @@ std::vector<std::string>* KObject::splitString(const std::string& str, const cha
 	return res;
 }
 
-void KObject::checkRet(std::vector<int>& n, int size)
+void KObject::checkRet(const std::vector<int>& n, int size)
 {
 	for (unsigned int i=0; i<n.size(); i++)
 		if (n[i] == size)
 			return;
 
-	throw std::runtime_error("invalid answer from server");
+	throw std::runtime_error("invalid number of arguments");
 }
 
 void KObject::checkRet(int n, int size)

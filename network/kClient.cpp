@@ -4,7 +4,7 @@
 #include "../kExceptions/kConnectionException.h"
 
 const int KClient::PORT = 1337;
-const std::string KClient::HOST = "192.168.56.1";
+const std::string KClient::HOST = "192.168.3.23";
 const unsigned int KClient::QUERY_MS_TIMEOUT = 5000;
 
 KClient* KClient::client = 0;
@@ -106,6 +106,11 @@ ServerCode KClient::lastCode() const
 const std::string& KClient::lastMessage() const
 {
 	return _lastMessage;
+}
+
+byte* KClient::lastData() const
+{
+	return _messagePaquet->data();
 }
 
 KServerListener* KClient::listener(void) const

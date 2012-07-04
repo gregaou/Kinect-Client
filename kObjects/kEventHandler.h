@@ -1,10 +1,12 @@
 #ifndef KEVENTHANDER_H
 #define KEVENTHANDER_H
 
+#include "kObject.h"
+
 template<typename T>
 class kEventHandler
 {
-	typedef void (*handlerType)(T);
+	typedef void (*handlerType)(KObject*, T);
 
 	public:
 		kEventHandler(handlerType handler = 0) :
@@ -16,10 +18,10 @@ class kEventHandler
 			_handler = h;
 		}
 
-		void operator()(T arg)
+		void operator()(KObject* sender, T arg)
 		{
 			if (_handler)
-				_handler(arg);
+				_handler(sender, arg);
 		}
 
 	protected:

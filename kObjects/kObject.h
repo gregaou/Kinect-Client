@@ -36,9 +36,10 @@ class KObject
 	protected:
 		std::string* buildQuery(const std::string& method, const std::vector<std::string>& args = std::vector<std::string>()) const;
 		std::string* buildQuery(const std::string& method, const std::string& arg) const;
-		void processQuery(std::string* query) const;
+		void processQuery(std::string* query, int timeout = KClient::QUERY_MS_TIMEOUT) const;
 		const std::string& lastMessage(void) const	{ return _client->lastMessage(); }
-		static void checkRet(std::vector<int>& n, int size);
+		byte* lastData(void) const					{ return _client->lastData();	 }
+		static void checkRet(const std::vector<int>& n, int size);
 		static void checkRet(int n, int size);
 
 		template<typename T>

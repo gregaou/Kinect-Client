@@ -9,9 +9,8 @@
 class KKinectSensorCollectionStatusChangedAction: public KAction
 {
 	public:
-		KKinectSensorCollectionStatusChangedAction(KServerPaquet* paquet, const std::list<KinectSensor*>& sensors) :
-			_paquet(paquet),
-			_sensors(sensors)
+		KKinectSensorCollectionStatusChangedAction(KServerPaquet* paquet) :
+			_paquet(paquet)
 		{}
 
 		virtual void exec(void)
@@ -21,14 +20,14 @@ class KKinectSensorCollectionStatusChangedAction: public KAction
 			KinectStatus newStatus = (KinectStatus)valueOf<int>((*res)[1]);
 
 			KinectSensorCollection* sensors = KinectSensorCollection::instance();
-			sensors->statusChangedCb()(newStatus);
+			kEventHandler<KinectStatus> handler = sensors->statusChangedCb();
+			handler(sensors, newStatus);
 
 			delete res;
 		}
 
 	protected:
 		KServerPaquet* _paquet;
-		const std::list<KinectSensor*>& _sensors;
 };
 
 #endif
