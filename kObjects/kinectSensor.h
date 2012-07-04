@@ -17,7 +17,7 @@ class KinectSensor : public KObject
 		KinectSensor(int id = -1);
 		~KinectSensor(void);
 
-		/* Members */
+		/* Properties */
 //		AudioSource& getAudioSource(void) const			{ return AudioSource(id); }
 //		ColorImageStream& getColorStream(void) const	{ return ColorImageStream(id); }
 //		DepthImageStream& getDepthStream(void) const	{ return DepthImageStream(id); }

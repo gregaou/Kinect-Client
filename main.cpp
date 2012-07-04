@@ -8,8 +8,6 @@
 
 using namespace std;
 
-int nbImages = 0;
-
 void kinectProcess(void);
 
 void statusChanged(KObject* sender, KinectStatus status)
@@ -19,10 +17,12 @@ void statusChanged(KObject* sender, KinectStatus status)
 
 void colorFrameReady(KObject* sender, ColorImageFrameReadyEventArgs& e)
 {
+	cout << "Dans le handler" << endl;
+
 	ColorImageFrame* frame = e.openColorImageFrame();
 
 	ostringstream name;
-	name << "../image" << nbImages++ << ".jpg";
+	name << "../image" << frame->getFrameNumber() << ".jpg";
 	ofstream f(name.str().c_str(), ios::out);
 
 	if (!f)

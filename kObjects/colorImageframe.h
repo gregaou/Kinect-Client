@@ -3,16 +3,16 @@
 
 #include "../enums/colorImageFormat.h"
 #include "../network/byte.h"
+#include "imageFrame.h"
 
-class ColorImageFrame
+class ColorImageFrame : public ImageFrame
 {
 	public:
-		ColorImageFrame(ColorImageFormat format, byte* pixelData, int pixelDataLength);
-		~ColorImageFrame(void);
+		ColorImageFrame(int bytesPerPixel, int pixelDataLength, int frameNumber, int height, int width, int timestamp,
+						ColorImageFormat format, byte* pixelData);
 
-		/* Members */
+		/* Properties */
 		ColorImageFormat getFormat(void) const	{ return _format; }
-		int getPixelDataLength(void) const		{ return _pixelDataLength; }
 
 		/* Methods */
 		void CopyPixelDataTo(byte* pixelData);
@@ -20,7 +20,6 @@ class ColorImageFrame
 	protected:
 		ColorImageFormat _format;
 		byte* _pixelData;
-		int _pixelDataLength;
 };
 
 #endif

@@ -1,17 +1,12 @@
 #include <string.h>
 #include "colorImageframe.h"
 
-ColorImageFrame::ColorImageFrame(ColorImageFormat format, byte* pixelData, int pixelDataLength) :
+ColorImageFrame::ColorImageFrame(int bytesPerPixel, int pixelDataLength, int frameNumber, int height, int width, int timestamp,
+								 ColorImageFormat format, byte* pixelData) :
+	ImageFrame(bytesPerPixel, pixelDataLength, frameNumber, height, width, timestamp, "ColorImageFrame"),
 	_format(format),
-	_pixelData(pixelData),
-	_pixelDataLength(pixelDataLength)
+	_pixelData(pixelData)
 {
-}
-
-ColorImageFrame::~ColorImageFrame()
-{
-//	if (_pixelData)
-//		delete _pixelData;
 }
 
 void ColorImageFrame::CopyPixelDataTo(byte* pixelData)

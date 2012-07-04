@@ -51,5 +51,6 @@ HEADERS += \
     kObjects/colorImageFrameReadyEventArgs.h \
     kObjects/kEventHandler.h \
     kObjects/colorImageframe.h \
-    kActions/kKinectSensorColorFrameReadyAction.h
+    kActions/kKinectSensorColorFrameReadyAction.h \
+    kObjects/imageFrame.h
 
