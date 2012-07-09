@@ -5,6 +5,9 @@
 #include "colorImageFormat.h"
 #include "depthImageFormat.h"
 #include "skeletonTrackingState.h"
+#include "skeletonTrackingMode.h"
 #include "jointTrackingState.h"
+#include "jointType.h"
+#include "frameEdges.h"
 
 #endif

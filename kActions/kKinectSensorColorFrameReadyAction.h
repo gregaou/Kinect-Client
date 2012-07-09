@@ -5,6 +5,7 @@
 #include "../enums/enums.h"
 #include "../network/kServerPaquet.h"
 #include "../kObjects/kObjects.h"
+#include "kAction.h"
 
 class KKinectSensorColorFrameReadyAction: public KAction
 {
@@ -20,33 +21,18 @@ class KKinectSensorColorFrameReadyAction: public KAction
 			ColorImageFormat format;
 			byte* pixelData;
 
-			pixelData = _paquet->data() + 5;
-			pixelDataLength = _paquet->bodySize() - 5;
-			frameNumber = KPaquet::getUint32(_paquet->data() + 1);
-
-			switch (format)
-			{
-				case RgbResolution640x480Fps30:
-				case YuvResolution640x480Fps15:
-				case RawYuvResolution640x480Fps15:
-					width = 640;
-					height = 480;
-					break;
-				case RgbResolution1280x960Fps12:
-					width = 1280;
-					height = 960;
-					break;
-				default:
-					width = height = -1;
-					break;
-			}
-
-			bytesPerPixel = (width * height) / pixelDataLength;
-			timestamp = _paquet->timestamp();
-
 			byte firstByte = (_paquet->data())[0];
 			id = firstByte >> 4;
 			format = (ColorImageFormat)(firstByte & 0xf);
+
+			pixelData = _paquet->data() + 5;
+			pixelDataLength = _paquet->bodySize() - 5;
+			frameNumber = KPaquet::getUint32(_paquet->data() + 1);
+			width = getColorImageWidth(format);
+			height = getColorImageHeight(format);
+
+			bytesPerPixel = (width * height) / pixelDataLength;
+			timestamp = _paquet->timestamp();
 
 			std::cout << "id : " << id << std::endl;
 			std::cout << "format : " << format << std::endl;
@@ -59,7 +45,7 @@ class KKinectSensorColorFrameReadyAction: public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<ColorImageFrameReadyEventArgs&> handler = sensor->colorFrameReadyCb();
-					ColorImageFrameReadyEventArgs arg(bytesPerPixel, pixelDataLength, frameNumber, width, height, timestamp, format, pixelData);
+					ColorImageFrameReadyEventArgs arg(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp, format);
 					handler(sensor, arg);
 				}
 			}

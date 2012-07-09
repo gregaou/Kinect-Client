@@ -2,6 +2,7 @@
 #define KOBJECT_H
 
 #include <vector>
+#include "../enums/enums.h"
 #include "../network/network.h"
 
 #define SEP		"||"

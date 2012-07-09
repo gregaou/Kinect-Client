@@ -15,7 +15,12 @@ SOURCES += main.cpp \
     kObjects/kinectSensorCollection.cpp \
     kObjects/kinectSensor.cpp \
     kObjects/colorImageFrameReadyEventArgs.cpp \
-    kObjects/colorImageFrame.cpp
+    kObjects/colorImageFrame.cpp \
+    enums/colorImageFormat.cpp \
+    enums/depthImageFormat.cpp \
+    kObjects/depthImageFrame.cpp \
+    kObjects/depthImageFrameReadyEventArgs.cpp \
+    kObjects/skeletonFrameReadyEventArgs.cpp
 
 HEADERS += \
     network/kVerboseTcpSocket.h \
@@ -52,5 +57,16 @@ HEADERS += \
     kObjects/kEventHandler.h \
     kObjects/colorImageframe.h \
     kActions/kKinectSensorColorFrameReadyAction.h \
-    kObjects/imageFrame.h
+    kObjects/imageFrame.h \
+    kObjects/depthImageFrame.h \
+    kObjects/depthImageFrameReadyEventArgs.h \
+    kActions/kKinectSensorDepthFrameReadyAction.h \
+    kObjects/skeletonFrame.h \
+    enums/skeletonTrackingMode.h \
+    kObjects/skeleton.h \
+    kObjects/joint.h \
+    enums/jointType.h \
+    enums/frameEdges.h \
+    kObjects/skeletonFrameReadyEventArgs.h \
+    kActions/kKinectSensorSkeletonFrameReadyAction.h
 

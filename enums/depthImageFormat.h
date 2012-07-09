@@ -12,4 +12,7 @@ typedef enum DepthImageFormat
 	Resolution80x60Fps30
 } DepthImageFormat;
 
+int getDepthImageWidth(DepthImageFormat format);
+int getDepthImageHeight(DepthImageFormat format);
+
 #endif

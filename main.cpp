@@ -17,12 +17,10 @@ void statusChanged(KObject* sender, KinectStatus status)
 
 void colorFrameReady(KObject* sender, ColorImageFrameReadyEventArgs& e)
 {
-	cout << "Dans le handler" << endl;
-
-	ColorImageFrame* frame = e.openColorImageFrame();
+	ColorImageFrame frame = e.openColorImageFrame();
 
 	ostringstream name;
-	name << "../image" << frame->getFrameNumber() << ".jpg";
+	name << "../image" << frame.getFrameNumber() << ".jpg";
 	ofstream f(name.str().c_str(), ios::out);
 
 	if (!f)
@@ -31,15 +29,66 @@ void colorFrameReady(KObject* sender, ColorImageFrameReadyEventArgs& e)
 		return;
 	}
 
-	byte* img = new byte[frame->getPixelDataLength()];
-	frame->CopyPixelDataTo(img);
+	byte* img = new byte[frame.getPixelDataLength()];
+	frame.CopyPixelDataTo(img);
 
-	f.write((const char*)img, (streamsize)frame->getPixelDataLength());
+	f.write((const char*)img, (streamsize)frame.getPixelDataLength());
 	f.close();
 
 	delete img;
 
 	cout << "image saved to " << name.str().c_str() << endl;
+}
+
+void depthFrameReady(KObject* sender, DepthImageFrameReadyEventArgs& e)
+{
+	DepthImageFrame frame = e.openDepthImageFrame();
+
+	cout << "depth frame " << frame.getFrameNumber();
+
+	ostringstream name;
+	name << "../image" << frame.getFrameNumber() << ".jpg";
+	ofstream f(name.str().c_str(), ios::out);
+	int w = frame.getWidth(), h = frame.getHeight();
+
+	if (!f)
+	{
+		cout << "unable to open " << name << endl;
+		return;
+	}
+
+	/* Writing ASCII PGM header */
+	f << "P2\n" << w << " " << h << "\n255\n";
+
+	int length = frame.getPixelDataLength();
+	byte* pixels = new byte[length * sizeof(short)];
+
+	frame.CopyPixelDataTo(pixels);
+
+	for (int j=0; j<h; j++)
+	{
+		for (int i=0; i<w; i++)
+		{
+			// discard the portion of the depth that contains only the player index
+			short depth = (short)(pixels[(j*w+i)*sizeof(short)] >> frame.getPlayerIndexBitmaskWidth());
+
+			// to convert to a byte we're looking at only the lower 8 bits
+			// by discarding the most significant rather than least significant data
+			// we're preserving detail, although the intensity will "wrap"
+			// add 1 so that too far/unknown is mapped to black
+			byte intensity = (byte)((depth + 1) & 0xff);
+
+			f << intensity;
+			if (i == w-1)
+				f << "\n";
+			else
+				f << " ";
+		}
+	}
+
+	delete pixels;
+
+	f.close();
 }
 
 int main()
@@ -96,6 +145,7 @@ void kinectProcess()
 		throw runtime_error("No Kinect found");
 
 	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(colorFrameReady));
+	sensor.setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&>(depthFrameReady));
 	while (true);
 
 	/*

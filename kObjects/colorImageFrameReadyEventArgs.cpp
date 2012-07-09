@@ -1,10 +1,9 @@
 #include "colorImageFrameReadyEventArgs.h"
 
-ColorImageFrameReadyEventArgs::ColorImageFrameReadyEventArgs(int bytesPerPixel, int pixelDataLength, int frameNumber, int height, int width, int timestamp,
-															 ColorImageFormat format, byte* pixelData) :
+ColorImageFrameReadyEventArgs::ColorImageFrameReadyEventArgs(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp, ColorImageFormat format) :
 	_frame(0)
 {
-	_frame = new ColorImageFrame(bytesPerPixel, pixelDataLength, frameNumber, height, width, timestamp, format, pixelData);
+	_frame = new ColorImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, height, width, timestamp, format);
 }
 
 ColorImageFrameReadyEventArgs::~ColorImageFrameReadyEventArgs()
@@ -13,7 +12,7 @@ ColorImageFrameReadyEventArgs::~ColorImageFrameReadyEventArgs()
 		delete _frame;
 }
 
-ColorImageFrame* ColorImageFrameReadyEventArgs::openColorImageFrame() const
+ColorImageFrame& ColorImageFrameReadyEventArgs::openColorImageFrame() const
 {
-	return _frame;
+	return *_frame;
 }

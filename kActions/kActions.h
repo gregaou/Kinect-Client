@@ -5,5 +5,7 @@
 #include "kMessageAction.h"
 #include "kKinectSensorCollectionStatusChangedAction.h"
 #include "kKinectSensorColorFrameReadyAction.h"
+#include "kKinectSensorDepthFrameReadyAction.h"
+#include "kKinectSensorSkeletonFrameReadyAction.h"
 
 #endif

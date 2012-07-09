@@ -1,15 +1,17 @@
 #ifndef IMAGEFRAME_H
 #define IMAGEFRAME_H
 
+#include <string.h>
 #include "kObject.h"
 
 class ImageFrame : public KObject
 {
 	public:
-		ImageFrame(int bytesPerPixel, int pixelDataLength, int frameNumber, int height, int width, int timestamp, const char* classname = "ImageFrame", int id = -1) :
+		ImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp, const char* classname = "ImageFrame", int id = -1) :
 			KObject(classname, id),
 			_bytesPerPixel(bytesPerPixel),
 			_pixelDataLength(pixelDataLength),
+			_pixelData(pixelData),
 			_frameNumber(frameNumber),
 			_height(height),
 			_width(width),
@@ -24,9 +26,16 @@ class ImageFrame : public KObject
 		int getWidth(void) const			{ return _width;			}
 		int getTimestamp (void) const		{ return _timestamp;		}
 
+		/* Methods */
+		void CopyPixelDataTo(byte* pixelData)
+		{
+			memcpy(pixelData, _pixelData, _pixelDataLength);
+		}
+
 	protected:
 		int _bytesPerPixel;
 		int _pixelDataLength;
+		byte* _pixelData;
 		int _frameNumber;
 		int _height;
 		int _width;

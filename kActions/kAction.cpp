@@ -7,16 +7,14 @@ KAction* KAction::getAction(KClient* client, KServerPaquet* paquet)
 {
 	switch ((ServerCode)paquet->id())
 	{
-		/*
-		case ColorStream:
-			return NULL;
-		case SkeletonStream:
-			return NULL;
-			*/
 		case KinectSensorCollectionStatusChanged:
 			return new KKinectSensorCollectionStatusChangedAction(paquet);
 		case KinectSensorColorImageFrameReady:
 			return new KKinectSensorColorFrameReadyAction(paquet, client->sensors());
+		case KinectSensorDepthImageFrameReady:
+			return new KKinectSensorDepthFrameReadyAction(paquet, client->sensors());
+		case KinectSensorSkeletonFrameReady:
+			return new KKinectSensorSkeletonFrameReadyAction(paquet, client->sensors());
 		default:
 			return new KMessageAction(paquet, client->listener());
 	}

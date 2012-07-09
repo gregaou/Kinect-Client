@@ -8,6 +8,8 @@
 #include "skeletonPoint.h"
 #include "depthImagePoint.h"
 #include "colorImageFrameReadyEventArgs.h"
+#include "depthImageFrameReadyEventArgs.h"
+#include "skeletonFrameReadyEventArgs.h"
 
 class KinectSensorCollection;
 
@@ -34,7 +36,7 @@ class KinectSensor : public KObject
 
 //		SkeletonStream& getSkeletonStream(void) const	{ return SkeletonStream(id); }
 		KinectStatus getStatus(void) const				{ return (KinectStatus)getQuery<int>(__func__); }
-		std::string getUniqueKinectId(void);
+		std::string getUniqueKinectId(void) const		{ return getQuery<std::string>(__func__); }
 
 		/* Methods */
 		void dispose(void)								{ processQuery(buildQuery(__func__)); }
@@ -82,10 +84,15 @@ class KinectSensor : public KObject
 		/* Events */
 		kEventHandler<ColorImageFrameReadyEventArgs&> colorFrameReadyCb(void) const;
 		void setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&> cb);
+		kEventHandler<DepthImageFrameReadyEventArgs&> depthFrameReadyCb() const;
+		void setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&> cb);
+		kEventHandler<SkeletonFrameReadyEventArgs&> skeletonFrameReadyCb(void) const;
+		void setSkeletonFrameReadyCb(kEventHandler<SkeletonFrameReadyEventArgs&> cb);
 
 	protected:
 		kEventHandler<ColorImageFrameReadyEventArgs&> _colorFrameReadyCb;
-		std::string _uniqueKinectId;
+		kEventHandler<DepthImageFrameReadyEventArgs&> _depthFrameReadyCb;
+		kEventHandler<SkeletonFrameReadyEventArgs&> _skeletonFrameReadyCb;
 };
 
 #endif

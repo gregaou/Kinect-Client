@@ -13,4 +13,7 @@ typedef enum ColorImageFormat
 	RawYuvResolution640x480Fps15
 } ColorImageFormat;
 
+int getColorImageWidth(ColorImageFormat format);
+int getColorImageHeight(ColorImageFormat format);
+
 #endif

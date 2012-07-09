@@ -11,5 +11,7 @@
 #include "kinectSensor.h"
 #include "colorImageFrameReadyEventArgs.h"
 #include "colorImageframe.h"
+#include "skeleton.h"
+#include "skeletonFrame.h"
 
 #endif

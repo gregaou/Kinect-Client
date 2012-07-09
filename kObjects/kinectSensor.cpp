@@ -4,7 +4,7 @@
 KinectSensor::KinectSensor(int id) :
 	KObject("KinectSensor", id),
 	_colorFrameReadyCb(0),
-	_uniqueKinectId("")
+	_depthFrameReadyCb(0)
 {
 	_client->addSensor(this);
 }
@@ -17,13 +17,6 @@ KinectSensor::~KinectSensor()
 KinectSensorCollection* KinectSensor::KinectSensors(void)
 {
 	return KinectSensorCollection::instance();
-}
-
-std::string KinectSensor::getUniqueKinectId(void)
-{
-	if (_uniqueKinectId == "")
-		_uniqueKinectId = getQuery<std::string>(__func__);
-	return _uniqueKinectId;
 }
 
 void KinectSensor::MapDepthFrameToColorFrame
@@ -219,5 +212,27 @@ void KinectSensor::setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventA
 {
 	processQuery(buildQuery("ColorFrameReady"));
 	_colorFrameReadyCb = cb;
+}
+
+kEventHandler<DepthImageFrameReadyEventArgs&> KinectSensor::depthFrameReadyCb() const
+{
+	return _depthFrameReadyCb;
+}
+
+void KinectSensor::setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&> cb)
+{
+	processQuery(buildQuery("DepthFrameReady"));
+	_depthFrameReadyCb = cb;
+}
+
+kEventHandler<SkeletonFrameReadyEventArgs&> KinectSensor::skeletonFrameReadyCb(void) const
+{
+	return _skeletonFrameReadyCb;
+}
+
+void KinectSensor::setSkeletonFrameReadyCb(kEventHandler<SkeletonFrameReadyEventArgs&> cb)
+{
+	processQuery(buildQuery("SkeletonFrameReady"));
+	_skeletonFrameReadyCb = cb;
 }
 

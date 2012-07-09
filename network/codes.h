@@ -11,6 +11,8 @@ typedef enum ServerCode
 	/* ... */
 	KinectSensorCollectionStatusChanged = 200,
 	KinectSensorColorImageFrameReady = 201,
+	KinectSensorDepthImageFrameReady = 202,
+	KinectSensorSkeletonFrameReady = 203,
 	/* ... */
 	QueryOK = 1
 } ServerCode;
