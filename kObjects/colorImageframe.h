@@ -8,7 +8,7 @@
 class ColorImageFrame : public ImageFrame
 {
 	public:
-		ColorImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp, ColorImageFormat format);
+		ColorImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp, ColorImageFormat format);
 
 		/* Properties */
 		ColorImageFormat getFormat(void) const	{ return _format; }

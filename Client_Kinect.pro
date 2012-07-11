@@ -68,5 +68,7 @@ HEADERS += \
     enums/jointType.h \
     enums/frameEdges.h \
     kObjects/skeletonFrameReadyEventArgs.h \
-    kActions/kKinectSensorSkeletonFrameReadyAction.h
+    kActions/kKinectSensorSkeletonFrameReadyAction.h \
+    kObjects/vector4.h \
+    kObjects/matrix4.h
 

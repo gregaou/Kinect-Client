@@ -1,9 +1,9 @@
 #include "colorImageFrameReadyEventArgs.h"
 
-ColorImageFrameReadyEventArgs::ColorImageFrameReadyEventArgs(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp, ColorImageFormat format) :
+ColorImageFrameReadyEventArgs::ColorImageFrameReadyEventArgs(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp, ColorImageFormat format) :
 	_frame(0)
 {
-	_frame = new ColorImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, height, width, timestamp, format);
+	_frame = new ColorImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp, format);
 }
 
 ColorImageFrameReadyEventArgs::~ColorImageFrameReadyEventArgs()

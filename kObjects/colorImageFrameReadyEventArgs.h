@@ -6,7 +6,7 @@
 class ColorImageFrameReadyEventArgs
 {
 	public:
-		ColorImageFrameReadyEventArgs(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp, ColorImageFormat format);
+		ColorImageFrameReadyEventArgs(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp, ColorImageFormat format);
 		~ColorImageFrameReadyEventArgs(void);
 
 		/* Methods */

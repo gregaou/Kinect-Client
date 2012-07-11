@@ -1,5 +1,6 @@
-#include "kPaquet.h"
 #include <iostream>
+#include "kPaquet.h"
+#include "kTcpSocket.h"
 
 KPaquet::KPaquet(unsigned int headerSize) : _data(headerSize, 0)
 {
@@ -7,7 +8,7 @@ KPaquet::KPaquet(unsigned int headerSize) : _data(headerSize, 0)
 
 unsigned int KPaquet::bodySize() const
 {
-    return getUint32(_data.data());
+	return getUint32(_data.data());//ntohl(getUint32(_data.data()));
 }
 
 unsigned int KPaquet::totalSize()
@@ -17,7 +18,7 @@ unsigned int KPaquet::totalSize()
 
 unsigned int KPaquet::timestamp(void)
 {
-    return getUint32(_data.data(), 4);
+	return getUint32(_data.data(), 4);//ntohl(getUint32(_data.data(), 4));
 }
 
 unsigned int KPaquet::getUint32(const byte* data, int start)

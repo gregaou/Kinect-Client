@@ -13,5 +13,7 @@
 #include "colorImageframe.h"
 #include "skeleton.h"
 #include "skeletonFrame.h"
+#include "vector4.h"
+#include "matrix4.h"
 
 #endif

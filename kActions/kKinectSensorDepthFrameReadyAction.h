@@ -26,9 +26,9 @@ class KKinectSensorDepthFrameReadyAction: public KAction
 			id = firstByte >> 4;
 			format = (DepthImageFormat)(firstByte & 0xf);
 
-			frameNumber = ntohl(KPaquet::getUint32(_paquet->data(), 1));
-			playerIndexBitmask = ntohl(KPaquet::getUint32(_paquet->data(), 5));
-			playerIndexBitmaskWidth = ntohl(KPaquet::getUint32(_paquet->data(), 9));
+			frameNumber = KPaquet::getUint32(_paquet->data(), 1);
+			playerIndexBitmask = KPaquet::getUint32(_paquet->data(), 5);
+			playerIndexBitmaskWidth = KPaquet::getUint32(_paquet->data(), 9);
 			pixelData = _paquet->data() + 13;
 			pixelDataLength = _paquet->bodySize() - 13;
 
@@ -38,10 +38,6 @@ class KKinectSensorDepthFrameReadyAction: public KAction
 			bytesPerPixel = (width * height) / pixelDataLength;
 			timestamp = _paquet->timestamp();
 
-			std::cout << "id : " << id << std::endl;
-			std::cout << "format : " << format << std::endl;
-			std::cout << "frame number " << frameNumber << std::endl;
-
 			std::list<KinectSensor*>::const_iterator it;
 			for (it = _sensors.begin(); it != _sensors.end(); it++)
 			{
@@ -49,9 +45,9 @@ class KKinectSensorDepthFrameReadyAction: public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<DepthImageFrameReadyEventArgs&> handler = sensor->depthFrameReadyCb();
-					DepthImageFrameReadyEventArgs arg(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height,
+					DepthImageFrameReadyEventArgs args(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height,
 													  timestamp, format, playerIndexBitmask, playerIndexBitmaskWidth);
-					handler(sensor, arg);
+					handler(sensor, args);
 				}
 			}
 		}

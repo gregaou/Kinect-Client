@@ -11,9 +11,9 @@
 class DepthImageFrame : public ImageFrame
 {
 	public:
-		DepthImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp,
+		DepthImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp,
 						DepthImageFormat format, int playerIndexBitmask, int playerIndexBitmaskWidth) :
-			ImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, height, width, timestamp, "DepthImageFrame"),
+			ImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp, "DepthImageFrame"),
 			_format(format),
 			_playerIndexBitmask(playerIndexBitmask),
 			_playerIndexBitmaskWidth(playerIndexBitmaskWidth)

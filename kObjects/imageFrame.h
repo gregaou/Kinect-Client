@@ -7,14 +7,14 @@
 class ImageFrame : public KObject
 {
 	public:
-		ImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int height, int width, int timestamp, const char* classname = "ImageFrame", int id = -1) :
+		ImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp, const char* classname = "ImageFrame", int id = -1) :
 			KObject(classname, id),
 			_bytesPerPixel(bytesPerPixel),
 			_pixelDataLength(pixelDataLength),
 			_pixelData(pixelData),
 			_frameNumber(frameNumber),
-			_height(height),
 			_width(width),
+			_height(height),
 			_timestamp(timestamp)
 		{}
 
@@ -37,8 +37,8 @@ class ImageFrame : public KObject
 		int _pixelDataLength;
 		byte* _pixelData;
 		int _frameNumber;
-		int _height;
 		int _width;
+		int _height;
 		int _timestamp;
 };
 

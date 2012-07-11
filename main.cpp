@@ -44,10 +44,8 @@ void depthFrameReady(KObject* sender, DepthImageFrameReadyEventArgs& e)
 {
 	DepthImageFrame frame = e.openDepthImageFrame();
 
-	cout << "depth frame " << frame.getFrameNumber();
-
 	ostringstream name;
-	name << "../image" << frame.getFrameNumber() << ".jpg";
+	name << "../image" << frame.getFrameNumber() << ".pgm";
 	ofstream f(name.str().c_str(), ios::out);
 	int w = frame.getWidth(), h = frame.getHeight();
 
@@ -61,16 +59,16 @@ void depthFrameReady(KObject* sender, DepthImageFrameReadyEventArgs& e)
 	f << "P2\n" << w << " " << h << "\n255\n";
 
 	int length = frame.getPixelDataLength();
-	byte* pixels = new byte[length * sizeof(short)];
+	short* pixels = new short[length];
 
-	frame.CopyPixelDataTo(pixels);
+	frame.CopyPixelDataTo((byte*)pixels);
 
 	for (int j=0; j<h; j++)
 	{
 		for (int i=0; i<w; i++)
 		{
 			// discard the portion of the depth that contains only the player index
-			short depth = (short)(pixels[(j*w+i)*sizeof(short)] >> frame.getPlayerIndexBitmaskWidth());
+			short depth = (short)(pixels[j*w+i] >> frame.getPlayerIndexBitmaskWidth());
 
 			// to convert to a byte we're looking at only the lower 8 bits
 			// by discarding the most significant rather than least significant data
@@ -78,7 +76,7 @@ void depthFrameReady(KObject* sender, DepthImageFrameReadyEventArgs& e)
 			// add 1 so that too far/unknown is mapped to black
 			byte intensity = (byte)((depth + 1) & 0xff);
 
-			f << intensity;
+			f << (int)intensity;
 			if (i == w-1)
 				f << "\n";
 			else
@@ -144,30 +142,9 @@ void kinectProcess()
 	if (i == nsensors)
 		throw runtime_error("No Kinect found");
 
-	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(colorFrameReady));
+//	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(colorFrameReady));
 	sensor.setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&>(depthFrameReady));
 	while (true);
-
-	/*
-	vector<short> t;
-	for (int i=0; i<320*240; i++)
-		t.push_back(1);
-
-	vector<ColorImagePoint>* v = new vector<ColorImagePoint>();
-	sensor.MapDepthFrameToColorFrame(Resolution320x240Fps30, t, RgbResolution1280x960Fps12, v);
-
-	SkeletonPoint point = sensor.MapDepthToSkeletonPoint(
-								Resolution320x240Fps30,
-								10,
-								10,
-								42);
-	cout << "(" << point.getX() << ", " << point.getY() << ", " << point.getZ() << ")" << endl;
-
-	DepthImagePoint p = sensor.MapSkeletonPointToDepth(point, Resolution320x240Fps30);
-	cout << "(" << p.getX() << ", " << p.getY() << ")";
-	cout << " " << p.getDepth() << " " << p.getPalyerIndex() << endl;
-	return;
-	*/
 
 	cout << "Elevation angle : " << sensor.getElevationAngle() << endl;
 	int angle = sensor.getElevationAngle(), min, max;

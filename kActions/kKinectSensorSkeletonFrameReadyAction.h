@@ -84,8 +84,8 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<SkeletonFrameReadyEventArgs&> handler = sensor->skeletonFrameReadyCb();
-					SkeletonFrameReadyEventArgs arg(floorClipPlane, frameNumber, skeletonArrayLength, timestamp, trackingMode, skeletonData);
-					handler(sensor, arg);
+					SkeletonFrameReadyEventArgs args(floorClipPlane, frameNumber, skeletonArrayLength, timestamp, trackingMode, skeletonData);
+					handler(sensor, args);
 				}
 			}
 
