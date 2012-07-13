@@ -7,5 +7,7 @@
 #include "kKinectSensorColorFrameReadyAction.h"
 #include "kKinectSensorDepthFrameReadyAction.h"
 #include "kKinectSensorSkeletonFrameReadyAction.h"
+#include "kKinectAudioSourceBeamAngleChangedAction.h"
+#include "kKinectAudioSourceSoundSourceAngleChangedAction.h"
 
 #endif

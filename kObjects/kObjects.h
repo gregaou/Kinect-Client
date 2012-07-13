@@ -2,18 +2,10 @@
 #define KOBJECTS_H
 
 #include "../enums/enums.h"
+#include "../other/other.h"
 #include "kObject.h"
-#include "colorImagePoint.h"
-#include "depthImagePoint.h"
-#include "skeletonPoint.h"
-#include "kEventHandler.h"
-#include "kinectSensorCollection.h"
 #include "kinectSensor.h"
-#include "colorImageFrameReadyEventArgs.h"
-#include "colorImageframe.h"
-#include "skeleton.h"
-#include "skeletonFrame.h"
-#include "vector4.h"
-#include "matrix4.h"
+#include "kinectAudioSource.h"
+#include "depthImageFrame.h"
 
 #endif

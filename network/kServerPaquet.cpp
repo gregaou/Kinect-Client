@@ -1,3 +1,4 @@
+#include <string.h>
 #include "kServerPaquet.h"
 
 KServerPaquet::KServerPaquet(KTcpSocket* sock) :
@@ -39,11 +40,10 @@ byte* KServerPaquet::data()
 std::vector<byte> KServerPaquet::vectorData()
 {
 	std::vector<byte> array;
-	byte* d = data();
 	unsigned int size = bodySize();
 
-	for (unsigned int i=0; i<size; i++)
-		array[i] = d[i];
+	array.resize(size);
+	memcpy(array.data(), this->data(), size);
 
 	return array;
 }

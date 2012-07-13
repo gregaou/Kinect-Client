@@ -1,13 +1,10 @@
 #ifndef COLORIMAGEPOINT_H
 #define COLORIMAGEPOINT_H
 
-#include "kObject.h"
-
-class ColorImagePoint : public KObject
+class ColorImagePoint
 {
 	public:
-		ColorImagePoint(int x = 0, int y = 0, int id = -1):
-			KObject("ColorImagePoint", id),
+		ColorImagePoint(int x = 0, int y = 0):
 			_x(x),
 			_y(y)
 		{}
@@ -27,7 +24,5 @@ class ColorImagePoint : public KObject
 	protected:
 		int _x, _y;
 };
-
-
 
 #endif

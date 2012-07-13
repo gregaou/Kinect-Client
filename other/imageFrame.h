@@ -2,13 +2,12 @@
 #define IMAGEFRAME_H
 
 #include <string.h>
-#include "kObject.h"
+#include "../network/byte.h"
 
-class ImageFrame : public KObject
+class ImageFrame
 {
 	public:
-		ImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp, const char* classname = "ImageFrame", int id = -1) :
-			KObject(classname, id),
+		ImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp) :
 			_bytesPerPixel(bytesPerPixel),
 			_pixelDataLength(pixelDataLength),
 			_pixelData(pixelData),

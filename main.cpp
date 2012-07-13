@@ -3,12 +3,17 @@
 #include <exception>
 
 #include "network/network.h"
+#include "other/other.h"
 #include "kObjects/kObjects.h"
 #include "kExceptions/kQueryErrorException.h"
 
 using namespace std;
 
 void kinectProcess(void);
+void elevationAngleTests(KinectSensor& sensor);
+void audioTests(KinectSensor& sensor);
+void beamAngleChanged(KObject* sender, BeamAngleChangedEventArgs& args);
+void soundSourceAngleChanged(KObject* sender, SoundSourceAngleChangedEventArgs& args);
 
 void statusChanged(KObject* sender, KinectStatus status)
 {
@@ -143,9 +148,16 @@ void kinectProcess()
 		throw runtime_error("No Kinect found");
 
 //	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(colorFrameReady));
-	sensor.setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&>(depthFrameReady));
-	while (true);
+//	sensor.setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&>(depthFrameReady));
+//	while (true);
 
+	audioTests(sensor);
+
+	sensor.stop();
+}
+
+void elevationAngleTests(KinectSensor& sensor)
+{
 	cout << "Elevation angle : " << sensor.getElevationAngle() << endl;
 	int angle = sensor.getElevationAngle(), min, max;
 	int inc = 2;
@@ -181,7 +193,35 @@ void kinectProcess()
 			}
 		}
 	}
-
-	sensor.stop();
-	//*/
 }
+
+void audioTests(KinectSensor& sensor)
+{
+	KinectAudioSource& source = sensor.getAudioSource();
+
+	source.start();
+	cout << "AutomaticGainControlEnabled : " << source.getAutomaticGainControlEnabled() << endl;
+	cout << "BeamAngle : " << source.getMinBeamAngle() << " <= " << source.getBeamAngle() << " <= " << source.getMaxBeamAngle() << endl;
+	cout << "BeamAngleMode : " << source.getBeamAngleMode() << endl;
+	cout << "EchoCancellationMode : " << source.getEchoCancellationMode() << endl;
+	cout << "EchoCancellationSpeakerIndex : " << source.getEchoCancellationSpeakerIndex() << endl;
+	cout << "ManualBeamAngle : " << source.getManualBeamAngle() << endl;
+	cout << "SoundSourceAngle : " << source.getMinSoundSourceAngle() << " <= " << source.getSoundSourceAngle() << " <= " << source.getMaxSoundSourceAngle() << " (confidence : " << source.getSoundSourceAngleConfidence()*100 << "%)" << endl;
+	cout << "NoiseSuppression : " << source.getNoiseSuppression() << endl;
+
+	source.setBeamAngleChangedCb(beamAngleChanged);
+	source.setSoundSourceAngleChangedCb(soundSourceAngleChanged);
+
+	while (true);
+}
+
+void beamAngleChanged(KObject* sender, BeamAngleChangedEventArgs& args)
+{
+	cout << "beam angle changed to " << args.getAngle() << endl;
+}
+
+void soundSourceAngleChanged(KObject* sender, SoundSourceAngleChangedEventArgs& args)
+{
+	cout << "sound source angle changed to " << args.getAngle() << " (confidence : " << args.getConfidenceLevel()*100 << ")" << endl;
+}
+

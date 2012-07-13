@@ -46,7 +46,7 @@ class KKinectSensorDepthFrameReadyAction: public KAction
 				{
 					kEventHandler<DepthImageFrameReadyEventArgs&> handler = sensor->depthFrameReadyCb();
 					DepthImageFrameReadyEventArgs args(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height,
-													  timestamp, format, playerIndexBitmask, playerIndexBitmaskWidth);
+													  timestamp, format, playerIndexBitmask, playerIndexBitmaskWidth, id);
 					handler(sensor, args);
 				}
 			}

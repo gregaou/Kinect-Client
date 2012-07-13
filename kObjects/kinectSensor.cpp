@@ -3,8 +3,11 @@
 
 KinectSensor::KinectSensor(int id) :
 	KObject("KinectSensor", id),
+	_audioSource(id),
 	_colorFrameReadyCb(0),
-	_depthFrameReadyCb(0)
+	_depthFrameReadyCb(0),
+	_skeletonFrameReadyCb(0),
+	_audioDataReadyCb(0)
 {
 	_client->addSensor(this);
 }
@@ -66,7 +69,7 @@ void KinectSensor::MapDepthFrameToColorFrame
 		x = ntohl(KPaquet::getUint32(data, 4*i*2));
 		y = ntohl(KPaquet::getUint32(data, 4*(i*2+1)));
 		std::cout << "(" << x << ", " << y << ") ";
-		colorCoordinates->push_back(ColorImagePoint(x, y, _sensorId));
+		colorCoordinates->push_back(ColorImagePoint(x, y));
 	}
 
 	std::cout << std::endl;
@@ -105,7 +108,7 @@ ColorImagePoint KinectSensor::MapDepthToColorImagePoint
 	int y = valueOf<int>((*res)[1]);
 	delete res;
 
-	return ColorImagePoint(x, y, _sensorId);
+	return ColorImagePoint(x, y);
 }
 
 SkeletonPoint KinectSensor::MapDepthToSkeletonPoint
@@ -138,7 +141,7 @@ SkeletonPoint KinectSensor::MapDepthToSkeletonPoint
 	float z = valueOf<float>((*res)[2]);
 	delete res;
 
-	return SkeletonPoint(x, y, z, _sensorId);
+	return SkeletonPoint(x, y, z);
 }
 
 ColorImagePoint KinectSensor::MapSkeletonPointToColor
@@ -168,7 +171,7 @@ ColorImagePoint KinectSensor::MapSkeletonPointToColor
 	int y = valueOf<int>((*res)[1]);
 	delete res;
 
-	return ColorImagePoint(x, y, _sensorId);
+	return ColorImagePoint(x, y);
 }
 
 DepthImagePoint KinectSensor::MapSkeletonPointToDepth
@@ -200,7 +203,7 @@ DepthImagePoint KinectSensor::MapSkeletonPointToDepth
 	int playerIndex = valueOf<int>((*res)[3]);
 	delete res;
 
-	return DepthImagePoint(depth, playerIndex, x, y, _sensorId);
+	return DepthImagePoint(depth, playerIndex, x, y);
 }
 
 kEventHandler<ColorImageFrameReadyEventArgs&> KinectSensor::colorFrameReadyCb() const
@@ -210,7 +213,8 @@ kEventHandler<ColorImageFrameReadyEventArgs&> KinectSensor::colorFrameReadyCb() 
 
 void KinectSensor::setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&> cb)
 {
-	processQuery(buildQuery("ColorFrameReady"));
+	if (!_colorFrameReadyCb)
+		processQuery(buildQuery("ColorFrameReady"));
 	_colorFrameReadyCb = cb;
 }
 
@@ -221,7 +225,8 @@ kEventHandler<DepthImageFrameReadyEventArgs&> KinectSensor::depthFrameReadyCb() 
 
 void KinectSensor::setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&> cb)
 {
-	processQuery(buildQuery("DepthFrameReady"));
+	if (!_depthFrameReadyCb)
+		processQuery(buildQuery("DepthFrameReady"));
 	_depthFrameReadyCb = cb;
 }
 
@@ -232,7 +237,20 @@ kEventHandler<SkeletonFrameReadyEventArgs&> KinectSensor::skeletonFrameReadyCb(v
 
 void KinectSensor::setSkeletonFrameReadyCb(kEventHandler<SkeletonFrameReadyEventArgs&> cb)
 {
-	processQuery(buildQuery("SkeletonFrameReady"));
+	if (!_skeletonFrameReadyCb)
+		processQuery(buildQuery("SkeletonFrameReady"));
 	_skeletonFrameReadyCb = cb;
+}
+
+kEventHandler<AudioDataReadyEventArgs&> KinectSensor::audioDataReadyCb(void) const
+{
+	return _audioDataReadyCb;
+}
+
+void KinectSensor::setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&> cb)
+{
+	if (!_audioDataReadyCb)
+		processQuery(buildQuery("AudioDataReady"));
+	_audioDataReadyCb = cb;
 }
 

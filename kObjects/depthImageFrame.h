@@ -1,19 +1,23 @@
 #ifndef DEPTHIMAGEFRAME_H
 #define DEPTHIMAGEFRAME_H
 
+#include <vector>
+#include <string>
 #include "../enums/depthImageFormat.h"
 #include "../enums/colorImageFormat.h"
-#include "imageFrame.h"
-#include "depthImagePoint.h"
-#include "skeletonPoint.h"
-#include "colorImagePoint.h"
+#include "kObject.h"
+#include "../other/imageFrame.h"
+#include "../other/depthImagePoint.h"
+#include "../other/skeletonPoint.h"
+#include "../other/colorImagePoint.h"
 
-class DepthImageFrame : public ImageFrame
+class DepthImageFrame : public ImageFrame, public KObject
 {
 	public:
 		DepthImageFrame(int bytesPerPixel, int pixelDataLength, byte* pixelData, int frameNumber, int width, int height, int timestamp,
-						DepthImageFormat format, int playerIndexBitmask, int playerIndexBitmaskWidth) :
-			ImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp, "DepthImageFrame"),
+						DepthImageFormat format, int playerIndexBitmask, int playerIndexBitmaskWidth, int id = -1) :
+			ImageFrame(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp),
+			KObject("DepthImageFrame", id),
 			_format(format),
 			_playerIndexBitmask(playerIndexBitmask),
 			_playerIndexBitmaskWidth(playerIndexBitmaskWidth)

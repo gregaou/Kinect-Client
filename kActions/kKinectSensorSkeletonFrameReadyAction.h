@@ -35,17 +35,17 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 			id = (firstByte << 1) >> 5;
 			skeletonArrayLength = firstByte & 0xf;
 
-			frameNumber = ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
-			timestamp = ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
+			frameNumber = KPaquet::getUint32(_paquet->data(), (start+=4));
+			timestamp =KPaquet::getUint32(_paquet->data(), (start+=4));
 			for (int i=0; i<4; i++)
-				floorClipPlane[i] = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
+				floorClipPlane[i] = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
 
 			/* Building the skeletons (25 + <jointsSize> bytes/skeleton) */
 			skeletonData = new Skeleton[skeletonArrayLength];
 			for (int i=0; i<skeletonArrayLength; i++)
 			{
-				FrameEdges clippedEdges = ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
-				int jointsLength = ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
+				FrameEdges clippedEdges = KPaquet::getUint32(_paquet->data(), (start+=4));
+				int jointsLength = KPaquet::getUint32(_paquet->data(), (start+=4));
 				std::vector<Joint> joints;
 
 				/* Building the joints (13 bytes/joint) */
@@ -54,24 +54,24 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 					/*
 					 *	The first byte contains :
 					 *		- 2 bits for the tracking state
-					 *		- 6 bits for the joint type (0x3f = 00111111b)
+					 *		- 6 bits for the joint type (0x3f = 00111111(2))
 					 */
 					byte b = (_paquet->data())[start++];
 					JointType jointType = (JointType)(b & 0x3f);
 					JointTrackingState trackingState = (JointTrackingState)(b >> 6);
 
-					float x = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
-					float y = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
-					float z = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
+					float x = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
+					float y = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
+					float z = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
 
 					joints.push_back(Joint(jointType, SkeletonPoint(x, y, z), trackingState));
 				}
 
-				float x = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
-				float y = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
-				float z = (float)ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
+				float x = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
+				float y = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
+				float z = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
 
-				int trackingId = ntohl(KPaquet::getUint32(_paquet->data(), (start+=4)));
+				int trackingId = KPaquet::getUint32(_paquet->data(), (start+=4));
 				SkeletonTrackingState trackingState = (SkeletonTrackingState)((_paquet->data())[start++]);
 
 				skeletonData[i] = Skeleton(clippedEdges, joints, SkeletonPoint(x, y, z), trackingId, trackingState);

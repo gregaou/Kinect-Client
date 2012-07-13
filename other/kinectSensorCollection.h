@@ -1,9 +1,9 @@
 #ifndef KINECTSENSORCOLLECTION_H
 #define KINECTSENSORCOLLECTION_H
 
-#include "kObject.h"
+#include "../kObjects/kObject.h"
+#include "../kObjects/kinectSensor.h"
 #include "kEventHandler.h"
-#include "kinectSensor.h"
 
 class KinectSensor;
 

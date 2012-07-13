@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 #include "kPaquet.h"
 #include "kTcpSocket.h"
 
@@ -23,18 +24,23 @@ unsigned int KPaquet::timestamp(void)
 
 unsigned int KPaquet::getUint32(const byte* data, int start)
 {
-	return (unsigned int)((data[start]   << 24) |
-						  (data[start+1] << 16) |
-						  (data[start+2] << 8 ) |
-						  (data[start+3]      ));
+//	return (unsigned int)((data[start]   << 24) |
+//						  (data[start+1] << 16) |
+//						  (data[start+2] << 8 ) |
+//						  (data[start+3]      ));
+
+	return (unsigned int)ntohl(*(int*)(data + start));
 }
 
 void KPaquet::setUint32(byte* data, unsigned int v, int start)
 {
-	data[start]   = (v & 0xff000000) >> 24;
-	data[start+1] = (v & 0x00ff0000) >> 16;
-	data[start+2] = (v & 0x0000ff00) >> 8 ;
-    data[start+3] = (v & 0x000000ff)      ;
+	v = htonl(v);
+	memcpy(data + start, (byte*)&v, 4);
+
+//	data[start]   = (v & 0xff000000) >> 24;
+//	data[start+1] = (v & 0x00ff0000) >> 16;
+//	data[start+2] = (v & 0x0000ff00) >> 8 ;
+//	data[start+3] = (v & 0x000000ff)      ;
 }
 
 void KPaquet::setBodySize(unsigned int size)

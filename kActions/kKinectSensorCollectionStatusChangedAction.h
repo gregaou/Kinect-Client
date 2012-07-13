@@ -16,7 +16,6 @@ class KKinectSensorCollectionStatusChangedAction: public KAction
 		virtual void exec(void)
 		{
 			std::vector<std::string>* res = KObject::splitString(_paquet->stringData(), SEP);
-//			int id = valueOf<int>((*res)[0]);
 			KinectStatus newStatus = (KinectStatus)valueOf<int>((*res)[1]);
 
 			KinectSensorCollection* sensors = KinectSensorCollection::instance();

@@ -1,13 +1,10 @@
 #ifndef SKELETONPOINT_H
 #define SKELETONPOINT_H
 
-#include "kObject.h"
-
-class SkeletonPoint : public KObject
+class SkeletonPoint
 {
 	public:
-		SkeletonPoint (float x = 0, float y = 0, float z = 0, int id = -1) :
-			KObject("SkeletonPoint", id),
+		SkeletonPoint (float x = 0, float y = 0, float z = 0) :
 			_x(x),
 			_y(y),
 			_z(z)

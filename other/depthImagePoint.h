@@ -1,13 +1,10 @@
 #ifndef DEPTHIMAGEPOINT_H
 #define DEPTHIMAGEPOINT_H
 
-#include "kObject.h"
-
-class DepthImagePoint : public KObject
+class DepthImagePoint
 {
 	public:
-		DepthImagePoint(int depth, int playerIndex = -1, int x = 0, int y = 0, int id = -1):
-			KObject("DepthImagePoint", id),
+		DepthImagePoint(int depth, int playerIndex = -1, int x = 0, int y = 0):
 			_depth(depth),
 			_playerIndex(playerIndex),
 			_x(x),

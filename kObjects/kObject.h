@@ -33,6 +33,8 @@ class KObject
 		~KObject() {}
 		static std::vector<std::string>* splitString(const std::string& str, const char* sep);
 		int sensorId(void) const	{ return _sensorId; }
+		static void checkRet(const std::vector<int>& n, int size);
+		static void checkRet(int n, int size);
 
 	protected:
 		std::string* buildQuery(const std::string& method, const std::vector<std::string>& args = std::vector<std::string>()) const;
@@ -40,8 +42,6 @@ class KObject
 		void processQuery(std::string* query, int timeout = KClient::QUERY_MS_TIMEOUT) const;
 		const std::string& lastMessage(void) const	{ return _client->lastMessage(); }
 		byte* lastData(void) const					{ return _client->lastData();	 }
-		static void checkRet(const std::vector<int>& n, int size);
-		static void checkRet(int n, int size);
 
 		template<typename T>
 		T getQuery(const std::string& method) const

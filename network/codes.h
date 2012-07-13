@@ -3,16 +3,15 @@
 
 typedef enum ServerCode
 {
-	ColorStream = 2,
-	SkeletonStream = 3,
-	/* ... */
 	BadArgument = 101,
-	InvalidOperation = 102,
+	InvalidOperation,
 	/* ... */
 	KinectSensorCollectionStatusChanged = 200,
-	KinectSensorColorImageFrameReady = 201,
-	KinectSensorDepthImageFrameReady = 202,
-	KinectSensorSkeletonFrameReady = 203,
+	KinectSensorColorImageFrameReady,
+	KinectSensorDepthImageFrameReady,
+	KinectSensorSkeletonFrameReady,
+	KinectAudioSourceBeamAngleChanged,
+	KinectAudioSourceSoundSourceAngleChanged,
 	/* ... */
 	QueryOK = 1
 } ServerCode;

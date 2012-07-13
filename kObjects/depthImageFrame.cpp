@@ -24,7 +24,7 @@ DepthImagePoint DepthImageFrame::MapFromSkeletonPoint(SkeletonPoint skeletonPoin
 	int y = valueOf<int>((*res)[3]);
 	delete res;
 
-	return DepthImagePoint(depth, playerIndex, x, y, _sensorId);
+	return DepthImagePoint(depth, playerIndex, x, y);
 }
 
 ColorImagePoint DepthImageFrame::MapToColorImagePoint(int depthX, int depthY, ColorImageFormat colorImageFormat)
@@ -50,7 +50,7 @@ ColorImagePoint DepthImageFrame::MapToColorImagePoint(int depthX, int depthY, Co
 
 	delete res;
 
-	return ColorImagePoint(x, y, _sensorId);
+	return ColorImagePoint(x, y);
 }
 
 SkeletonPoint DepthImageFrame::MapToSkeletonPoint(int depthX, int depthY)
@@ -76,5 +76,5 @@ SkeletonPoint DepthImageFrame::MapToSkeletonPoint(int depthX, int depthY)
 
 	delete res;
 
-	return SkeletonPoint(x, y, z, _sensorId);
+	return SkeletonPoint(x, y, z);
 }

@@ -1,10 +1,10 @@
 #include "kinectSensorCollection.h"
 
 KinectSensorCollection* KinectSensorCollection::_sensors = 0;
-//kEventHandler<KinectStatus>* KinectSensorCollection::_statusChangedCb = 0;
 
 KinectSensorCollection::KinectSensorCollection() :
-	KObject("KinectSensorCollection")
+	KObject("KinectSensorCollection"),
+	_statusChangedCb(0)
 {
 }
 
@@ -39,6 +39,7 @@ kEventHandler<KinectStatus> KinectSensorCollection::statusChangedCb() const
 
 void KinectSensorCollection::setStatusChangeCb(kEventHandler<KinectStatus> cb)
 {
-	processQuery(buildQuery("StatusChanged"));
+	if (!_statusChangedCb)
+		processQuery(buildQuery("StatusChanged"));
 	_statusChangedCb = cb;
 }

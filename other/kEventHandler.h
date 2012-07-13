@@ -1,7 +1,7 @@
 #ifndef KEVENTHANDER_H
 #define KEVENTHANDER_H
 
-#include "kObject.h"
+#include "../kObjects/kObject.h"
 
 template<typename T>
 class kEventHandler
@@ -22,6 +22,11 @@ class kEventHandler
 		{
 			if (_handler)
 				_handler(sender, arg);
+		}
+
+		bool operator!(void)
+		{
+			return !_handler;
 		}
 
 	protected:

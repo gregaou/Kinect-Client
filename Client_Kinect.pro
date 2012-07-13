@@ -10,17 +10,17 @@ SOURCES += main.cpp \
     network/kPaquet.cpp \
     network/kClientPaquet.cpp \
     network/kClient.cpp \
-    kActions/kAction.cpp \
-    kObjects/kObject.cpp \
-    kObjects/kinectSensorCollection.cpp \
-    kObjects/kinectSensor.cpp \
-    kObjects/colorImageFrameReadyEventArgs.cpp \
-    kObjects/colorImageFrame.cpp \
     enums/colorImageFormat.cpp \
     enums/depthImageFormat.cpp \
+    kActions/kAction.cpp \
+    kObjects/kObject.cpp \
+    kObjects/kinectSensor.cpp \
     kObjects/depthImageFrame.cpp \
-    kObjects/depthImageFrameReadyEventArgs.cpp \
-    kObjects/skeletonFrameReadyEventArgs.cpp
+    other/skeletonFrameReadyEventArgs.cpp \
+    other/kinectSensorCollection.cpp \
+    other/depthImageFrameReadyEventArgs.cpp \
+    other/colorImageFrameReadyEventArgs.cpp \
+    other/colorImageFrame.cpp
 
 HEADERS += \
     network/kVerboseTcpSocket.h \
@@ -39,36 +39,44 @@ HEADERS += \
     enums/skeletonTrackingState.h \
     enums/jointTrackingState.h \
     enums/colorImageFormat.h \
-    kActions/kActions.h \
-    kActions/kMessageAction.h \
-    kActions/kKinectSensorCollectionStatusChangedAction.h \
-    kActions/kAction.h \
-    kExceptions.h/kQueryErrorException.h \
-    kExceptions/kQueryErrorException.h \
-    kExceptions/kConnectionException.h \
-    kObjects/skeletonPoint.h \
-    kObjects/kObjects.h \
-    kObjects/kObject.h \
-    kObjects/kinectSensorCollection.h \
-    kObjects/kinectSensor.h \
-    kObjects/depthImagePoint.h \
-    kObjects/colorImagePoint.h \
-    kObjects/colorImageFrameReadyEventArgs.h \
-    kObjects/kEventHandler.h \
-    kObjects/colorImageframe.h \
-    kActions/kKinectSensorColorFrameReadyAction.h \
-    kObjects/imageFrame.h \
-    kObjects/depthImageFrame.h \
-    kObjects/depthImageFrameReadyEventArgs.h \
-    kActions/kKinectSensorDepthFrameReadyAction.h \
-    kObjects/skeletonFrame.h \
     enums/skeletonTrackingMode.h \
-    kObjects/skeleton.h \
-    kObjects/joint.h \
     enums/jointType.h \
     enums/frameEdges.h \
-    kObjects/skeletonFrameReadyEventArgs.h \
+    enums/beamAngleMode.h \
+    enums/echoCancellationMode.h \
+    kActions/kActions.h \
+    kActions/kAction.h \
+    kActions/kMessageAction.h \
+    kActions/kKinectSensorCollectionStatusChangedAction.h \
+    kActions/kKinectSensorDepthFrameReadyAction.h \
     kActions/kKinectSensorSkeletonFrameReadyAction.h \
-    kObjects/vector4.h \
-    kObjects/matrix4.h
+    kActions/kKinectAudioSourceBeamAngleChangedAction.h \
+    kActions/kKinectAudioSourceSoundSourceAngleChangedAction.h \
+    kExceptions/kQueryErrorException.h \
+    kExceptions/kConnectionException.h \
+    kObjects/kObjects.h \
+    kObjects/kObject.h \
+    kObjects/kinectAudioSource.h \
+    kObjects/kinectSensor.h \
+    kObjects/depthImageFrame.h \
+    other/vector4.h \
+    other/soundSourceAngleChangedEventArgs.h \
+    other/skeletonPoint.h \
+    other/skeletonFrameReadyEventArgs.h \
+    other/skeletonFrame.h \
+    other/skeleton.h \
+    other/matrix4.h \
+    other/kObjects.h \
+    other/kinectSensorCollection.h \
+    other/kEventHandler.h \
+    other/joint.h \
+    other/imageFrame.h \
+    other/depthImagePoint.h \
+    other/depthImageFrameReadyEventArgs.h \
+    other/colorImagePoint.h \
+    other/colorImageFrameReadyEventArgs.h \
+    other/colorImageframe.h \
+    other/beamAngleChangedEventArgs.h \
+    other/audioDataReadyEventArgs.h \
+    other/other.h
 

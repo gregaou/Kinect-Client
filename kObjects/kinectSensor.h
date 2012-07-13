@@ -3,13 +3,15 @@
 
 #include "../enums/enums.h"
 #include "kObject.h"
-#include "kinectSensorCollection.h"
-#include "colorImagePoint.h"
-#include "skeletonPoint.h"
-#include "depthImagePoint.h"
-#include "colorImageFrameReadyEventArgs.h"
-#include "depthImageFrameReadyEventArgs.h"
-#include "skeletonFrameReadyEventArgs.h"
+#include "kinectAudioSource.h"
+#include "../other/kinectSensorCollection.h"
+#include "../other/colorImagePoint.h"
+#include "../other/skeletonPoint.h"
+#include "../other/depthImagePoint.h"
+#include "../other/colorImageFrameReadyEventArgs.h"
+#include "../other/depthImageFrameReadyEventArgs.h"
+#include "../other/skeletonFrameReadyEventArgs.h"
+#include "../other/audioDataReadyEventArgs.h"
 
 class KinectSensorCollection;
 
@@ -20,9 +22,9 @@ class KinectSensor : public KObject
 		~KinectSensor(void);
 
 		/* Properties */
-//		AudioSource& getAudioSource(void) const			{ return AudioSource(id); }
-//		ColorImageStream& getColorStream(void) const	{ return ColorImageStream(id); }
-//		DepthImageStream& getDepthStream(void) const	{ return DepthImageStream(id); }
+		KinectAudioSource& getAudioSource(void)			{ return _audioSource; }
+//		ColorImageStream& getColorStream(void)			{ return _colorStream; }
+//		DepthImageStream& getDepthStream(void)			{ return _depthStream; }
 		std::string getDeviceConnectionId(void) const	{ return getQuery<std::string>(__func__); }
 
 		int getElevationAngle(void) const				{ return getQuery<int>(__func__); }
@@ -88,11 +90,15 @@ class KinectSensor : public KObject
 		void setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&> cb);
 		kEventHandler<SkeletonFrameReadyEventArgs&> skeletonFrameReadyCb(void) const;
 		void setSkeletonFrameReadyCb(kEventHandler<SkeletonFrameReadyEventArgs&> cb);
+		kEventHandler<AudioDataReadyEventArgs&> audioDataReadyCb(void) const;
+		void setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&> cb);
 
 	protected:
+		KinectAudioSource _audioSource;
 		kEventHandler<ColorImageFrameReadyEventArgs&> _colorFrameReadyCb;
 		kEventHandler<DepthImageFrameReadyEventArgs&> _depthFrameReadyCb;
 		kEventHandler<SkeletonFrameReadyEventArgs&> _skeletonFrameReadyCb;
+		kEventHandler<AudioDataReadyEventArgs&> _audioDataReadyCb;
 };
 
 #endif

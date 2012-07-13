@@ -9,5 +9,7 @@
 #include "jointTrackingState.h"
 #include "jointType.h"
 #include "frameEdges.h"
+#include "beamAngleMode.h"
+#include "echoCancellationMode.h"
 
 #endif
