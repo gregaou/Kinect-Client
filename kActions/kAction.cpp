@@ -15,6 +15,8 @@ KAction* KAction::getAction(KClient* client, KServerPaquet* paquet)
 			return new KKinectSensorDepthFrameReadyAction(paquet, client->sensors());
 		case KinectSensorSkeletonFrameReady:
 			return new KKinectSensorSkeletonFrameReadyAction(paquet, client->sensors());
+		case KinectSensorAudioDataReady:
+			return new KKinectSensorAudioDataReadyAction(paquet, client->sensors());
 		case KinectAudioSourceBeamAngleChanged:
 			return new KKinectAudioSourceBeamAngleChangedAction(paquet, client->sensors());
 		case KinectAudioSourceSoundSourceAngleChanged:

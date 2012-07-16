@@ -3,23 +3,18 @@
 
 #include <string.h>
 #include "../network/byte.h"
+#include "audioData.h"
 
 class AudioDataReadyEventArgs
 {
 	public:
-		AudioDataReadyEventArgs(byte* data, int length) :
-			_data(data),
-			_length(length)
-		{}
+		AudioDataReadyEventArgs(byte* data, int length)		{ _audioData = new AudioData(data, length); }
+		~AudioDataReadyEventArgs()							{ delete _audioData; }
 
-		void CopyPixelDataTo(byte* pixelData)
-		{
-			memcpy(pixelData, _data, _length);
-		}
+		AudioData& getAudioData(void) const					{ return *_audioData; }
 
 	protected:
-		byte* _data;
-		int _length;
+		AudioData* _audioData;
 };
 
 #endif

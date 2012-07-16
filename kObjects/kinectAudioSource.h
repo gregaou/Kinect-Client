@@ -55,7 +55,6 @@ class KinectAudioSource : public KObject
 		/* Methods */
 //		Stream start(void) const												{};
 //		Stream start(int timespan) const										{};
-		void start(void) const													{ processQuery(buildQuery(__func__)); }
 		void stop(void) const													{ processQuery(buildQuery(__func__)); }
 
 		/* Events */

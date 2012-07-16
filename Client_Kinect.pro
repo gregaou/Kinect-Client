@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     other/kinectSensorCollection.cpp \
     other/depthImageFrameReadyEventArgs.cpp \
     other/colorImageFrameReadyEventArgs.cpp \
-    other/colorImageFrame.cpp
+    other/colorImageFrame.cpp \
+    wave.cpp
 
 HEADERS += \
     network/kVerboseTcpSocket.h \
@@ -78,5 +79,8 @@ HEADERS += \
     other/colorImageframe.h \
     other/beamAngleChangedEventArgs.h \
     other/audioDataReadyEventArgs.h \
-    other/other.h
+    other/other.h \
+    other/audioData.h \
+    kActions/kKinectSensorAudioDataReadyAction.h \
+    wave.h
 

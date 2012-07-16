@@ -1,6 +1,7 @@
 #ifndef OTHER_H
 #define OTHER_H
 
+#include "audioData.h"
 #include "audioDataReadyEventArgs.h"
 #include "beamAngleChangedEventArgs.h"
 #include "colorImageframe.h"

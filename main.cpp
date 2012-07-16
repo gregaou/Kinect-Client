@@ -1,19 +1,25 @@
 #include <iostream>
 #include <fstream>
 #include <exception>
+#include <string.h>
 
 #include "network/network.h"
 #include "other/other.h"
 #include "kObjects/kObjects.h"
 #include "kExceptions/kQueryErrorException.h"
+#include "wave.h"
 
 using namespace std;
+
+ofstream f("../son.wav", ios::out);
+int audioDataSize = 0;
 
 void kinectProcess(void);
 void elevationAngleTests(KinectSensor& sensor);
 void audioTests(KinectSensor& sensor);
 void beamAngleChanged(KObject* sender, BeamAngleChangedEventArgs& args);
 void soundSourceAngleChanged(KObject* sender, SoundSourceAngleChangedEventArgs& args);
+void cb(KObject* sender, AudioDataReadyEventArgs& args);
 
 void statusChanged(KObject* sender, KinectStatus status)
 {
@@ -93,6 +99,7 @@ void depthFrameReady(KObject* sender, DepthImageFrameReadyEventArgs& e)
 
 	f.close();
 }
+
 
 int main()
 {
@@ -199,7 +206,6 @@ void audioTests(KinectSensor& sensor)
 {
 	KinectAudioSource& source = sensor.getAudioSource();
 
-	source.start();
 	cout << "AutomaticGainControlEnabled : " << source.getAutomaticGainControlEnabled() << endl;
 	cout << "BeamAngle : " << source.getMinBeamAngle() << " <= " << source.getBeamAngle() << " <= " << source.getMaxBeamAngle() << endl;
 	cout << "BeamAngleMode : " << source.getBeamAngleMode() << endl;
@@ -209,10 +215,53 @@ void audioTests(KinectSensor& sensor)
 	cout << "SoundSourceAngle : " << source.getMinSoundSourceAngle() << " <= " << source.getSoundSourceAngle() << " <= " << source.getMaxSoundSourceAngle() << " (confidence : " << source.getSoundSourceAngleConfidence()*100 << "%)" << endl;
 	cout << "NoiseSuppression : " << source.getNoiseSuppression() << endl;
 
-	source.setBeamAngleChangedCb(beamAngleChanged);
-	source.setSoundSourceAngleChangedCb(soundSourceAngleChanged);
+	sensor.setAudioDataReadyCb(cb);
+//	source.setBeamAngleChangedCb(beamAngleChanged);
+//	source.setSoundSourceAngleChangedCb(soundSourceAngleChanged);
 
 	while (true);
+
+//	char c;
+//	cin >> c;
+
+//	f.close();
+}
+
+void cb(KObject* sender, AudioDataReadyEventArgs& args)
+{
+	static bool first = false;
+	static int count = 0;
+	const int maxIt = 100;
+
+	AudioData& audio = args.getAudioData();
+
+	if (count >= maxIt)
+		return;
+
+	if (!first)
+	{
+		writeWaveHeader(f, audio.getLength()*maxIt);
+		f.seekp(WAVE_HEADER_SIZE, ios_base::beg);
+		first = true;
+	}
+
+	int size = audio.getLength();
+	byte* buffer = new byte[size];
+	audio.CopyPixelDataTo(buffer);
+	f.write((const char*)buffer, size);
+
+	delete buffer;
+
+	audioDataSize += size;
+	cout << audioDataSize << endl;
+
+	count++;
+	cout << count << endl;
+	if (count >= maxIt)
+	{
+		f.close();
+		cout << "file closed" << endl;
+	}
 }
 
 void beamAngleChanged(KObject* sender, BeamAngleChangedEventArgs& args)

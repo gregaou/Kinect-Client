@@ -32,7 +32,7 @@ class KKinectAudioSourceSoundSourceAngleChangedAction : public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<SoundSourceAngleChangedEventArgs&> handler = sensor->getAudioSource().soundSourceAngleChangedCb();
-					SoundSourceAngleChangedEventArgs args(angle,confidenceLevel);
+					SoundSourceAngleChangedEventArgs args(angle, confidenceLevel);
 					handler(sensor, args);
 				}
 			}

@@ -10,6 +10,7 @@ typedef enum ServerCode
 	KinectSensorColorImageFrameReady,
 	KinectSensorDepthImageFrameReady,
 	KinectSensorSkeletonFrameReady,
+	KinectSensorAudioDataReady,
 	KinectAudioSourceBeamAngleChanged,
 	KinectAudioSourceSoundSourceAngleChanged,
 	/* ... */
