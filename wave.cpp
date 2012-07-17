@@ -39,6 +39,10 @@ void writeWaveValue(byte* src, int value, size_t size)
 
 void writeWaveHeader(std::ofstream& f, int audioDataSize)
 {
+	std::streampos p = f.tellp();
+
+	f.seekp(0, std::ios_base::beg);
+
 	/* First bloc */
 	writeWaveValue((byte*)&firstHeaderBloc[4], audioDataSize + WAVE_HEADER_SIZE - 8, 4);
 
@@ -57,4 +61,6 @@ void writeWaveHeader(std::ofstream& f, int audioDataSize)
 	f.write(firstHeaderBloc, WAVE_FIRST_BLOC_SIZE);
 	f.write(secondHeaderBloc, WAVE_SECOND_BLOC_SIZE);
 	f.write(thirdHeaderBloc, WAVE_THIRD_BLOC_SIZE);
+
+	f.seekp(p);
 }

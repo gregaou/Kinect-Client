@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 #include <fstream>
 #include <exception>
 #include <string.h>
@@ -12,7 +13,8 @@
 using namespace std;
 
 ofstream f("../son.wav", ios::out);
-int audioDataSize = 0;
+bool streamAudio = true;
+long int audioDataSize = 0;
 
 void kinectProcess(void);
 void elevationAngleTests(KinectSensor& sensor);
@@ -100,7 +102,6 @@ void depthFrameReady(KObject* sender, DepthImageFrameReadyEventArgs& e)
 	f.close();
 }
 
-
 int main()
 {
 	int r = EXIT_SUCCESS;
@@ -156,7 +157,8 @@ void kinectProcess()
 
 //	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(colorFrameReady));
 //	sensor.setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&>(depthFrameReady));
-//	while (true);
+
+	getchar();
 
 	audioTests(sensor);
 
@@ -215,35 +217,27 @@ void audioTests(KinectSensor& sensor)
 	cout << "SoundSourceAngle : " << source.getMinSoundSourceAngle() << " <= " << source.getSoundSourceAngle() << " <= " << source.getMaxSoundSourceAngle() << " (confidence : " << source.getSoundSourceAngleConfidence()*100 << "%)" << endl;
 	cout << "NoiseSuppression : " << source.getNoiseSuppression() << endl;
 
+	f.seekp(WAVE_HEADER_SIZE, ios_base::beg);
 	sensor.setAudioDataReadyCb(cb);
 //	source.setBeamAngleChangedCb(beamAngleChanged);
 //	source.setSoundSourceAngleChangedCb(soundSourceAngleChanged);
 
-	while (true);
+	std::cout << "Streaming audio to 'son.wav'. Press <ENTER> to stop." << std::endl;
 
-//	char c;
-//	cin >> c;
+	getchar();
+	streamAudio = false;
 
-//	f.close();
+	writeWaveHeader(f, audioDataSize);
+
+	f.close();
 }
 
 void cb(KObject* sender, AudioDataReadyEventArgs& args)
 {
-	static bool first = false;
-	static int count = 0;
-	const int maxIt = 100;
-
-	AudioData& audio = args.getAudioData();
-
-	if (count >= maxIt)
+	if (!streamAudio)
 		return;
 
-	if (!first)
-	{
-		writeWaveHeader(f, audio.getLength()*maxIt);
-		f.seekp(WAVE_HEADER_SIZE, ios_base::beg);
-		first = true;
-	}
+	AudioData& audio = args.getAudioData();
 
 	int size = audio.getLength();
 	byte* buffer = new byte[size];
@@ -253,15 +247,6 @@ void cb(KObject* sender, AudioDataReadyEventArgs& args)
 	delete buffer;
 
 	audioDataSize += size;
-	cout << audioDataSize << endl;
-
-	count++;
-	cout << count << endl;
-	if (count >= maxIt)
-	{
-		f.close();
-		cout << "file closed" << endl;
-	}
 }
 
 void beamAngleChanged(KObject* sender, BeamAngleChangedEventArgs& args)
