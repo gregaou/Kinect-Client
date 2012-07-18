@@ -148,6 +148,8 @@ void kinectProcess()
 		{
 			sensor = sensors[i];
 			sensor.start();
+			sensor.getColorStream().enable();
+			sensor.getDepthStream().enable();
 			break;
 		}
 	}

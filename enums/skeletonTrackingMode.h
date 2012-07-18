@@ -1,10 +1,13 @@
 #ifndef SKELETONTRACKINGMODE_H
 #define SKELETONTRACKINGMODE_H
 
+#ifndef Default
+#define Default 0
+#endif
+
 typedef enum
 {
-	Default,
-	Seated
+	Seated = 1
 } SkeletonTrackingMode;
 
 #endif

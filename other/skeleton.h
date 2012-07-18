@@ -2,6 +2,7 @@
 #define SKELETON_H
 
 #include <vector>
+#include "boneOrientation.h"
 #include "../enums/skeletonTrackingState.h"
 #include "../enums/frameEdges.h"
 #include "joint.h"
@@ -11,7 +12,8 @@ class Skeleton
 {
 	public:
 		Skeleton() {}
-		Skeleton(FrameEdges clippedEdges, const std::vector<Joint> joints, SkeletonPoint position, int trackingId, SkeletonTrackingState trackingState) :
+		Skeleton(std::vector<BoneOrientation>& boneOrientations, FrameEdges clippedEdges, std::vector<Joint>& joints, SkeletonPoint position, int trackingId, SkeletonTrackingState trackingState) :
+			_boneOrientations(boneOrientations),
 			_clippedEdges(clippedEdges),
 			_joints(joints),
 			_position(position),
@@ -20,19 +22,20 @@ class Skeleton
 		{}
 
 		/* Properties */
-		FrameEdges getClippedEdges(void) const						{ return _clippedEdges; }
-		void setClippedEdges(FrameEdges clippedEdges)				{ _clippedEdges = clippedEdges; }
-		const std::vector<Joint>& getJoints(void) const				{ return _joints; }
-		void setJoints(const std::vector<Joint>& joints)			{ _joints = joints; }
-		SkeletonPoint getPosition(void) const						{ return _position; }
-		void setPosition(SkeletonPoint position)					{ _position = position; }
-		int getTrackingId(void) const 								{ return _trackingId; }
-		void setTrackingId(int trackingId)							{ _trackingId = trackingId; }
-		SkeletonTrackingState getTrackingState(void) const			{ return _trackingState; }
-		void setTrackingState(SkeletonTrackingState trackingState)	{ _trackingState = trackingState; }
+		const std::vector<BoneOrientation>& getBoneOrientations(void) const		{ return _boneOrientations; }
+		FrameEdges getClippedEdges(void) const									{ return _clippedEdges; }
+		void setClippedEdges(FrameEdges clippedEdges)							{ _clippedEdges = clippedEdges; }
+		const std::vector<Joint>& getJoints(void) const							{ return _joints; }
+		void setJoints(const std::vector<Joint>& joints)						{ _joints = joints; }
+		SkeletonPoint getPosition(void) const									{ return _position; }
+		void setPosition(SkeletonPoint position)								{ _position = position; }
+		int getTrackingId(void) const 											{ return _trackingId; }
+		void setTrackingId(int trackingId)										{ _trackingId = trackingId; }
+		SkeletonTrackingState getTrackingState(void) const						{ return _trackingState; }
+		void setTrackingState(SkeletonTrackingState trackingState)				{ _trackingState = trackingState; }
 
 	protected:
-//		TO DO : std::vector<BoneOrientation> _boneOrientations;			get
+		std::vector<BoneOrientation> _boneOrientations;
 		FrameEdges _clippedEdges;
 		std::vector<Joint> _joints;
 		SkeletonPoint _position;

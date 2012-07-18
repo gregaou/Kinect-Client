@@ -4,6 +4,8 @@
 KinectSensor::KinectSensor(int id) :
 	KObject("KinectSensor", id),
 	_audioSource(id),
+	_colorStream(id),
+	_depthStream(id),
 	_colorFrameReadyCb(0),
 	_depthFrameReadyCb(0),
 	_skeletonFrameReadyCb(0),

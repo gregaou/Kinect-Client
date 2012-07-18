@@ -82,5 +82,14 @@ HEADERS += \
     other/other.h \
     other/audioData.h \
     kActions/kKinectSensorAudioDataReadyAction.h \
-    wave.h
+    wave.h \
+    kObjects/colorImageStream.h \
+    kObjects/depthImageStream.h \
+    enums/depthRange.h \
+    kObjects/skeletonStream.h \
+    other/transformSmoothParameters.h \
+    other/boneRotation.h \
+    other/boneOrientation.h \
+    other/interface.h \
+    other/serializable.h
 

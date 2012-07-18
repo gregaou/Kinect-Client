@@ -21,6 +21,7 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 			float floorClipPlane[4];
 			SkeletonTrackingMode trackingMode;
 			Skeleton* skeletonData;
+			byte* data = _paquet->data();
 
 			/* Size of the paquet = 25 + <skeletonsSize> bytes */
 
@@ -30,20 +31,33 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 			 *		- 3 bits for the sensor id
 			 *		- 4 bits for the length of the skeleton array
 			 */
-			byte firstByte = (_paquet->data())[start++];
+			byte firstByte =data[start++];
 			trackingMode = (SkeletonTrackingMode)(firstByte >> 7);
 			id = (firstByte << 1) >> 5;
 			skeletonArrayLength = firstByte & 0xf;
 
-			frameNumber = KPaquet::getUint32(_paquet->data(), (start+=4));
-			timestamp =KPaquet::getUint32(_paquet->data(), (start+=4));
+			frameNumber = KPaquet::getUint32(data, (start+=4));
+			timestamp =KPaquet::getUint32(data, (start+=4));
 			for (int i=0; i<4; i++)
-				floorClipPlane[i] = (float)KPaquet::getUint32(_paquet->data(), (start+=4));
+				floorClipPlane[i] = (float)KPaquet::getUint32(data, (start+=4));
 
-			/* Building the skeletons (25 + <jointsSize> bytes/skeleton) */
+			/* Building the skeletons (26 + <boneOrientationsSize> + <jointsSize> bytes/skeleton) */
 			skeletonData = new Skeleton[skeletonArrayLength];
 			for (int i=0; i<skeletonArrayLength; i++)
 			{
+				int boneOrientationsLength = KPaquet::getUint32(data, (start+=4));
+				std::vector<BoneOrientation> boneOrientations;
+
+				/* Building the bone orientations (42 bytes/boneOrientation) */
+				for (int j=0; j<boneOrientationsLength; j++)
+				{
+					BoneOrientation boneOrientation;
+					boneOrientation.unserialize(data + start);
+					start += boneOrientation.serializedSize();
+
+					boneOrientations.push_back(boneOrientation);
+				}
+
 				FrameEdges clippedEdges = KPaquet::getUint32(_paquet->data(), (start+=4));
 				int jointsLength = KPaquet::getUint32(_paquet->data(), (start+=4));
 				std::vector<Joint> joints;
@@ -56,7 +70,7 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 					 *		- 2 bits for the tracking state
 					 *		- 6 bits for the joint type (0x3f = 00111111(2))
 					 */
-					byte b = (_paquet->data())[start++];
+					byte b = data[start++];
 					JointType jointType = (JointType)(b & 0x3f);
 					JointTrackingState trackingState = (JointTrackingState)(b >> 6);
 
@@ -74,7 +88,7 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 				int trackingId = KPaquet::getUint32(_paquet->data(), (start+=4));
 				SkeletonTrackingState trackingState = (SkeletonTrackingState)((_paquet->data())[start++]);
 
-				skeletonData[i] = Skeleton(clippedEdges, joints, SkeletonPoint(x, y, z), trackingId, trackingState);
+				skeletonData[i] = Skeleton(boneOrientations, clippedEdges, joints, SkeletonPoint(x, y, z), trackingId, trackingState);
 			}
 
 			std::list<KinectSensor*>::const_iterator it;

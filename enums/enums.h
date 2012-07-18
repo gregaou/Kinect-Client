@@ -11,5 +11,6 @@
 #include "frameEdges.h"
 #include "beamAngleMode.h"
 #include "echoCancellationMode.h"
+#include "depthRange.h"
 
 #endif

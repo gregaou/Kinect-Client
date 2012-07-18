@@ -4,6 +4,8 @@
 #include "../enums/enums.h"
 #include "kObject.h"
 #include "kinectAudioSource.h"
+#include "colorImageStream.h"
+#include "depthImageStream.h"
 #include "../other/kinectSensorCollection.h"
 #include "../other/colorImagePoint.h"
 #include "../other/skeletonPoint.h"
@@ -23,8 +25,8 @@ class KinectSensor : public KObject
 
 		/* Properties */
 		KinectAudioSource& getAudioSource(void)			{ return _audioSource; }
-//		ColorImageStream& getColorStream(void)			{ return _colorStream; }
-//		DepthImageStream& getDepthStream(void)			{ return _depthStream; }
+		ColorImageStream& getColorStream(void)			{ return _colorStream; }
+		DepthImageStream& getDepthStream(void)			{ return _depthStream; }
 		std::string getDeviceConnectionId(void) const	{ return getQuery<std::string>(__func__); }
 
 		int getElevationAngle(void) const				{ return getQuery<int>(__func__); }
@@ -95,6 +97,8 @@ class KinectSensor : public KObject
 
 	protected:
 		KinectAudioSource _audioSource;
+		ColorImageStream _colorStream;
+		DepthImageStream _depthStream;
 		kEventHandler<ColorImageFrameReadyEventArgs&> _colorFrameReadyCb;
 		kEventHandler<DepthImageFrameReadyEventArgs&> _depthFrameReadyCb;
 		kEventHandler<SkeletonFrameReadyEventArgs&> _skeletonFrameReadyCb;

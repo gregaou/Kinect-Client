@@ -20,5 +20,9 @@
 #include "skeletonPoint.h"
 #include "soundSourceAngleChangedEventArgs.h"
 #include "vector4.h"
+#include "transformSmoothParameters.h"
+#include "boneRotation.h"
+#include "boneOrientation.h"
+#include "serializable.h"
 
 #endif

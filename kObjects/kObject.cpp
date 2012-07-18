@@ -21,8 +21,6 @@ std::string* KObject::buildQuery(const std::string& method, const std::vector<st
 	for (unsigned int i=0; i<args.size(); i++)
 		queryStream << SEP << args[i];
 
-	std::cout << queryStream.str() << std::endl;
-
 	return new std::string(queryStream.str());
 }
 
@@ -33,6 +31,8 @@ std::string* KObject::buildQuery(const std::string& method, const std::string& a
 
 void KObject::processQuery(std::string* query, int timeout) const
 {
+	std::cout << *query << std::endl;
+
 	if (!_client->sendQuery(*query, timeout))
 		throw KQueryErrorException(_client->lastCode(), _client->lastMessage());
 

@@ -1,10 +1,56 @@
 #ifndef MATRIX4_H
 #define MATRIX4_H
 
-class Matrix4
+#include <math.h>
+#include "../network/kPaquet.h"
+#include "serializable.h"
+
+class Matrix4 : implements Serializable<Matrix4>
 {
 	public:
-		Matrix4() {}
+		Matrix4()
+		{
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++)
+					_m[i][j] = NAN;
+		}
+
+		Matrix4(float matrix[4][4])
+		{
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++)
+					_m[i][j] = matrix[i][j];
+		}
+
+		Matrix4(const Matrix4& copy)
+		{
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++)
+					_m[i][j] = copy._m[i][j];
+		}
+
+		/* Serializable */
+		virtual void serialize(byte* buffer)
+		{
+			int pos = 0;
+
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++)
+					KPaquet::setUint32(buffer, *(int*)&_m[i][j], (pos+=4));
+		}
+
+		virtual const Matrix4& unserialize(byte* buffer)
+		{
+			int pos = 0;
+
+			for (int i=0; i<4; i++)
+				for (int j=0; j<4; j++)
+					_m[i][j] = (float)KPaquet::getUint32(buffer, (pos+=4));
+
+			return *this;
+		}
+
+		virtual int serializedSize(void)		{ return 4*4*4; }
 
 		/* Properties */
 		float getM11(void) const	{ return (*this)(1, 1);	}
