@@ -2,6 +2,8 @@
 #define KQUERYERROREXCEPTION_H
 
 #include <exception>
+#include <iostream>
+#include <sstream>
 #include <string>
 
 class KQueryErrorException : public std::exception

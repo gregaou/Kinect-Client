@@ -2,6 +2,8 @@
 #define KCONNECTIONEXCEPTION_H
 
 #include <exception>
+#include <exception>
+#include <stdexcept>
 
 class KConnectionException : public std::runtime_error
 {

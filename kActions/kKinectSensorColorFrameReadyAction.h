@@ -34,10 +34,6 @@ class KKinectSensorColorFrameReadyAction: public KAction
 			bytesPerPixel = (width * height) / pixelDataLength;
 			timestamp = _paquet->timestamp();
 
-			std::cout << "id : " << id << std::endl;
-			std::cout << "format : " << format << std::endl;
-			std::cout << "frame number " << frameNumber << std::endl;
-
 			std::list<KinectSensor*>::const_iterator it;
 			for (it = _sensors.begin(); it != _sensors.end(); it++)
 			{

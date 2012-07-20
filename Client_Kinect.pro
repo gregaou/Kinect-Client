@@ -91,5 +91,7 @@ HEADERS += \
     other/boneRotation.h \
     other/boneOrientation.h \
     other/interface.h \
-    other/serializable.h
+    other/serializable.h \
+    kinect.h \
+    kActions/kKinectSensorColorFrameReadyAction.h
 
