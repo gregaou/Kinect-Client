@@ -1,6 +1,5 @@
-#include "network/codes.h"
-#include "network/kServerListener.h"
-
+#include "../network/codes.h"
+#include "../network/kServerListener.h"
 #include "kActions.h"
 
 KAction* KAction::getAction(KClient* client, KServerPaquet* paquet)

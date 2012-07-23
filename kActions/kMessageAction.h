@@ -2,7 +2,7 @@
 #define KMESSAGEACTION_H
 
 #include "kAction.h"
-#include "network/network.h"
+#include "../network/network.h"
 
 class KMessageAction: public KAction
 {

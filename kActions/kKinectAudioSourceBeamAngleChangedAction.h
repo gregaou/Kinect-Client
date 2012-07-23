@@ -2,7 +2,7 @@
 #define KKINECTAUDIOSOURCEBEAMANGLECHANGEDACTION_H
 
 #include "kAction.h"
-#include "network/network.h"
+#include "../network/network.h"
 #include "../kObjects/kinectAudioSource.h"
 #include "../other/kEventHandler.h"
 #include "../other/beamAngleChangedEventArgs.h"

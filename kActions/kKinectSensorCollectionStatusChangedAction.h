@@ -1,9 +1,9 @@
 #ifndef KKINECTSENSORCOLLECTIONSTATUSCHANGEDACTION_H
 #define KKINECTSENSORCOLLECTIONSTATUSCHANGEDACTION_H
 
-#include "enums/kinectStatus.h"
-#include "network/network.h"
-#include "kObjects/kObjects.h"
+#include "../enums/kinectStatus.h"
+#include "../network/network.h"
+#include "../kObjects/kObjects.h"
 #include "kAction.h"
 
 class KKinectSensorCollectionStatusChangedAction: public KAction

@@ -2,8 +2,8 @@
 #define KKINECTSENSORAUDIODATAREADYACTION_H
 
 #include <list>
-#include "network/network.h"
 #include "kAction.h"
+#include "../network/network.h"
 #include "../kObjects/kinectSensor.h"
 #include "../other/kEventHandler.h"
 #include "../other/audioDataReadyEventArgs.h"

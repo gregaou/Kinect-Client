@@ -1,7 +1,7 @@
 #ifndef KACTION_H
 #define KACTION_H
 
-#include "network/network.h"
+#include "../network/network.h"
 
 class KAction
 {
