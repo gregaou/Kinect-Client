@@ -12,7 +12,7 @@
 #if defined (WIN32)
 	#include <winsock2.h>
 	typedef int socklen_t;
-#elif defined (linux)
+#else
 	#include <sys/types.h>
 	#include <sys/socket.h>
 	#include <netinet/in.h>

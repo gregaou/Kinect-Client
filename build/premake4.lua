@@ -10,6 +10,7 @@ solution "kinect"
 		language "C++"
 
 	project "kinect"
+		--kind "StaticLib"
 		kind "SharedLib"
 		language "C++"
 		excludes { "../main.cpp", "../wave.cpp", "../wave.h" }
