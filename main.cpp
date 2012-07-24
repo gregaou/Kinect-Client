@@ -123,14 +123,13 @@ void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
 		return;
 	lastFrame = currentFrame;
 
-	ostringstream fileNameStream;
-	fileNameStream << name << "/" << name << frame.getFrameNumber() << ".jpg";
-	const char* fileName = fileNameStream.str().c_str();
-	ofstream file(fileName, ios::out);
+	ostringstream fileName;
+	fileName << name << "/" << name << frame.getFrameNumber() << ".jpg";
+	ofstream file(fileName.str().c_str(), ios::out);
 
 	if (!file)
 	{
-		cout << "unable to open " << fileName << endl;
+		cout << "unable to open " << fileName.str().c_str() << endl;
 		return;
 	}
 
@@ -141,6 +140,6 @@ void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
 	file.close();
 	delete img;
 
-	cout << "image saved to " << fileName << endl;
+	cout << "image saved to " << fileName.str().c_str() << endl;
 }
 
