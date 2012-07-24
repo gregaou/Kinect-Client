@@ -18,12 +18,10 @@ class KKinectSensorAudioDataReadyAction : public KAction
 
 		virtual void exec(void)
 		{
-			int length = _paquet->bodySize() - 1, id = _paquet->data()[0];
+			int id = _paquet->data()[0], length = _paquet->bodySize() - 1;
 			byte* data = _paquet->data() + 1;
 
-//			std::cout << "audio data received : " << std::endl;
-//			std::cout << "id = " << id << std::endl;
-//			std::cout << "audio data size : " << length << std::endl;
+			AudioDataReadyEventArgs args(data, length);
 
 			std::list<KinectSensor*>::const_iterator it;
 			for (it = _sensors.begin(); it != _sensors.end(); it++)
@@ -32,7 +30,6 @@ class KKinectSensorAudioDataReadyAction : public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<AudioDataReadyEventArgs&> handler = sensor->audioDataReadyCb();
-					AudioDataReadyEventArgs args(data, length);
 					handler(sensor, args);
 				}
 			}

@@ -34,6 +34,8 @@ class KKinectSensorColorFrameReadyAction: public KAction
 			bytesPerPixel = (width * height) / pixelDataLength;
 			timestamp = _paquet->timestamp();
 
+			ColorImageFrameReadyEventArgs args(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp, format);
+
 			std::list<KinectSensor*>::const_iterator it;
 			for (it = _sensors.begin(); it != _sensors.end(); it++)
 			{
@@ -41,7 +43,6 @@ class KKinectSensorColorFrameReadyAction: public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<ColorImageFrameReadyEventArgs&> handler = sensor->colorFrameReadyCb();
-					ColorImageFrameReadyEventArgs args(bytesPerPixel, pixelDataLength, pixelData, frameNumber, width, height, timestamp, format);
 					handler(sensor, args);
 				}
 			}

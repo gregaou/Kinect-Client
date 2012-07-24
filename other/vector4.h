@@ -2,9 +2,9 @@
 #define VECTOR4_H
 
 #include <math.h>
-#include "serializable.h"
+#include "unserializable.h"
 
-class Vector4 : implements Serializable<Vector4>
+class Vector4 : public Unserializable
 {
 	public:
 		Vector4(float x = NAN, float y = NAN, float z = NAN, float w = NAN) :
@@ -28,30 +28,18 @@ class Vector4 : implements Serializable<Vector4>
 			_w(copy.getW())
 		{}
 
-		/* Serializable */
-		virtual void serialize(byte* buffer)
+		/* Unserializable */
+		virtual void unserialize(byte* buffer)
 		{
 			int pos = 0;
 
-			KPaquet::setUint32(buffer, *(int*)&_x, (pos+=4));
-			KPaquet::setUint32(buffer, *(int*)&_y, (pos+=4));
-			KPaquet::setUint32(buffer, *(int*)&_z, (pos+=4));
-			KPaquet::setUint32(buffer, *(int*)&_w, (pos+=4));
+			_x = (float)KPaquet::getUint32(buffer, pos);	pos += 4;
+			_y = (float)KPaquet::getUint32(buffer, pos);	pos += 4;
+			_z = (float)KPaquet::getUint32(buffer, pos);	pos += 4;
+			_w = (float)KPaquet::getUint32(buffer, pos);
 		}
 
-		virtual const Vector4& unserialize(byte* buffer)
-		{
-			int pos = 0;
-
-			_x = (float)KPaquet::getUint32(buffer, (pos+=4));
-			_y = (float)KPaquet::getUint32(buffer, (pos+=4));
-			_z = (float)KPaquet::getUint32(buffer, (pos+=4));
-			_w = (float)KPaquet::getUint32(buffer, (pos+=4));
-
-			return *this;
-		}
-
-		virtual int serializedSize(void)		{ return 4*4; }
+		virtual int serializedSize(void) const		{ return 4*4; }
 
 		/* Properties */
 		float getX(void) const		{ return _x;	}

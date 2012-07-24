@@ -3,9 +3,9 @@
 
 #include "matrix4.h"
 #include "vector4.h"
-#include "serializable.h"
+#include "unserializable.h"
 
-class BoneRotation : implements Serializable<BoneRotation>
+class BoneRotation : public Unserializable
 {
 	public:
 		BoneRotation() :
@@ -23,24 +23,15 @@ class BoneRotation : implements Serializable<BoneRotation>
 			_quaternion(copy.getQuaternion())
 		{}
 
-		/* Serializable */
-		virtual void serialize(byte* buffer)
-		{
-			_matrix.serialize(buffer);
-			buffer += _matrix.serializedSize();
-			_quaternion.serialize(buffer);
-		}
-
-		virtual const BoneRotation& unserialize(byte* buffer)
+		/* Unserializable */
+		virtual void unserialize(byte* buffer)
 		{
 			_matrix.unserialize(buffer);
 			buffer += _matrix.serializedSize();
 			_quaternion.unserialize(buffer);
-
-			return *this;
 		}
 
-		virtual int serializedSize(void)		{ return _matrix.serializedSize() + _quaternion.serializedSize(); }
+		virtual int serializedSize(void) const		{ return _matrix.serializedSize() + _quaternion.serializedSize(); }
 
 		/* Properties */
 		const Matrix4& getMatrix(void) const		{ return _matrix; }

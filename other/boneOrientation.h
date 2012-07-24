@@ -1,11 +1,11 @@
 #ifndef BONEORIENTATION_H
 #define BONEORIENTATION_H
 
-#include "serializable.h"
+#include "unserializable.h"
 #include "boneRotation.h"
 #include "../enums/jointType.h"
 
-class BoneOrientation : implements Serializable<BoneOrientation>
+class BoneOrientation : public Unserializable
 {
 	public:
 		BoneOrientation() :
@@ -27,23 +27,8 @@ class BoneOrientation : implements Serializable<BoneOrientation>
 			_startJoint(copy.getStartJoint())
 		{}
 
-		/* Serializable */
-		virtual void serialize(byte* buffer)
-		{
-			int pos = 0;
-
-			_absoluteRotation.serialize(buffer);
-			pos += _absoluteRotation.serializedSize();
-
-			buffer[pos++] = (byte)_endJoint;
-
-			_hierarchicalRotation.unserialize(buffer + pos);
-			pos += _hierarchicalRotation.serializedSize();
-
-			buffer[pos++] = (byte)_startJoint;
-		}
-
-		virtual const BoneOrientation& unserialize(byte* buffer)
+		/* Unserializable */
+		virtual void unserialize(byte* buffer)
 		{
 			int pos = 0;
 
@@ -56,22 +41,20 @@ class BoneOrientation : implements Serializable<BoneOrientation>
 			pos += _hierarchicalRotation.serializedSize();
 
 			_startJoint = (JointType)(buffer[pos++]);
-
-			return *this;
 		}
 
-		virtual int serializedSize(void)
+		virtual int serializedSize(void) const
 		{
 			return 2 * _absoluteRotation.serializedSize() + 2;
 		}
 
+		/* Properties */
 		const BoneRotation& getAbsoluteRotation(void) const						{ return _absoluteRotation; }
 		void setAbsoluteRotation(BoneRotation& absoluteRotation)				{ _absoluteRotation = absoluteRotation; }
 		JointType getEndJoint(void) const										{ return _endJoint; }
 		const BoneRotation& getHierarchicalRotation(void) const					{ return _hierarchicalRotation; }
 		void setHierarchicalRotation(BoneRotation& hierarchicalRotation)		{ _hierarchicalRotation = hierarchicalRotation; }
 		JointType getStartJoint(void) const										{ return _startJoint; }
-
 
 	protected:
 		BoneRotation _absoluteRotation;

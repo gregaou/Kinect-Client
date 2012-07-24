@@ -1,10 +1,12 @@
 #ifndef COLORIMAGEPOINT_H
 #define COLORIMAGEPOINT_H
 
+#include <math.h>
+
 class ColorImagePoint
 {
 	public:
-		ColorImagePoint(int x = 0, int y = 0):
+		ColorImagePoint(int x = NAN, int y = NAN):
 			_x(x),
 			_y(y)
 		{}

@@ -1,12 +1,15 @@
 #ifndef SKELETONFRAME_H
 #define SKELETONFRAME_H
 
+#include "unserializable.h"
+#include "../network/kPaquet.h"
 #include "../enums/skeletonTrackingMode.h"
 #include "skeleton.h"
 
-class SkeletonFrame
+class SkeletonFrame : public Unserializable
 {
 	public:
+		SkeletonFrame() : _skeletonData(0)  {}
 		SkeletonFrame(float floorClipPlane[4], int frameNumber, int skeletonArrayLength, int timestamp, SkeletonTrackingMode trackingMode, Skeleton* skeletonData) :
 			_frameNumber(frameNumber),
 			_skeletonArrayLength(skeletonArrayLength),
@@ -15,6 +18,44 @@ class SkeletonFrame
 			_skeletonData(skeletonData)
 		{
 			setFloorClipPlane(floorClipPlane);
+		}
+
+		/* Unserializable */
+		virtual void unserialize(byte* buffer)
+		{
+			int pos = 0;
+
+			/*
+			 *	The first byte contains :
+			 *		- 1 bit for the tracking mode
+			 *		- 3 bits for the sensor id
+			 *		- 4 bits for the length of the skeleton array
+			 */
+			byte firstByte = buffer[pos++];
+			_trackingMode = (SkeletonTrackingMode)(firstByte >> 7);
+			_skeletonArrayLength = firstByte & 0xf;
+
+			_frameNumber = KPaquet::getUint32(buffer, pos);				pos += 4;
+			_timestamp = KPaquet::getUint32(buffer, pos);				pos += 4;
+
+			for (int i=0; i<4; i++)
+			{
+				_floorClipPlane[i] = (float)KPaquet::getUint32(buffer, pos);
+				pos += 4;
+			}
+
+			/* Building the skeletons (26 + <boneOrientationsSize> + <jointsSize> bytes/skeleton) */
+			_skeletonData = new Skeleton[_skeletonArrayLength];
+			for (int i=0; i<_skeletonArrayLength; i++)
+			{
+				_skeletonData[i].unserialize(buffer + pos);
+				pos += _skeletonData[i].serializedSize();
+			}
+		}
+
+		virtual int serializedSize(void) const
+		{
+			return 1 + 2*4 + 4*4 + _skeletonArrayLength * _skeletonData[0].serializedSize();
 		}
 
 		/* Properties */

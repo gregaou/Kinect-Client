@@ -25,6 +25,8 @@ class KKinectAudioSourceSoundSourceAngleChangedAction : public KAction
 
 			delete res;
 
+			SoundSourceAngleChangedEventArgs args(angle, confidenceLevel);
+
 			std::list<KinectSensor*>::const_iterator it;
 			for (it = _sensors.begin(); it != _sensors.end(); it++)
 			{
@@ -32,7 +34,6 @@ class KKinectAudioSourceSoundSourceAngleChangedAction : public KAction
 				if (sensor->sensorId() == id)
 				{
 					kEventHandler<SoundSourceAngleChangedEventArgs&> handler = sensor->getAudioSource().soundSourceAngleChangedCb();
-					SoundSourceAngleChangedEventArgs args(angle, confidenceLevel);
 					handler(sensor, args);
 				}
 			}
