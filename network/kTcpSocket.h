@@ -10,8 +10,7 @@
 #include "byte.h"
 
 #if defined (WIN32)
-    #include <winsock2.h>
-    //#include <Ws2tcpip.h>
+	#include <winsock2.h>
 	typedef int socklen_t;
 #elif defined (linux)
 	#include <sys/types.h>

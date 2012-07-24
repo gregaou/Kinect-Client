@@ -24,7 +24,7 @@ class KClient
 		static KClient* client;
 
 	public:
-		static KClient* instance(void);
+		static KClient* instance(std::string host = HOST);
 		static void deleteInstance(void);
 
 		/* Getters */
@@ -42,11 +42,11 @@ class KClient
 		static bool codeOk(ServerCode c);
 
 		static const unsigned int QUERY_MS_TIMEOUT;
+		static const std::string HOST;
 
 	protected:
         static void* listenerRoutine(void* p);
-        static const int PORT;
-		static const std::string HOST;
+		static const int PORT;
 
 		KTcpSocket* _socket;
         pthread_t _serverListener;

@@ -1,6 +1,5 @@
 #include <string.h>
 #include <iostream>
-#include "network/byte.h"
 #include "wave.h"
 
 char firstHeaderBloc[WAVE_FIRST_BLOC_SIZE] =
@@ -29,7 +28,7 @@ char thirdHeaderBloc[WAVE_THIRD_BLOC_SIZE] =
 	0, 0, 0, 0				// Data size (file size - WAVE_HEADER_SIZE)
 };
 
-void writeWaveValue(byte* src, int value, size_t size)
+void writeWaveValue(char* src, int value, size_t size)
 {
 	int masks[4] = {0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000};
 
@@ -44,19 +43,19 @@ void writeWaveHeader(std::ofstream& f, int audioDataSize)
 	f.seekp(0, std::ios_base::beg);
 
 	/* First bloc */
-	writeWaveValue((byte*)&firstHeaderBloc[4], audioDataSize + WAVE_HEADER_SIZE - 8, 4);
+	writeWaveValue((char*)&firstHeaderBloc[4], audioDataSize + WAVE_HEADER_SIZE - 8, 4);
 
 	/* Second bloc */
-	writeWaveValue((byte*)&secondHeaderBloc[4], WAVE_SECOND_BLOC_SIZE - 8, 4);
-	writeWaveValue((byte*)&secondHeaderBloc[8], WAVE_PCM_FORMAT, 2);
-	writeWaveValue((byte*)&secondHeaderBloc[10], KINECT_CHANNELS, 2);
-	writeWaveValue((byte*)&secondHeaderBloc[12], KINECT_FREQUENCY, 4);
-	writeWaveValue((byte*)&secondHeaderBloc[16], KINECT_BYTES_PER_SEC, 4);
-	writeWaveValue((byte*)&secondHeaderBloc[20], KINECT_BYTES_PER_BLOC, 2);
-	writeWaveValue((byte*)&secondHeaderBloc[22], KINECT_BITS_PER_SAMPLE, 2);
+	writeWaveValue((char*)&secondHeaderBloc[4], WAVE_SECOND_BLOC_SIZE - 8, 4);
+	writeWaveValue((char*)&secondHeaderBloc[8], WAVE_PCM_FORMAT, 2);
+	writeWaveValue((char*)&secondHeaderBloc[10], KINECT_CHANNELS, 2);
+	writeWaveValue((char*)&secondHeaderBloc[12], KINECT_FREQUENCY, 4);
+	writeWaveValue((char*)&secondHeaderBloc[16], KINECT_BYTES_PER_SEC, 4);
+	writeWaveValue((char*)&secondHeaderBloc[20], KINECT_BYTES_PER_BLOC, 2);
+	writeWaveValue((char*)&secondHeaderBloc[22], KINECT_BITS_PER_SAMPLE, 2);
 
 	/* Third bloc */
-	writeWaveValue((byte*)&thirdHeaderBloc[4], audioDataSize, 4);
+	writeWaveValue((char*)&thirdHeaderBloc[4], audioDataSize, 4);
 
 	f.write(firstHeaderBloc, WAVE_FIRST_BLOC_SIZE);
 	f.write(secondHeaderBloc, WAVE_SECOND_BLOC_SIZE);

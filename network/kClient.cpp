@@ -4,7 +4,7 @@
 #include "../kExceptions/kConnectionException.h"
 
 const int KClient::PORT = 1337;
-const std::string KClient::HOST = "192.168.3.23";
+const std::string KClient::HOST = "127.0.0.1";
 const unsigned int KClient::QUERY_MS_TIMEOUT = 5000;
 
 KClient* KClient::client = 0;
@@ -46,10 +46,10 @@ KClient::~KClient()
         delete _messagePaquet;
 }
 
-KClient* KClient::instance()
+KClient* KClient::instance(std::string host)
 {
 	if (!client)
-		client = new KClient();
+		client = new KClient(PORT, host);
 
 	return client;
 }

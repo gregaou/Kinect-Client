@@ -4,7 +4,7 @@
 #include <exception>
 #include <string.h>
 
-#include "kinect.h"
+#include "libkinect.h"
 #include "wave.h"
 
 using namespace std;
@@ -14,55 +14,43 @@ bool streamAudio = true;
 long int audioDataSize = 0;
 const char* name;
 
-void audioCallback(KObject* sender, AudioDataReadyEventArgs& args)
+void kinectProcess(void);
+void audioCallback(KObject* sender, AudioDataReadyEventArgs& args);
+void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args);
+
+int main(int argc, char* argv[])
 {
-	if (!streamAudio)
-		return;
+	int r = EXIT_SUCCESS;
 
-	AudioData& audio = args.getAudioData();
+	name = (argc < 2 ? "unknown" : argv[1]);
 
-	int size = audio.getLength();
-	byte* buffer = new byte[size];
-	audio.CopyPixelDataTo(buffer);
-	f.write((const char*)buffer, size);
+	ostringstream cmd;
+	cmd << "mkdir " << name;
+	system(cmd.str().c_str());
 
-	delete buffer;
+	ostringstream filename;
+	filename << name << "/" << name << ".wav";
+	f.open(filename.str().c_str(), ios::out);
 
-	audioDataSize += size;
-}
+	libKinect_init("192.168.3.23");
 
-void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
-{
-	ColorImageFrame frame = args.openColorImageFrame();
-	static int frameCount = 0;
-
-	frameCount++;
-	if (frameCount < 150)
-		return;
-	frameCount = 0;
-
-	ostringstream fileName;
-	fileName << name << "/" << name << frame.getFrameNumber() << ".jpg";
-	ofstream f(fileName.str().c_str(), ios::out);
-
-	if (!f)
+	try
 	{
-		cout << "unable to open " << fileName << endl;
-		return;
+		kinectProcess();
+	}
+	catch (exception& e)
+	{
+		cout << e.what() << endl;
+		r =  EXIT_FAILURE;
 	}
 
-	byte* img = new byte[frame.getPixelDataLength()];
-	frame.CopyPixelDataTo(img);
-
-	f.write((const char*)img, (streamsize)frame.getPixelDataLength());
 	f.close();
+	libKinect_quit();
 
-	delete img;
-
-	cout << "image saved to " << fileName.str().c_str() << endl;
+	return r;
 }
 
-void kinectProcess(void)
+void kinectProcess()
 {
 	KinectSensorCollection sensors = *(KinectSensor::KinectSensors());
 	KinectSensor sensor;
@@ -84,14 +72,14 @@ void kinectProcess(void)
 	if (i == nsensors)
 		throw runtime_error("No Kinect found");
 
-	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(videoCallback));
-	sensor.setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&>(audioCallback));
-
 	KinectAudioSource& source = sensor.getAudioSource();
 	source.setEchoCancellationMode((EchoCancellationMode)None);
 	source.setNoiseSuppression(true);
 
 	f.seekp(WAVE_HEADER_SIZE, ios_base::beg);
+
+	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(videoCallback));
+	sensor.setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&>(audioCallback));
 
 	std::cout << "Capturing audio and video. Press <ENTER> to stop." << std::endl;
 
@@ -103,37 +91,51 @@ void kinectProcess(void)
 	sensor.stop();
 }
 
-int main(int argc, char* argv[])
+void audioCallback(KObject* sender, AudioDataReadyEventArgs& args)
 {
-	int r = EXIT_SUCCESS;
+	if (!streamAudio)
+		return;
 
-	name = (argc < 2 ? "unknown" : argv[1]);
+	AudioData& audio = args.getAudioData();
 
-	ostringstream cmd;
-	cmd << "mkdir " << name;
-	system(cmd.str().c_str());
+	int size = audio.getLength();
+	byte* buffer = new byte[size];
 
-	ostringstream filename;
-	filename << name << "/" << name << ".wav";
-	f.open(filename.str().c_str(), ios::out);
+	audio.CopyPixelDataTo(buffer);
+	f.write((const char*)buffer, size);
+	delete buffer;
 
-	try
+	audioDataSize += size;
+}
+
+void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
+{
+	ColorImageFrame frame = args.openColorImageFrame();
+	static int lastFrame = 0;
+	int currentFrame = frame.getFrameNumber();
+
+	if (currentFrame - lastFrame < 5*30)
+		return;
+	lastFrame = currentFrame;
+
+	ostringstream fileNameStream;
+	fileNameStream << name << "/" << name << frame.getFrameNumber() << ".jpg";
+	const char* fileName = fileNameStream.str().c_str();
+	ofstream f(fileName, ios::out);
+
+	if (!f)
 	{
-		kinectProcess();
-	}
-	catch (exception& e)
-	{
-		cout << e.what() << endl;
-		r =  EXIT_FAILURE;
+		cout << "unable to open " << fileName << endl;
+		return;
 	}
 
+	byte* img = new byte[frame.getPixelDataLength()];
+
+	frame.CopyPixelDataTo(img);
+	f.write((const char*)img, (streamsize)frame.getPixelDataLength());
 	f.close();
+	delete img;
 
-	/* Closing */
-	KClient::deleteInstance();
-	KinectSensorCollection::deleteInstance();
-	KTcpSocket::end();
-
-	return r;
+	cout << "image saved to " << fileName << endl;
 }
 

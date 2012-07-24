@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     other/depthImageFrameReadyEventArgs.cpp \
     other/colorImageFrameReadyEventArgs.cpp \
     other/colorImageFrame.cpp \
-    wave.cpp
+    wave.cpp \
+    libkinect.cpp
 
 HEADERS += \
     network/kVerboseTcpSocket.h \
@@ -90,7 +91,7 @@ HEADERS += \
     other/transformSmoothParameters.h \
     other/boneRotation.h \
     other/boneOrientation.h \
-    kinect.h \
     kActions/kKinectSensorColorFrameReadyAction.h \
-    other/unserializable.h
+    other/unserializable.h \
+    libkinect.h
 

@@ -7,4 +7,7 @@
 #include "kObjects/kObjects.h"
 #include "other/other.h"
 
+void libKinect_init(std::string host);
+void libKinect_quit(void);
+
 #endif

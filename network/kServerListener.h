@@ -1,6 +1,7 @@
 #ifndef KSERVERLISTENER_H
 #define KSERVERLISTENER_H
 
+#include <pthread.h>
 #include "kTcpSocket.h"
 #include "kServerPaquet.h"
 
