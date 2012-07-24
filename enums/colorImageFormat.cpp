@@ -31,3 +31,19 @@ int getColorImageHeight(ColorImageFormat format)
 			throw std::runtime_error("Unknown depth image format");
 	}
 }
+
+int getColorImageFPS(ColorImageFormat format)
+{
+    switch (format)
+    {
+        case RgbResolution640x480Fps30:
+            return 30;
+        case YuvResolution640x480Fps15:
+        case RawYuvResolution640x480Fps15:
+            return 15;
+        case RgbResolution1280x960Fps12:
+            return 12;
+        default:
+			throw std::runtime_error("Unknown depth image format");
+    }
+}

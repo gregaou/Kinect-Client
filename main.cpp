@@ -119,7 +119,7 @@ void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
 	static int lastFrame = 0;
 	int currentFrame = frame.getFrameNumber();
 
-	if (currentFrame - lastFrame < 5*30)
+	if (currentFrame - lastFrame < 5*getColorImageFPS(frame.getFormat()))
 		return;
 	lastFrame = currentFrame;
 

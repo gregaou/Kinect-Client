@@ -15,5 +15,6 @@ typedef enum ColorImageFormat
 
 int getColorImageWidth(ColorImageFormat format);
 int getColorImageHeight(ColorImageFormat format);
+int getColorImageFPS(ColorImageFormat format);
 
 #endif
