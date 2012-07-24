@@ -141,7 +141,10 @@ bool KClient::sendQuery(const std::string& query, unsigned int ms_timeout)
 
 	/* Passive waiting for server paquet */
 	struct timespec t = {time(NULL) + ms_timeout/1000, (ms_timeout%1000) * 1000000};
+
+	pthread_mutex_lock(&_mutex);
 	int r = pthread_cond_timedwait(&_cond, &_mutex, &t);
+	pthread_mutex_unlock(&_mutex);
 
 	if (r == ETIMEDOUT)
 		throw std::runtime_error("server timeout");
