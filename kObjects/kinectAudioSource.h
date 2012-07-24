@@ -53,9 +53,7 @@ class KinectAudioSource : public KObject
 		double getSoundSourceAngleConfidence(void) const						{ return getQuery<double>(__func__); }
 
 		/* Methods */
-//		Stream start(void) const												{};
-//		Stream start(int timespan) const										{};
-		void stop(void) const													{ processQuery(buildQuery(__func__)); }
+		void enable(void) const													{}
 
 		/* Events */
 		kEventHandler<BeamAngleChangedEventArgs&> beamAngleChangedCb(void) const				{ return _beamAngleChangedCb; }

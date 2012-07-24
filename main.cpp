@@ -56,6 +56,7 @@ void kinectProcess()
 	KinectSensor sensor;
 	int i, nsensors = sensors.size();
 
+	/* Looking for a connected sensor */
 	for (i=0; i<nsensors; i++)
 	{
 		KinectStatus status = sensors[i].getStatus();
@@ -64,7 +65,6 @@ void kinectProcess()
 		{
 			sensor = sensors[i];
 			sensor.start();
-			sensor.getColorStream().enable();
 			break;
 		}
 	}
@@ -72,17 +72,22 @@ void kinectProcess()
 	if (i == nsensors)
 		throw runtime_error("No Kinect found");
 
-	KinectAudioSource& source = sensor.getAudioSource();
-	source.setEchoCancellationMode((EchoCancellationMode)None);
-	source.setNoiseSuppression(true);
+	/* Setting video */
+	sensor.getColorStream().enable();
+	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(videoCallback));
 
+	/* Setting audio */
 	f.seekp(WAVE_HEADER_SIZE, ios_base::beg);
 
-	sensor.setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&>(videoCallback));
+	KinectAudioSource& audioSource = sensor.getAudioSource();
+	audioSource.enable();
+	audioSource.setEchoCancellationMode((EchoCancellationMode)None);
+	audioSource.setNoiseSuppression(true);
 	sensor.setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&>(audioCallback));
 
 	std::cout << "Capturing audio and video. Press <ENTER> to stop." << std::endl;
 
+	/* Waiting for the end of the program */
 	getchar();
 	streamAudio = false;
 
@@ -121,9 +126,9 @@ void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
 	ostringstream fileNameStream;
 	fileNameStream << name << "/" << name << frame.getFrameNumber() << ".jpg";
 	const char* fileName = fileNameStream.str().c_str();
-	ofstream f(fileName, ios::out);
+	ofstream file(fileName, ios::out);
 
-	if (!f)
+	if (!file)
 	{
 		cout << "unable to open " << fileName << endl;
 		return;
@@ -132,8 +137,8 @@ void videoCallback(KObject* sender, ColorImageFrameReadyEventArgs& args)
 	byte* img = new byte[frame.getPixelDataLength()];
 
 	frame.CopyPixelDataTo(img);
-	f.write((const char*)img, (streamsize)frame.getPixelDataLength());
-	f.close();
+	file.write((const char*)img, (streamsize)frame.getPixelDataLength());
+	file.close();
 	delete img;
 
 	cout << "image saved to " << fileName << endl;
