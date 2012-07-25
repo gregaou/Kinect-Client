@@ -1,3 +1,4 @@
+#include <time.h>
 #include "kClient.h"
 #include "kClientPaquet.h"
 #include "../kActions/kAction.h"
@@ -15,7 +16,8 @@ KClient::KClient(int port, std::string host) :
 	_messagePaquet(0),
 	_lastCode((ServerCode)0),
 	_lastMessage(),
-	_sensors(0)
+	_sensors(0),
+	_logs("logs.txt", std::ios::out)
 {
 	try
     {
@@ -44,6 +46,7 @@ KClient::~KClient()
         delete _socket;
     if (_messagePaquet)
         delete _messagePaquet;
+    _logs.close();
 }
 
 KClient* KClient::instance(std::string host)
@@ -121,6 +124,19 @@ KServerListener* KClient::listener(void) const
 const std::list<KinectSensor*>& KClient::sensors(void) const
 {
 	return _sensors;
+}
+
+void KClient::addLog(std::string log)
+{
+    struct tm* t;
+	time_t now;
+
+	time(&now);
+	t = localtime(&now);
+
+    _logs << "[" << t->tm_mday << "/" << t->tm_mon+1 << "/" << t->tm_year+1900 << " ";
+    _logs << t->tm_hour << ":" << t->tm_min << ":" << t->tm_sec << "]\t";
+    _logs << log.c_str() << std::endl;
 }
 
 void KClient::addSensor(KinectSensor* sensor)

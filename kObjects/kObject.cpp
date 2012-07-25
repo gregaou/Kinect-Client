@@ -31,7 +31,7 @@ std::string* KObject::buildQuery(const std::string& method, const std::string& a
 
 void KObject::processQuery(std::string* query, int timeout) const
 {
-	std::cout << *query << std::endl;
+	_client->addLog(*query);
 
 	if (!_client->sendQuery(*query, timeout))
 		throw KQueryErrorException(_client->lastCode(), _client->lastMessage());
