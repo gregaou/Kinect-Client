@@ -1,6 +1,14 @@
 #ifndef JOINTTRACKINGSTATE_H
 #define JOINTTRACKINGSTATE_H
 
+/**
+ * \file jointTrackingState.h
+ * \brief C++ version of C# enum JointTrackingState
+ * \author Gaëtan Champarnaud
+ *
+ * Indicates the state of a joint in a tracked skeleton. Depending on the data available in the depth stream, the skeleton stream may produce joints that are fully tracked, inferred, or not tracked.
+ */
+
 #ifndef NotTracked
 #define NotTracked 0
 #endif
@@ -9,7 +17,7 @@
 #define Tracked 2
 #endif
 
-typedef enum JointTrackingState
+typedef enum
 {
 	Inferred = 1
 } JointTrackingState;

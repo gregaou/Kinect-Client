@@ -1,6 +1,12 @@
 #ifndef ENUMS_H
 #define ENUMS_H
 
+/**
+ * \file enums.h
+ * \brief header that includes all the enums
+ * \author Gaëtan Champarnaud
+ */
+
 #include "kinectStatus.h"
 #include "colorImageFormat.h"
 #include "depthImageFormat.h"

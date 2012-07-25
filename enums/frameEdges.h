@@ -1,6 +1,16 @@
 #ifndef FRAMEEDGES_H
 #define FRAMEEDGES_H
 
+/**
+ * \file frameEdges.h
+ * \brief C++ version of C# enum FrameEdges
+ * \author Gaëtan Champarnaud
+ *
+ * Specifies how much of the user's body is visible to the Kinect.
+ * N.B : this values are used as flags, so they have been defined with #define instead of a classical enumeration.
+ * Due to conflicts on Windows, the defines are uppercase.
+ */
+
 typedef int FrameEdges;
 
 #ifndef None

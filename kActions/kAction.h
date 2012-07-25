@@ -1,6 +1,12 @@
 #ifndef KACTION_H
 #define KACTION_H
 
+/**
+ * \file beamAngleMode.h
+ * \brief C++ version of BeamAngleMode enum in C#
+ * \author Gaëtan Champarnaud
+ */
+
 #include "../network/network.h"
 
 class KAction

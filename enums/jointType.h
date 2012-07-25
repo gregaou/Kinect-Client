@@ -1,6 +1,14 @@
 #ifndef JOINTTYPE_H
 #define JOINTTYPE_H
 
+/**
+ * \file jointType.h
+ * \brief C++ version of C# enum JointType
+ * \author Gaëtan Champarnaud
+ *
+ * The joint types that make up a skeleton.
+ */
+
 typedef enum
 {
 	HipCenter,

@@ -5,6 +5,8 @@
  * \file depthRange.h
  * \brief C++ version of C# enum DepthRange
  * \author Gaëtan Champarnaud
+ *
+ * Options for the range of the depth data, which determine how close a person can be to the Kinect and still be trackable.
  */
 
 #ifndef Default
