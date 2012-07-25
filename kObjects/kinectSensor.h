@@ -68,7 +68,7 @@ class KinectSensor : public KObject
 		int getMinElevationAngle(void) const			{ return getQuery<int>(__func__); }
 		/** \brief Gets the skeleton stream for the Kinect.
 		 *  \return The SkeletonStream of the KinectSensor */
-		SkeletonStream& getSkeletonStream(void) const	{ return _skeletonStream; }
+		SkeletonStream& getSkeletonStream(void) 		{ return _skeletonStream; }
 		/** \brief Gets the Kinect status.
 		 *  \return The Status of the KinectSensor */
 		KinectStatus getStatus(void) const				{ return (KinectStatus)getQuery<int>(__func__); }

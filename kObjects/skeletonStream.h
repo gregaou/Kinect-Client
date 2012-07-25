@@ -27,13 +27,21 @@ class SkeletonStream : public KObject
 		bool getAppChoosesSkeletons(void) const								{ return (bool)getQuery<int>(__func__); }
 		/** \brief Sets or sets a value indicating whether the application or the runtime chooses which skeletons to track.
 		 *  \param appChoosesSkeletons The AppChoosesSkeletons of the SkeletonStream */
-		void setAppChoosesSkeletons(bool appChoosesSkeletons)				{ setQuery<int>(__func__, (int)appChoosesSkeletons); }
+		void setAppChoosesSkeletons(bool appChoosesSkeletons)				
+		{
+			int intValue = (int)appChoosesSkeletons;
+			setQuery<int>(__func__, intValue); 
+		}
 		/** \brief Gets a value indicating whether skeleton tracking is enabled when the depth range is set to near mode.
 		 *  \return The EnableTrackingInNearRange of the SkeletonStream */
 		bool getEnableTrackingInNearRange(void) const						{ return (bool)getQuery<int>(__func__); }
 		/** \brief Sets a value indicating whether skeleton tracking is enabled when the depth range is set to near mode.
 		 *  \param enableTrackingInNearRange The EnableTrackingInNearRange of the SkeletonStream */
-		void setEnableTrackingInNearRange(bool enableTrackingInNearRange)	{ setQuery<int>(__func__, (int)enableTrackingInNearRange); }
+		void setEnableTrackingInNearRange(bool enableTrackingInNearRange)	
+		{ 
+			int intValue = (int)enableTrackingInNearRange;
+			setQuery<int>(__func__, intValue); 
+		}
 		/** \brief Gets the maximum number of skeletons that can be tracked.
 		 *  \return The FrameSkeletonArrayLength of the SkeletonStream */
 		int getFrameSkeletonArrayLength(void) const							{ return getQuery<int>(__func__); }
@@ -72,11 +80,15 @@ class SkeletonStream : public KObject
 		SkeletonTrackingMode getTrackingMode(void) const					{ return (SkeletonTrackingMode)getQuery<int>(__func__);	}
 		/** \brief Sets the tracking mode which detemines how many joints to track.
 		 *  \param trackingMode The TrackingMode of the SkeletonStream */
-		void setTrackingMode(SkeletonTrackingMode trackingMode)(void) const	{ setQuery<int>(__func__, (int)trackingMode); }
+		void setTrackingMode(SkeletonTrackingMode trackingMode) const	
+		{ 
+			int intValue = (int)trackingMode;
+			setQuery<int>(__func__, intValue); 
+		}
 
 		/* Methods */
 		/** \brief Enables the Kinect to stream out skeleton data. */
-		void enable()	{ processQuery(buildQuery(__func__, toString<int>((int)format))); }
+		void enable()	{ processQuery(buildQuery(__func__)); }
 };
 
 #endif

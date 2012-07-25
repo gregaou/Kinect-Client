@@ -51,7 +51,11 @@ class DepthImageStream : public KObject
 		DepthRange getRange(void) const							{ return (DepthRange)getQuery<int>(__func__); }
 		/** \brief Ssets the depth data range, which determines how close or far away from the Kinect you can be and still be tracked.
 		 *  \param range The range of the DepthImageStream */
-		void setRange(DepthRange range)							{ setQuery<int>((int)range); }
+		void setRange(DepthRange range)							
+		{ 
+			int intValue = (int)range;
+			setQuery<int>(__func__, intValue); 
+		}
 		/** \brief Gets the depth value (in millimeters) that indictates a person is too for from the Kinect to track.
 		 *  \return The tooFarDepth of the DepthImageStream */
 		int getTooFarDepth(void) const							{ return getQuery<int>(__func__); }

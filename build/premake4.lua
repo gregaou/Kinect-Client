@@ -13,4 +13,4 @@ solution "kinect"
 		--kind "StaticLib"
 		kind "SharedLib"
 		language "C++"
-		excludes { "../main.cpp", "../wave.cpp", "../wave.h" }
+		--excludes { "../main.cpp", "../wave.cpp", "../wave.h" }

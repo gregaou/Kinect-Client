@@ -1,4 +1,4 @@
 .gitignore
 *.pro.user
 Kinect-Client
-
+.DS_Store

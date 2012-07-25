@@ -99,7 +99,7 @@ class KObject
 		}
 
 		template<typename T>
-		void setQuery(const std::string& method, T& v)
+		void setQuery(const std::string& method, T& v) const
 		{
 			processQuery(buildQuery(method, toString<T>(v)));
 		}
