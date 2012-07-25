@@ -6,6 +6,7 @@
 #include <vector>
 #include <list>
 #include <pthread.h>
+#include <fstream>
 #include "byte.h"
 #include "codes.h"
 #include "kTcpSocket.h"
@@ -36,6 +37,7 @@ class KClient
 		const std::list<KinectSensor*>& sensors(void) const;
 
 		/* Methods */
+		void addLog(std::string log);
 		void addSensor(KinectSensor* sensor);
 		void removeSensor(KinectSensor* sensor);
 		bool sendQuery(const std::string& query, unsigned int ms_timeout = QUERY_MS_TIMEOUT);
@@ -59,6 +61,7 @@ class KClient
 		ServerCode _lastCode;
 		std::string _lastMessage;
 		std::list<KinectSensor*> _sensors;
+		std::ofstream _logs;
 };
 
 extern KClient* client;
