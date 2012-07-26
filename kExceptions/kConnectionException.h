@@ -15,8 +15,9 @@ class KConnectionException : public std::runtime_error
 {
 	public:
 		/**
-		 * \brief Constructor
 		 * \param msg The message that will be display on the call of what()
+		 *
+		 * For internal use \e only
 		 */
 		KConnectionException(std::string msg) :
 			std::runtime_error(msg)

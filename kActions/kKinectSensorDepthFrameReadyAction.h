@@ -47,7 +47,7 @@ class KKinectSensorDepthFrameReadyAction: public KAction
 				KinectSensor* sensor = *it;
 				if (sensor->sensorId() == id)
 				{
-					kEventHandler<DepthImageFrameReadyEventArgs&> handler = sensor->depthFrameReadyCb();
+					KEventHandler<DepthImageFrameReadyEventArgs&> handler = sensor->depthFrameReadyCb();
 					handler(sensor, args);
 				}
 			}

@@ -15,10 +15,7 @@
 class ColorImageStream : public KObject
 {
 	public:
-		/**
-		 * \brief Constructor
-		 * \param id The sensor id (index in the sensors collection)
-		 */
+		/** \param id The sensor id (index in the sensors collection) */
 		ColorImageStream(int id = -1) : KObject("ColorImageStream", id)
 		{}
 

@@ -33,7 +33,7 @@ class KKinectAudioSourceBeamAngleChangedAction : public KAction
 				KinectSensor* sensor = *it;
 				if (sensor->sensorId() == id)
 				{
-					kEventHandler<BeamAngleChangedEventArgs&> handler = sensor->getAudioSource().beamAngleChangedCb();
+					KEventHandler<BeamAngleChangedEventArgs&> handler = sensor->getAudioSource().beamAngleChangedCb();
 					handler(sensor, args);
 				}
 			}

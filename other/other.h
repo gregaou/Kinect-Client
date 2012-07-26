@@ -1,10 +1,16 @@
 #ifndef OTHER_H
 #define OTHER_H
 
+/**
+ * \file other.h
+ * \brief header that includes all the 'other' headers
+ * \author Gaëtan Champarnaud
+ */
+
 #include "audioData.h"
 #include "audioDataReadyEventArgs.h"
 #include "beamAngleChangedEventArgs.h"
-#include "colorImageframe.h"
+#include "colorImageFrame.h"
 #include "colorImageFrameReadyEventArgs.h"
 #include "colorImagePoint.h"
 #include "depthImageFrameReadyEventArgs.h"
@@ -12,7 +18,6 @@
 #include "imageFrame.h"
 #include "joint.h"
 #include "kEventHandler.h"
-#include "kinectSensorCollection.h"
 #include "matrix4.h"
 #include "skeleton.h"
 #include "skeletonFrame.h"

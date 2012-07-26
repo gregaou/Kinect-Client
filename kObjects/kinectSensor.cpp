@@ -209,48 +209,48 @@ DepthImagePoint KinectSensor::MapSkeletonPointToDepth
 	return DepthImagePoint(depth, playerIndex, x, y);
 }
 
-kEventHandler<ColorImageFrameReadyEventArgs&> KinectSensor::colorFrameReadyCb() const
+KEventHandler<ColorImageFrameReadyEventArgs&> KinectSensor::colorFrameReadyCb() const
 {
 	return _colorFrameReadyCb;
 }
 
-void KinectSensor::setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&> cb)
+void KinectSensor::setColorFrameReadyCb(KEventHandler<ColorImageFrameReadyEventArgs&> cb)
 {
 	if (!_colorFrameReadyCb)
 		processQuery(buildQuery("ColorFrameReady"));
 	_colorFrameReadyCb = cb;
 }
 
-kEventHandler<DepthImageFrameReadyEventArgs&> KinectSensor::depthFrameReadyCb() const
+KEventHandler<DepthImageFrameReadyEventArgs&> KinectSensor::depthFrameReadyCb() const
 {
 	return _depthFrameReadyCb;
 }
 
-void KinectSensor::setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&> cb)
+void KinectSensor::setDepthFrameReadyCb(KEventHandler<DepthImageFrameReadyEventArgs&> cb)
 {
 	if (!_depthFrameReadyCb)
 		processQuery(buildQuery("DepthFrameReady"));
 	_depthFrameReadyCb = cb;
 }
 
-kEventHandler<SkeletonFrameReadyEventArgs&> KinectSensor::skeletonFrameReadyCb(void) const
+KEventHandler<SkeletonFrameReadyEventArgs&> KinectSensor::skeletonFrameReadyCb(void) const
 {
 	return _skeletonFrameReadyCb;
 }
 
-void KinectSensor::setSkeletonFrameReadyCb(kEventHandler<SkeletonFrameReadyEventArgs&> cb)
+void KinectSensor::setSkeletonFrameReadyCb(KEventHandler<SkeletonFrameReadyEventArgs&> cb)
 {
 	if (!_skeletonFrameReadyCb)
 		processQuery(buildQuery("SkeletonFrameReady"));
 	_skeletonFrameReadyCb = cb;
 }
 
-kEventHandler<AudioDataReadyEventArgs&> KinectSensor::audioDataReadyCb(void) const
+KEventHandler<AudioDataReadyEventArgs&> KinectSensor::audioDataReadyCb(void) const
 {
 	return _audioDataReadyCb;
 }
 
-void KinectSensor::setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&> cb)
+void KinectSensor::setAudioDataReadyCb(KEventHandler<AudioDataReadyEventArgs&> cb)
 {
 	if (!_audioDataReadyCb)
 		processQuery(buildQuery("AudioDataReady"));

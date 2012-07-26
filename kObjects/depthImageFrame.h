@@ -23,7 +23,6 @@ class DepthImageFrame : public ImageFrame, public KObject
 {
 	public:
 		/**
-		 * \brief Constructor
 		 * \param bytesPerPixel The size of a pixel of data (in bytes per pixel)
 		 * \param pixelDataLength The length of the pixel data buffer
 		 * \param pixelData Buffer containing the pixel data
@@ -46,16 +45,16 @@ class DepthImageFrame : public ImageFrame, public KObject
 		{}
 
 		/* Fields */
-		/** \brief Getter for the 'PlayerIndexBitmask' field
-		 *  \return The playerIndexBitmask of the DepthImageFrame */
+		/** \brief Gets a bitmask for extracting the player index from the depth data.
+		 *  \return The PlayerIndexBitmask of the DepthImageFrame */
 		int getPlayerIndexBitmask(void) const		{ return _playerIndexBitmask; }
-		/** \brief Getter for the 'PlayerIndexBitmaskWidth' field
-		 *  \return The playerIndexBitmaskWidth of the DepthImageFrame */
+		/** \brief Gets the width, or number of bits, in the player index bitmask.
+		 *  \return The PlayerIndexBitmaskWidth of the DepthImageFrame */
 		int getPlayerIndexBitmaskWidth(void) const	{ return _playerIndexBitmaskWidth; }
 
 		/* Properties */
-		/** \brief Getter for the 'Format' property
-		 *  \return The format of the DepthImageFrame */
+		/** \brief Gets the format for the depth data, which includes the data type, the resolution, and the frame rate.
+		 *  \return The Format of the DepthImageFrame */
 		DepthImageFormat getFormat(void) const		{ return _format; }
 
 		/* Methods */

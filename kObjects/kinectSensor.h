@@ -15,7 +15,7 @@
 #include "colorImageStream.h"
 #include "depthImageStream.h"
 #include "skeletonStream.h"
-#include "../other/kinectSensorCollection.h"
+#include "kinectSensorCollection.h"
 #include "../other/colorImagePoint.h"
 #include "../other/skeletonPoint.h"
 #include "../other/depthImagePoint.h"
@@ -29,8 +29,7 @@ class KinectSensorCollection;
 class KinectSensor : public KObject
 {
 	public:
-		/** \brief Constructor
-		 *  \param id The sensor id (index in the sensors collection) */
+		/** \param id The sensor id (index in the sensors collection) */
 		KinectSensor(int id = -1);
 		/** \brief Destructor */
 		~KinectSensor(void);
@@ -171,35 +170,35 @@ class KinectSensor : public KObject
 		void stop(void)									{ processQuery(buildQuery(__func__)); }
 
 		/* Events */
-		kEventHandler<ColorImageFrameReadyEventArgs&> colorFrameReadyCb(void) const;
+		KEventHandler<ColorImageFrameReadyEventArgs&> colorFrameReadyCb(void) const;
 		/** \brief Sets the callback that is called when a new color frame for the ColorStream is available.
 		 *  \param cb The function to be called */
-		void setColorFrameReadyCb(kEventHandler<ColorImageFrameReadyEventArgs&> cb);
+		void setColorFrameReadyCb(KEventHandler<ColorImageFrameReadyEventArgs&> cb);
 
-		kEventHandler<DepthImageFrameReadyEventArgs&> depthFrameReadyCb() const;
+		KEventHandler<DepthImageFrameReadyEventArgs&> depthFrameReadyCb() const;
 		/** \brief Sets the callback that is called when a new depth frame for the DepthStream is available.
 		 *  \param cb The function to be called */
-		void setDepthFrameReadyCb(kEventHandler<DepthImageFrameReadyEventArgs&> cb);
+		void setDepthFrameReadyCb(KEventHandler<DepthImageFrameReadyEventArgs&> cb);
 
-		kEventHandler<SkeletonFrameReadyEventArgs&> skeletonFrameReadyCb(void) const;
+		KEventHandler<SkeletonFrameReadyEventArgs&> skeletonFrameReadyCb(void) const;
 		/** \brief Sets the callback that is called when a new skeleton frame for the SkeletonStream is available.
 		 *  \param cb The function to be called */
-		void setSkeletonFrameReadyCb(kEventHandler<SkeletonFrameReadyEventArgs&> cb);
+		void setSkeletonFrameReadyCb(KEventHandler<SkeletonFrameReadyEventArgs&> cb);
 
-		kEventHandler<AudioDataReadyEventArgs&> audioDataReadyCb(void) const;
+		KEventHandler<AudioDataReadyEventArgs&> audioDataReadyCb(void) const;
 		/** \brief Sets the callback that is called when some new audio data for the AudioSource are available.
 		 *  \param cb The function to be called */
-		void setAudioDataReadyCb(kEventHandler<AudioDataReadyEventArgs&> cb);
+		void setAudioDataReadyCb(KEventHandler<AudioDataReadyEventArgs&> cb);
 
 	protected:
 		KinectAudioSource _audioSource;
 		ColorImageStream _colorStream;
 		DepthImageStream _depthStream;
 		SkeletonStream _skeletonStream;
-		kEventHandler<ColorImageFrameReadyEventArgs&> _colorFrameReadyCb;
-		kEventHandler<DepthImageFrameReadyEventArgs&> _depthFrameReadyCb;
-		kEventHandler<SkeletonFrameReadyEventArgs&> _skeletonFrameReadyCb;
-		kEventHandler<AudioDataReadyEventArgs&> _audioDataReadyCb;
+		KEventHandler<ColorImageFrameReadyEventArgs&> _colorFrameReadyCb;
+		KEventHandler<DepthImageFrameReadyEventArgs&> _depthFrameReadyCb;
+		KEventHandler<SkeletonFrameReadyEventArgs&> _skeletonFrameReadyCb;
+		KEventHandler<AudioDataReadyEventArgs&> _audioDataReadyCb;
 };
 
 #endif

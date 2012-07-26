@@ -13,10 +13,15 @@
 #define None		0
 #endif
 
+/**
+ * \enum EchoCancellationMode
+ *
+ * Due to conflicts, the value 'None' is not in the enumeration but is still defined
+ */
 typedef enum
 {
-	CancellationOnly = 1,
-	CancellationAndSuppression
+	CancellationOnly = 1,		/*!< */
+	CancellationAndSuppression	/*!< */
 } EchoCancellationMode;
 
 #endif

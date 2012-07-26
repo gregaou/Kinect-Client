@@ -29,7 +29,7 @@ class KKinectSensorAudioDataReadyAction : public KAction
 				KinectSensor* sensor = *it;
 				if (sensor->sensorId() == id)
 				{
-					kEventHandler<AudioDataReadyEventArgs&> handler = sensor->audioDataReadyCb();
+					KEventHandler<AudioDataReadyEventArgs&> handler = sensor->audioDataReadyCb();
 					handler(sensor, args);
 				}
 			}

@@ -1,8 +1,8 @@
 #include "libkinect.h"
 
-void libKinect_init(std::string host)
+void libKinect_init(std::string host, int port)
 {
-	KClient::instance(host);
+	KClient::instance(host, port);
 }
 
 void libKinect_quit()

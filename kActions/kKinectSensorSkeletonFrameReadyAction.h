@@ -28,7 +28,7 @@ class KKinectSensorSkeletonFrameReadyAction: public KAction
 				KinectSensor* sensor = *it;
 				if (sensor->sensorId() == id)
 				{
-					kEventHandler<SkeletonFrameReadyEventArgs&> handler = sensor->skeletonFrameReadyCb();
+					KEventHandler<SkeletonFrameReadyEventArgs&> handler = sensor->skeletonFrameReadyCb();
 					handler(sensor, args);
 				}
 			}

@@ -13,9 +13,14 @@
 #define Default 0
 #endif
 
+/**
+ * \enum SkeletonTrackingMode
+ *
+ * Due to conflicts, the value 'Default' is not in the enumeration but is still defined
+ */
 typedef enum
 {
-	Seated = 1
+	Seated = 1	/*!< */
 } SkeletonTrackingMode;
 
 #endif

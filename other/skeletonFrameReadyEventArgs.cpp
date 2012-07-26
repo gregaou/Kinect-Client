@@ -1,18 +1,11 @@
 #include "skeletonFrameReadyEventArgs.h"
 
 SkeletonFrameReadyEventArgs::SkeletonFrameReadyEventArgs(float floorClipPlane[4], int frameNumber, int skeletonArrayLength, int timestamp, SkeletonTrackingMode trackingMode, Skeleton* skeletonData) :
-	_frame(0)
+	_frame(floorClipPlane, frameNumber, skeletonArrayLength, timestamp, trackingMode, skeletonData)
 {
-	_frame = new SkeletonFrame(floorClipPlane, frameNumber, skeletonArrayLength, timestamp, trackingMode, skeletonData);
 }
 
-SkeletonFrameReadyEventArgs::~SkeletonFrameReadyEventArgs()
+const SkeletonFrame& SkeletonFrameReadyEventArgs::openSkeletonFrame(void) const
 {
-	if (_frame)
-		delete _frame;
-}
-
-SkeletonFrame& SkeletonFrameReadyEventArgs::openSkeletonFrame(void) const
-{
-	return *_frame;
+	return _frame;
 }

@@ -42,7 +42,7 @@ class KKinectSensorColorFrameReadyAction: public KAction
 				KinectSensor* sensor = *it;
 				if (sensor->sensorId() == id)
 				{
-					kEventHandler<ColorImageFrameReadyEventArgs&> handler = sensor->colorFrameReadyCb();
+					KEventHandler<ColorImageFrameReadyEventArgs&> handler = sensor->colorFrameReadyCb();
 					handler(sensor, args);
 				}
 			}

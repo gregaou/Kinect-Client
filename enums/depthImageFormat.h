@@ -15,11 +15,16 @@
 #define Undefined	0
 #endif
 
+/**
+ * \enum DepthImageFormat
+ *
+ * Due to conflicts, the value 'Undefined' is not in the enumeration but is still defined
+ */
 typedef enum
 {
-	Resolution640x480Fps30 = 1,
-	Resolution320x240Fps30,
-	Resolution80x60Fps30
+	Resolution640x480Fps30 = 1,	/*!< */
+	Resolution320x240Fps30,		/*!< */
+	Resolution80x60Fps30		/*!< */
 } DepthImageFormat;
 
 /**
@@ -28,7 +33,6 @@ typedef enum
  * \return the width
  */
 int getDepthImageWidth(DepthImageFormat format);
-
 /**
  * \brief Returns the height corresponding to a format
  * \param format The depth image format to be analyzed

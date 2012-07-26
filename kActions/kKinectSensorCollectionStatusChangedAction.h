@@ -19,7 +19,7 @@ class KKinectSensorCollectionStatusChangedAction: public KAction
 			KinectStatus newStatus = (KinectStatus)valueOf<int>((*res)[1]);
 
 			KinectSensorCollection* sensors = KinectSensorCollection::instance();
-			kEventHandler<KinectStatus> handler = sensors->statusChangedCb();
+			KEventHandler<KinectStatus> handler = sensors->statusChangedCb();
 			handler(sensors, newStatus);
 
 			delete res;

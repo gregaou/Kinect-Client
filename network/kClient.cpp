@@ -10,7 +10,7 @@ const unsigned int KClient::QUERY_MS_TIMEOUT = 5000;
 
 KClient* KClient::client = 0;
 
-KClient::KClient(int port, std::string host) :
+KClient::KClient(std::string host, int port) :
     _socket(0),
     _listener(0),
 	_messagePaquet(0),
@@ -49,10 +49,10 @@ KClient::~KClient()
     _logs.close();
 }
 
-KClient* KClient::instance(std::string host)
+KClient* KClient::instance(std::string host, int port)
 {
 	if (!client)
-		client = new KClient(PORT, host);
+		client = new KClient(host, port);
 
 	return client;
 }

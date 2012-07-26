@@ -17,8 +17,7 @@
 class KinectAudioSource : public KObject
 {
 	public:
-		/** \brief Constructor
-		 *  \param id The sensor id (index in the sensors collection) */
+		/** \param id The sensor id (index in the sensors collection) */
 		KinectAudioSource(int id = -1) :
 			KObject("KinectAudioSource", id),
 			_beamAngleChangedCb(0),
@@ -105,27 +104,27 @@ class KinectAudioSource : public KObject
 		void enable(void) const													{}
 
 		/* Events */
-		kEventHandler<BeamAngleChangedEventArgs&> beamAngleChangedCb(void) const				{ return _beamAngleChangedCb; }
+		KEventHandler<BeamAngleChangedEventArgs&> beamAngleChangedCb(void) const				{ return _beamAngleChangedCb; }
 		/** \brief Sets the callback that is called when the BeamAngle property changes, so that an application can be notified of the change.
 		 *  \param cb The function to be called */
-		void setBeamAngleChangedCb(kEventHandler<BeamAngleChangedEventArgs&> cb)
+		void setBeamAngleChangedCb(KEventHandler<BeamAngleChangedEventArgs&> cb)
 		{
 			processQuery(buildQuery("BeamAngleChanged"));
 			_beamAngleChangedCb = cb;
 		}
 
-		kEventHandler<SoundSourceAngleChangedEventArgs&> soundSourceAngleChangedCb(void) const	{ return _soundSourceAngleChangedCb; }
+		KEventHandler<SoundSourceAngleChangedEventArgs&> soundSourceAngleChangedCb(void) const	{ return _soundSourceAngleChangedCb; }
 		/** \brief Sets the callback that is called when the SoundSourceAngle property changes, so that an application can be notified of the change.
 		 *  \param cb The function to be called */
-		void setSoundSourceAngleChangedCb(kEventHandler<SoundSourceAngleChangedEventArgs&> cb)
+		void setSoundSourceAngleChangedCb(KEventHandler<SoundSourceAngleChangedEventArgs&> cb)
 		{
 			processQuery(buildQuery("SoundSourceAngleChanged"));
 			_soundSourceAngleChangedCb = cb;
 		}
 
 	protected:
-		kEventHandler<BeamAngleChangedEventArgs&> _beamAngleChangedCb;
-		kEventHandler<SoundSourceAngleChangedEventArgs&> _soundSourceAngleChangedCb;
+		KEventHandler<BeamAngleChangedEventArgs&> _beamAngleChangedCb;
+		KEventHandler<SoundSourceAngleChangedEventArgs&> _soundSourceAngleChangedCb;
 };
 
 #endif

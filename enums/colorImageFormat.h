@@ -15,12 +15,17 @@
 #define Undefined	0
 #endif
 
+/**
+ * \enum ColorImageFormat
+ *
+ * Due to conflicts, the value 'Undefined' is not in the enumeration but is still defined
+ */
 typedef enum
 {
-	RgbResolution640x480Fps30 = 1,
-	RgbResolution1280x960Fps12,
-	YuvResolution640x480Fps15,
-	RawYuvResolution640x480Fps15
+	RgbResolution640x480Fps30 = 1,	/*!< */
+	RgbResolution1280x960Fps12,		/*!< */
+	YuvResolution640x480Fps15,		/*!< */
+	RawYuvResolution640x480Fps15	/*!< */
 } ColorImageFormat;
 
 /**
@@ -29,14 +34,12 @@ typedef enum
  * \return the width
  */
 int getColorImageWidth(ColorImageFormat format);
-
 /**
  * \brief Returns the height corresponding to a format
  * \param format The color image format to be analyzed
  * \return the height
  */
 int getColorImageHeight(ColorImageFormat format);
-
 /**
  * \brief Returns the FPS corresponding to a format
  * \param format The color image format to be analyzed

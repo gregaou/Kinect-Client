@@ -17,9 +17,14 @@
 #define Tracked 2
 #endif
 
+/**
+ * \enum SkeletonTrackingState
+ *
+ * Due to conflicts, the values 'NotTracked' and 'Tracked' are not in the enumeration but is still defined
+ */
 typedef enum
 {
-	PositionOnly = 1
+	PositionOnly = 1	/*!< */
 } SkeletonTrackingState;
 
 #endif

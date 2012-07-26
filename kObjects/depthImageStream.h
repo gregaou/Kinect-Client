@@ -16,8 +16,7 @@
 class DepthImageStream : public KObject
 {
 	public:
-		/** \brief Constructor
-		 *  \param id The sensor id (index in the sensors collection) */
+		/** \param id The sensor id (index in the sensors collection) */
 		DepthImageStream(int id = -1) : KObject("DepthImageStream", id)
 		{}
 

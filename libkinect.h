@@ -17,15 +17,12 @@
 #include "other/other.h"
 
 /**
- * \brief Initializes the library (must be called before any other)
+ * \brief Initializes the library (must be called before any other function/method).
  * \param host The IP of the host. ("localhost" will not work, use "127.0.0.1" instead)
+ * \param port The port listened by the host
  */
-void libKinect_init(std::string host);
-
-
-/**
- * \brief Quits the library and frees memory
- */
+void libKinect_init(std::string host, int port);
+/** \brief Quits the library and frees memory. */
 void libKinect_quit(void);
 
 #endif

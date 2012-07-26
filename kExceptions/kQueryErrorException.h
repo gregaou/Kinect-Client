@@ -16,9 +16,10 @@ class KQueryErrorException : public std::exception
 {
 	public:
 		/**
-		 * \brief Constructor
 		 * \param code The error code
 		 * \param msg The error message
+		 *
+		 * For internal use \e only
 		 */
 		KQueryErrorException(int code, std::string msg) :
 			std::exception(),
@@ -39,7 +40,7 @@ class KQueryErrorException : public std::exception
 		}
 
 		/**
-		 * \brief Getter for the error code
+		 * \brief Gets the error code
 		 * \return The error code
 		 */
 		int code(void) const
@@ -48,7 +49,7 @@ class KQueryErrorException : public std::exception
 		}
 
 		/**
-		 * \brief Getter for the error message
+		 * \brief Gets the error message
 		 * \return The error message
 		 */
 		const std::string& msg(void) const
@@ -57,8 +58,8 @@ class KQueryErrorException : public std::exception
 		}
 
 	protected:
-		int _code; /*!< Error code */
-		std::string _msg; /*!< Error message */
+		int _code;
+		std::string _msg;
 };
 
 

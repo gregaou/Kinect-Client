@@ -17,9 +17,14 @@
 #define Tracked 2
 #endif
 
+/**
+ * \enum JointTrackingState
+ *
+ * Due to conflicts, the values 'NotTracked' and 'Tracked' are not in the enumeration but is still defined
+ */
 typedef enum
 {
-	Inferred = 1
+	Inferred = 1	/*!< */
 } JointTrackingState;
 
 #endif

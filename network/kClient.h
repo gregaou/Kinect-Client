@@ -18,14 +18,14 @@ class KinectSensor;
 class KClient
 {
 	private:
-		KClient(int port = PORT, std::string host = HOST);
+		KClient(std::string host = HOST, int port = PORT);
 		~KClient(void);
 
 	protected:
 		static KClient* client;
 
 	public:
-		static KClient* instance(std::string host = HOST);
+		static KClient* instance(std::string host = HOST, int port = PORT);
 		static void deleteInstance(void);
 
 		/* Getters */

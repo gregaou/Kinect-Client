@@ -46,7 +46,6 @@ class KObject
 {
 	public:
 		/**
-		 * \brief Constructor
 		 * \param className The name of the class
 		 * \param sensorId The id of the sensor (index in the sensors collection)
 		 *

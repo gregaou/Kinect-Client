@@ -9,11 +9,12 @@
  * Options for setting the beam angle.
  */
 
+/** \enum BeamAngleMode */
 typedef enum
 {
-	Automatic,
-	Adaptative,
-	Manual
+	Automatic,		/*!< */
+	Adaptative,		/*!< */
+	Manual			/*!< */
 } BeamAngleMode;
 
 #endif
