@@ -1,0 +1,467 @@
+\hypertarget{class_kinect_sensor}{\section{\-Kinect\-Sensor \-Class \-Reference}
+\label{class_kinect_sensor}\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}}
+}
+\-Inheritance diagram for \-Kinect\-Sensor\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_kinect_sensor}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_kinect_sensor_adc33dfe7d56e637557a8149911656ccb}{\-Kinect\-Sensor} (int id=-\/1)
+\item 
+\hypertarget{class_kinect_sensor_a69a0df3c693ea209913512e54998a165}{\hyperlink{class_kinect_sensor_a69a0df3c693ea209913512e54998a165}{$\sim$\-Kinect\-Sensor} (void)}\label{class_kinect_sensor_a69a0df3c693ea209913512e54998a165}
+
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+\hyperlink{class_kinect_audio_source}{\-Kinect\-Audio\-Source} \& \hyperlink{class_kinect_sensor_a53a200893268a24d1f8206e9056717b7}{get\-Audio\-Source} (void)
+\begin{DoxyCompactList}\small\item\em \-Gets the audio source for the \-Kinect. \end{DoxyCompactList}\item 
+\hyperlink{class_color_image_stream}{\-Color\-Image\-Stream} \& \hyperlink{class_kinect_sensor_ace38f6492c07319cff8aaba3a974af01}{get\-Color\-Stream} (void)
+\begin{DoxyCompactList}\small\item\em \-Gets the color stream for the \-Kinect. \end{DoxyCompactList}\item 
+\hyperlink{class_depth_image_stream}{\-Depth\-Image\-Stream} \& \hyperlink{class_kinect_sensor_ad818040c29261cf2aa9b667fdc5da650}{get\-Depth\-Stream} (void)
+\begin{DoxyCompactList}\small\item\em \-Gets the depth stream for the \-Kinect. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_kinect_sensor_aa4f00fed5673c3d51af416f1d6b4cc41}{get\-Device\-Connection\-Id} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the \-U\-S\-B \-H\-U\-B device instance for the \-Kinect. \end{DoxyCompactList}\item 
+int \hyperlink{class_kinect_sensor_a397ae961ca6f02f211c2ad08ce1045e2}{get\-Elevation\-Angle} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the elevation angle for the \-Kinect. \end{DoxyCompactList}\item 
+void \hyperlink{class_kinect_sensor_a491aec14d66a2fb06f72cdc9e3fecc63}{set\-Elevation\-Angle} (int angle)
+\begin{DoxyCompactList}\small\item\em \-Sets the elevation angle for the \-Kinect. \end{DoxyCompactList}\item 
+bool \hyperlink{class_kinect_sensor_a7da0cd93b373b24ec3d446814e0fe8ff}{is\-Running} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a value indicating whether the \-Kinect is streaming data. \end{DoxyCompactList}\item 
+int \hyperlink{class_kinect_sensor_aa963027140b69ccce62e4cbdaa33abc1}{get\-Max\-Elevation\-Angle} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the maximum elevation angle for the \-Kinect sensor. \end{DoxyCompactList}\item 
+int \hyperlink{class_kinect_sensor_ad82adee81554121259dcf9b0bab28145}{get\-Min\-Elevation\-Angle} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the minimum elevation angle for the \-Kinect. \end{DoxyCompactList}\item 
+\hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} \& \hyperlink{class_kinect_sensor_a23daf40720d072a3f49419515e9f5186}{get\-Skeleton\-Stream} (void)
+\begin{DoxyCompactList}\small\item\em \-Gets the skeleton stream for the \-Kinect. \end{DoxyCompactList}\item 
+\hyperlink{kinect_status_8h_a485fe7473bcf235f8c51dda0754afd9f}{\-Kinect\-Status} \hyperlink{class_kinect_sensor_ad7d67f65e253b9d57735efe1d6190bc7}{get\-Status} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the \-Kinect status. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_kinect_sensor_a91d6feb6ef199bb80b4166059934e19c}{get\-Unique\-Kinect\-Id} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Do not use this property. \end{DoxyCompactList}\item 
+\hypertarget{class_kinect_sensor_a81aa6180ab4bed59e83b5e1bd4e60ebb}{void \hyperlink{class_kinect_sensor_a81aa6180ab4bed59e83b5e1bd4e60ebb}{dispose} (void)}\label{class_kinect_sensor_a81aa6180ab4bed59e83b5e1bd4e60ebb}
+
+\begin{DoxyCompactList}\small\item\em \-Terminates all data streaming and frees all memory associated with the \-Kinect. \end{DoxyCompactList}\item 
+void \hyperlink{class_kinect_sensor_a8967dc608f839c287364f35915e6d1f1}{\-Map\-Depth\-Frame\-To\-Color\-Frame} (\hyperlink{depth_image_format_8h_a00bd0eac7784357ebca4c1e6a50b51af}{\-Depth\-Image\-Format} depth\-Image\-Format, std\-::vector$<$ short $>$ \&depth\-Pixel\-Data, \hyperlink{color_image_format_8h_a77f719572c3c368859dd2ec3153d8452}{\-Color\-Image\-Format} color\-Image\-Format, std\-::vector$<$ \hyperlink{class_color_image_point}{\-Color\-Image\-Point} $>$ $\ast$color\-Coordinates)
+\begin{DoxyCompactList}\small\item\em \-Maps every point in a depth frame to the specified \-Color\-Image\-Format coordinate space. \end{DoxyCompactList}\item 
+\hyperlink{class_color_image_point}{\-Color\-Image\-Point} \hyperlink{class_kinect_sensor_a6a227ba5603eeeed31099ed5137362c5}{\-Map\-Depth\-To\-Color\-Image\-Point} (\hyperlink{depth_image_format_8h_a00bd0eac7784357ebca4c1e6a50b51af}{\-Depth\-Image\-Format} depth\-Image\-Format, int depth\-X, int depth\-Y, short depth\-Pixel\-Value, \hyperlink{color_image_format_8h_a77f719572c3c368859dd2ec3153d8452}{\-Color\-Image\-Format} color\-Image\-Format)
+\begin{DoxyCompactList}\small\item\em \-Map a depth coordinate with depth value to a color coordinate. \end{DoxyCompactList}\item 
+\hyperlink{class_skeleton_point}{\-Skeleton\-Point} \hyperlink{class_kinect_sensor_a29a6ac16153328c7a8268bcca406b6a5}{\-Map\-Depth\-To\-Skeleton\-Point} (\hyperlink{depth_image_format_8h_a00bd0eac7784357ebca4c1e6a50b51af}{\-Depth\-Image\-Format} depth\-Image\-Format, int depth\-X, int depth\-Y, short depth\-Pixel\-Value)
+\begin{DoxyCompactList}\small\item\em \-Looks up the skeleton point location from a coordinate (depth\-X, depth\-Y) and depth value. \end{DoxyCompactList}\item 
+\hyperlink{class_color_image_point}{\-Color\-Image\-Point} \hyperlink{class_kinect_sensor_ad3868523f6623b18ac41aa1425dc4f0c}{\-Map\-Skeleton\-Point\-To\-Color} (\hyperlink{class_skeleton_point}{\-Skeleton\-Point} skeleton\-Point, \hyperlink{color_image_format_8h_a77f719572c3c368859dd2ec3153d8452}{\-Color\-Image\-Format} color\-Image\-Format)
+\begin{DoxyCompactList}\small\item\em \-Looks up the color frame coordinates for a given skeleton point. \end{DoxyCompactList}\item 
+\hyperlink{class_depth_image_point}{\-Depth\-Image\-Point} \hyperlink{class_kinect_sensor_a9c1e191b28ea57939654a73601b6f1bc}{\-Map\-Skeleton\-Point\-To\-Depth} (\hyperlink{class_skeleton_point}{\-Skeleton\-Point} skeleton\-Point, \hyperlink{depth_image_format_8h_a00bd0eac7784357ebca4c1e6a50b51af}{\-Depth\-Image\-Format} depth\-Image\-Format)
+\begin{DoxyCompactList}\small\item\em \-Looks up the depth frame coordinate for a given skeleton point. \end{DoxyCompactList}\item 
+\hypertarget{class_kinect_sensor_a2b527155e1db8222519d82983b652e28}{void \hyperlink{class_kinect_sensor_a2b527155e1db8222519d82983b652e28}{start} (void)}\label{class_kinect_sensor_a2b527155e1db8222519d82983b652e28}
+
+\begin{DoxyCompactList}\small\item\em \-Start streaming data from the \-Kinect. \end{DoxyCompactList}\item 
+\hypertarget{class_kinect_sensor_a70f2b2e2ef5f109f59428a41fad4b584}{void \hyperlink{class_kinect_sensor_a70f2b2e2ef5f109f59428a41fad4b584}{stop} (void)}\label{class_kinect_sensor_a70f2b2e2ef5f109f59428a41fad4b584}
+
+\begin{DoxyCompactList}\small\item\em \-Stop streaming data from the \-Kinect. \end{DoxyCompactList}\item 
+void \hyperlink{class_kinect_sensor_af713cec7f7ad15c119904e2b1ec5cac7}{set\-Color\-Frame\-Ready\-Cb} (\hyperlink{class_k_event_handler}{\-K\-Event\-Handler}$<$ \hyperlink{class_color_image_frame_ready_event_args}{\-Color\-Image\-Frame\-Ready\-Event\-Args} \& $>$ cb)
+\begin{DoxyCompactList}\small\item\em \-Sets the callback that is called when a new color frame for the \-Color\-Stream is available. \end{DoxyCompactList}\item 
+void \hyperlink{class_kinect_sensor_a9c852c922be21fb448507cc4112e4df1}{set\-Depth\-Frame\-Ready\-Cb} (\hyperlink{class_k_event_handler}{\-K\-Event\-Handler}$<$ \hyperlink{class_depth_image_frame_ready_event_args}{\-Depth\-Image\-Frame\-Ready\-Event\-Args} \& $>$ cb)
+\begin{DoxyCompactList}\small\item\em \-Sets the callback that is called when a new depth frame for the \-Depth\-Stream is available. \end{DoxyCompactList}\item 
+void \hyperlink{class_kinect_sensor_a7b88e8c4cd4ba3888a5f1938b50ed6c9}{set\-Skeleton\-Frame\-Ready\-Cb} (\hyperlink{class_k_event_handler}{\-K\-Event\-Handler}$<$ \hyperlink{class_skeleton_frame_ready_event_args}{\-Skeleton\-Frame\-Ready\-Event\-Args} \& $>$ cb)
+\begin{DoxyCompactList}\small\item\em \-Sets the callback that is called when a new skeleton frame for the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} is available. \end{DoxyCompactList}\item 
+void \hyperlink{class_kinect_sensor_a3260dcfeec5d1768b93a01fe481deb58}{set\-Audio\-Data\-Ready\-Cb} (\hyperlink{class_k_event_handler}{\-K\-Event\-Handler}$<$ \hyperlink{class_audio_data_ready_event_args}{\-Audio\-Data\-Ready\-Event\-Args} \& $>$ cb)
+\begin{DoxyCompactList}\small\item\em \-Sets the callback that is called when some new audio data for the \-Audio\-Source are available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_kinect_sensor_collection}{\-Kinect\-Sensor\-Collection} $\ast$ \hyperlink{class_kinect_sensor_a826eee923416c416dd7f46085465df72}{\-Kinect\-Sensors} (void)
+\begin{DoxyCompactList}\small\item\em \-Gets a collection of \-Kinect sensors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_kinect_sensor_adc33dfe7d56e637557a8149911656ccb}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Kinect\-Sensor@{\-Kinect\-Sensor}}
+\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Kinect\-Sensor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kinect\-Sensor\-::\-Kinect\-Sensor} (
+\begin{DoxyParamCaption}
+\item[{int}]{id = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_adc33dfe7d56e637557a8149911656ccb}
+
+\begin{DoxyParams}{\-Parameters}
+{\em id} & \-The sensor id (index in the sensors collection) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_kinect_sensor_a53a200893268a24d1f8206e9056717b7}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Audio\-Source@{get\-Audio\-Source}}
+\index{get\-Audio\-Source@{get\-Audio\-Source}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Audio\-Source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kinect\-Audio\-Source}\& {\bf \-Kinect\-Sensor\-::get\-Audio\-Source} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a53a200893268a24d1f8206e9056717b7}
+
+
+\-Gets the audio source for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Audio\-Source of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_ace38f6492c07319cff8aaba3a974af01}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Color\-Stream@{get\-Color\-Stream}}
+\index{get\-Color\-Stream@{get\-Color\-Stream}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Color\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Color\-Image\-Stream}\& {\bf \-Kinect\-Sensor\-::get\-Color\-Stream} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_ace38f6492c07319cff8aaba3a974af01}
+
+
+\-Gets the color stream for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Color\-Stream of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_ad818040c29261cf2aa9b667fdc5da650}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Depth\-Stream@{get\-Depth\-Stream}}
+\index{get\-Depth\-Stream@{get\-Depth\-Stream}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Depth\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Depth\-Image\-Stream}\& {\bf \-Kinect\-Sensor\-::get\-Depth\-Stream} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_ad818040c29261cf2aa9b667fdc5da650}
+
+
+\-Gets the depth stream for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Depth\-Stream of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_aa4f00fed5673c3d51af416f1d6b4cc41}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Device\-Connection\-Id@{get\-Device\-Connection\-Id}}
+\index{get\-Device\-Connection\-Id@{get\-Device\-Connection\-Id}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Device\-Connection\-Id}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Kinect\-Sensor\-::get\-Device\-Connection\-Id} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_aa4f00fed5673c3d51af416f1d6b4cc41}
+
+
+\-Gets the \-U\-S\-B \-H\-U\-B device instance for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Device\-Connection\-Id of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_a397ae961ca6f02f211c2ad08ce1045e2}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Elevation\-Angle@{get\-Elevation\-Angle}}
+\index{get\-Elevation\-Angle@{get\-Elevation\-Angle}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Elevation\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Kinect\-Sensor\-::get\-Elevation\-Angle} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_a397ae961ca6f02f211c2ad08ce1045e2}
+
+
+\-Gets the elevation angle for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Elevation\-Angle of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_a491aec14d66a2fb06f72cdc9e3fecc63}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!set\-Elevation\-Angle@{set\-Elevation\-Angle}}
+\index{set\-Elevation\-Angle@{set\-Elevation\-Angle}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{set\-Elevation\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kinect\-Sensor\-::set\-Elevation\-Angle} (
+\begin{DoxyParamCaption}
+\item[{int}]{angle}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a491aec14d66a2fb06f72cdc9e3fecc63}
+
+
+\-Sets the elevation angle for the \-Kinect. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em angle} & \-The \-Elevation\-Angle of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_kinect_sensor_a7da0cd93b373b24ec3d446814e0fe8ff}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!is\-Running@{is\-Running}}
+\index{is\-Running@{is\-Running}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Kinect\-Sensor\-::is\-Running} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_a7da0cd93b373b24ec3d446814e0fe8ff}
+
+
+\-Gets a value indicating whether the \-Kinect is streaming data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-A boolean value that indicates whether the kinect sensor is running 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_a826eee923416c416dd7f46085465df72}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Kinect\-Sensors@{\-Kinect\-Sensors}}
+\index{\-Kinect\-Sensors@{\-Kinect\-Sensors}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Kinect\-Sensors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kinect\-Sensor\-Collection} $\ast$ {\bf \-Kinect\-Sensor\-::\-Kinect\-Sensors} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{class_kinect_sensor_a826eee923416c416dd7f46085465df72}
+
+
+\-Gets a collection of \-Kinect sensors. 
+
+\begin{DoxyReturn}{\-Returns}
+\-A collection of kinect sensors 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_aa963027140b69ccce62e4cbdaa33abc1}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Max\-Elevation\-Angle@{get\-Max\-Elevation\-Angle}}
+\index{get\-Max\-Elevation\-Angle@{get\-Max\-Elevation\-Angle}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Max\-Elevation\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Kinect\-Sensor\-::get\-Max\-Elevation\-Angle} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_aa963027140b69ccce62e4cbdaa33abc1}
+
+
+\-Gets the maximum elevation angle for the \-Kinect sensor. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Max\-Elevation\-Angle of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_ad82adee81554121259dcf9b0bab28145}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Min\-Elevation\-Angle@{get\-Min\-Elevation\-Angle}}
+\index{get\-Min\-Elevation\-Angle@{get\-Min\-Elevation\-Angle}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Min\-Elevation\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Kinect\-Sensor\-::get\-Min\-Elevation\-Angle} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_ad82adee81554121259dcf9b0bab28145}
+
+
+\-Gets the minimum elevation angle for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Min\-Elevation\-Angle of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_a23daf40720d072a3f49419515e9f5186}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Skeleton\-Stream@{get\-Skeleton\-Stream}}
+\index{get\-Skeleton\-Stream@{get\-Skeleton\-Stream}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Skeleton\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Stream}\& {\bf \-Kinect\-Sensor\-::get\-Skeleton\-Stream} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a23daf40720d072a3f49419515e9f5186}
+
+
+\-Gets the skeleton stream for the \-Kinect. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_ad7d67f65e253b9d57735efe1d6190bc7}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Status@{get\-Status}}
+\index{get\-Status@{get\-Status}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kinect\-Status} {\bf \-Kinect\-Sensor\-::get\-Status} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_ad7d67f65e253b9d57735efe1d6190bc7}
+
+
+\-Gets the \-Kinect status. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Status of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_a91d6feb6ef199bb80b4166059934e19c}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!get\-Unique\-Kinect\-Id@{get\-Unique\-Kinect\-Id}}
+\index{get\-Unique\-Kinect\-Id@{get\-Unique\-Kinect\-Id}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{get\-Unique\-Kinect\-Id}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Kinect\-Sensor\-::get\-Unique\-Kinect\-Id} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_kinect_sensor_a91d6feb6ef199bb80b4166059934e19c}
+
+
+\-Do not use this property. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Unique\-Kinect\-Id of the \hyperlink{class_kinect_sensor}{\-Kinect\-Sensor} 
+\end{DoxyReturn}
+\hypertarget{class_kinect_sensor_a8967dc608f839c287364f35915e6d1f1}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Map\-Depth\-Frame\-To\-Color\-Frame@{\-Map\-Depth\-Frame\-To\-Color\-Frame}}
+\index{\-Map\-Depth\-Frame\-To\-Color\-Frame@{\-Map\-Depth\-Frame\-To\-Color\-Frame}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Map\-Depth\-Frame\-To\-Color\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kinect\-Sensor\-::\-Map\-Depth\-Frame\-To\-Color\-Frame} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Depth\-Image\-Format}}]{depth\-Image\-Format, }
+\item[{std\-::vector$<$ short $>$ \&}]{depth\-Pixel\-Data, }
+\item[{{\bf \-Color\-Image\-Format}}]{color\-Image\-Format, }
+\item[{std\-::vector$<$ {\bf \-Color\-Image\-Point} $>$ $\ast$}]{color\-Coordinates}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a8967dc608f839c287364f35915e6d1f1}
+
+
+\-Maps every point in a depth frame to the specified \-Color\-Image\-Format coordinate space. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em depth\-Image\-Format} & \-The depth format of the source \\
+\hline
+{\em depth\-Pixel\-Data} & \-The depth frame pixel data, as retrieved from the \-Copy\-Pixel\-Data\-To method. \-Must be equal in length to \-Width$\ast$\-Height of the depth format specified by depth\-Image\-Format \\
+\hline
+{\em color\-Image\-Format} & \-The desired target image format \\
+\hline
+{\em color\-Coordinates} & \-The \hyperlink{class_color_image_point}{\-Color\-Image\-Point} array to receive the data. \-Each element will be be the result of mapping the corresponding depth\-Pixel\-Data element to the specified \-Color\-Image\-Format coordinate space. \-Must be equal in length to depth\-Pixel\-Data\\
+\hline
+\end{DoxyParams}
+\-There is a known issue with calling this method when the sensor is stopped or disconnected. \hypertarget{class_kinect_sensor_a6a227ba5603eeeed31099ed5137362c5}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Map\-Depth\-To\-Color\-Image\-Point@{\-Map\-Depth\-To\-Color\-Image\-Point}}
+\index{\-Map\-Depth\-To\-Color\-Image\-Point@{\-Map\-Depth\-To\-Color\-Image\-Point}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Map\-Depth\-To\-Color\-Image\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Color\-Image\-Point} {\bf \-Kinect\-Sensor\-::\-Map\-Depth\-To\-Color\-Image\-Point} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Depth\-Image\-Format}}]{depth\-Image\-Format, }
+\item[{int}]{depth\-X, }
+\item[{int}]{depth\-Y, }
+\item[{short}]{depth\-Pixel\-Value, }
+\item[{{\bf \-Color\-Image\-Format}}]{color\-Image\-Format}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a6a227ba5603eeeed31099ed5137362c5}
+
+
+\-Map a depth coordinate with depth value to a color coordinate. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em depth\-Image\-Format} & \-The depth format of the source \\
+\hline
+{\em depth\-X} & \-The \-X coordinate of the depth frame \\
+\hline
+{\em depth\-Y} & \-The \-Y coordinate of the depth frame \\
+\hline
+{\em depth\-Pixel\-Value} & \-The value from the depth frame's pixel data at the given (depth\-X, depth\-Y) coordinate \\
+\hline
+{\em color\-Image\-Format} & \-The desired target image format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The \hyperlink{class_color_image_point}{\-Color\-Image\-Point} corresponding to the point in \hyperlink{class_depth_image_frame}{\-Depth\-Image\-Frame} space.
+\end{DoxyReturn}
+\-Since the input format is based on the depth frame's pixel data, the depth is in the high-\/order 13 bits of the pixel (see \-Depth \-Stream). \-If you are calling this function using the depth value in depth\-Pixel\-Value, bit shift the depth value left by 3 bits before calling this function. \-There is a known issue with calling this method when the sensor is stopped or disconnected. \hypertarget{class_kinect_sensor_a29a6ac16153328c7a8268bcca406b6a5}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Map\-Depth\-To\-Skeleton\-Point@{\-Map\-Depth\-To\-Skeleton\-Point}}
+\index{\-Map\-Depth\-To\-Skeleton\-Point@{\-Map\-Depth\-To\-Skeleton\-Point}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Map\-Depth\-To\-Skeleton\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Point} {\bf \-Kinect\-Sensor\-::\-Map\-Depth\-To\-Skeleton\-Point} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Depth\-Image\-Format}}]{depth\-Image\-Format, }
+\item[{int}]{depth\-X, }
+\item[{int}]{depth\-Y, }
+\item[{short}]{depth\-Pixel\-Value}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a29a6ac16153328c7a8268bcca406b6a5}
+
+
+\-Looks up the skeleton point location from a coordinate (depth\-X, depth\-Y) and depth value. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em depth\-Image\-Format} & \-The format to use in the conversion \\
+\hline
+{\em depth\-X} & \-The \-X coordinate of the depth frame \\
+\hline
+{\em depth\-Y} & \-The \-Y coordinate of the depth frame \\
+\hline
+{\em depth\-Pixel\-Value} & \-The value from the depth frame's pixel data at the given coordinate (depth\-X, depth\-Y) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The \hyperlink{class_skeleton_point}{\-Skeleton\-Point} \-The skeleton point for the given position (\-X, \-Y), depth and format
+\end{DoxyReturn}
+\-This method performs a mapping from depth space to the same 3\-D space the skeleton data is described in. \-The coordinate and depth values may come from the depth frame or artificial values can be used. \-There is a known issue with calling this method when the sensor is stopped or disconnected. \hypertarget{class_kinect_sensor_ad3868523f6623b18ac41aa1425dc4f0c}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Map\-Skeleton\-Point\-To\-Color@{\-Map\-Skeleton\-Point\-To\-Color}}
+\index{\-Map\-Skeleton\-Point\-To\-Color@{\-Map\-Skeleton\-Point\-To\-Color}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Map\-Skeleton\-Point\-To\-Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Color\-Image\-Point} {\bf \-Kinect\-Sensor\-::\-Map\-Skeleton\-Point\-To\-Color} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton\-Point}}]{skeleton\-Point, }
+\item[{{\bf \-Color\-Image\-Format}}]{color\-Image\-Format}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_ad3868523f6623b18ac41aa1425dc4f0c}
+
+
+\-Looks up the color frame coordinates for a given skeleton point. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em skeleton\-Point} & \-The supplied \hyperlink{class_skeleton_point}{\-Skeleton\-Point} \\
+\hline
+{\em color\-Image\-Format} & \-The color format to convert to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The \hyperlink{class_color_image_point}{\-Color\-Image\-Point} corresponding to the given skeleton point
+\end{DoxyReturn}
+\-There is a known issue with calling this method when the sensor is stopped or disconnected. \hypertarget{class_kinect_sensor_a9c1e191b28ea57939654a73601b6f1bc}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!\-Map\-Skeleton\-Point\-To\-Depth@{\-Map\-Skeleton\-Point\-To\-Depth}}
+\index{\-Map\-Skeleton\-Point\-To\-Depth@{\-Map\-Skeleton\-Point\-To\-Depth}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{\-Map\-Skeleton\-Point\-To\-Depth}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Depth\-Image\-Point} {\bf \-Kinect\-Sensor\-::\-Map\-Skeleton\-Point\-To\-Depth} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton\-Point}}]{skeleton\-Point, }
+\item[{{\bf \-Depth\-Image\-Format}}]{depth\-Image\-Format}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a9c1e191b28ea57939654a73601b6f1bc}
+
+
+\-Looks up the depth frame coordinate for a given skeleton point. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em skeleton\-Point} & \-The given \hyperlink{class_skeleton_point}{\-Skeleton\-Point} \\
+\hline
+{\em depth\-Image\-Format} & \-The depth format to convert to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The \hyperlink{class_depth_image_point}{\-Depth\-Image\-Point} that that contains the coordinate (\-X, \-Y) and depth of the given skeleton point
+\end{DoxyReturn}
+\-The \hyperlink{class_depth_image_point}{\-Depth\-Image\-Point} that that contains the coordinate (\-X, \-Y) and depth of the given skeleton point. \hypertarget{class_kinect_sensor_af713cec7f7ad15c119904e2b1ec5cac7}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!set\-Color\-Frame\-Ready\-Cb@{set\-Color\-Frame\-Ready\-Cb}}
+\index{set\-Color\-Frame\-Ready\-Cb@{set\-Color\-Frame\-Ready\-Cb}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{set\-Color\-Frame\-Ready\-Cb}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kinect\-Sensor\-::set\-Color\-Frame\-Ready\-Cb} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-K\-Event\-Handler}$<$ {\bf \-Color\-Image\-Frame\-Ready\-Event\-Args} \& $>$}]{cb}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_af713cec7f7ad15c119904e2b1ec5cac7}
+
+
+\-Sets the callback that is called when a new color frame for the \-Color\-Stream is available. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em cb} & \-The function to be called \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_kinect_sensor_a9c852c922be21fb448507cc4112e4df1}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!set\-Depth\-Frame\-Ready\-Cb@{set\-Depth\-Frame\-Ready\-Cb}}
+\index{set\-Depth\-Frame\-Ready\-Cb@{set\-Depth\-Frame\-Ready\-Cb}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{set\-Depth\-Frame\-Ready\-Cb}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kinect\-Sensor\-::set\-Depth\-Frame\-Ready\-Cb} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-K\-Event\-Handler}$<$ {\bf \-Depth\-Image\-Frame\-Ready\-Event\-Args} \& $>$}]{cb}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a9c852c922be21fb448507cc4112e4df1}
+
+
+\-Sets the callback that is called when a new depth frame for the \-Depth\-Stream is available. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em cb} & \-The function to be called \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_kinect_sensor_a7b88e8c4cd4ba3888a5f1938b50ed6c9}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!set\-Skeleton\-Frame\-Ready\-Cb@{set\-Skeleton\-Frame\-Ready\-Cb}}
+\index{set\-Skeleton\-Frame\-Ready\-Cb@{set\-Skeleton\-Frame\-Ready\-Cb}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{set\-Skeleton\-Frame\-Ready\-Cb}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kinect\-Sensor\-::set\-Skeleton\-Frame\-Ready\-Cb} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-K\-Event\-Handler}$<$ {\bf \-Skeleton\-Frame\-Ready\-Event\-Args} \& $>$}]{cb}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a7b88e8c4cd4ba3888a5f1938b50ed6c9}
+
+
+\-Sets the callback that is called when a new skeleton frame for the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} is available. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em cb} & \-The function to be called \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_kinect_sensor_a3260dcfeec5d1768b93a01fe481deb58}{\index{\-Kinect\-Sensor@{\-Kinect\-Sensor}!set\-Audio\-Data\-Ready\-Cb@{set\-Audio\-Data\-Ready\-Cb}}
+\index{set\-Audio\-Data\-Ready\-Cb@{set\-Audio\-Data\-Ready\-Cb}!KinectSensor@{\-Kinect\-Sensor}}
+\subsubsection[{set\-Audio\-Data\-Ready\-Cb}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kinect\-Sensor\-::set\-Audio\-Data\-Ready\-Cb} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-K\-Event\-Handler}$<$ {\bf \-Audio\-Data\-Ready\-Event\-Args} \& $>$}]{cb}
+\end{DoxyParamCaption}
+)}}\label{class_kinect_sensor_a3260dcfeec5d1768b93a01fe481deb58}
+
+
+\-Sets the callback that is called when some new audio data for the \-Audio\-Source are available. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em cb} & \-The function to be called \\
+\hline
+\end{DoxyParams}

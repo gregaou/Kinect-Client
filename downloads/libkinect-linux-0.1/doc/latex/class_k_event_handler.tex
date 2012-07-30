@@ -1,0 +1,83 @@
+\hypertarget{class_k_event_handler}{\section{\-K\-Event\-Handler$<$ \-T $>$ \-Class \-Template \-Reference}
+\label{class_k_event_handler}\index{\-K\-Event\-Handler$<$ T $>$@{\-K\-Event\-Handler$<$ T $>$}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_k_event_handler_a01e1477d2ec64a3c708da0a1582f61fa}{\-K\-Event\-Handler} (handler\-Type handler=0)
+\item 
+void \hyperlink{class_k_event_handler_ad56cb35c45f9962e3c4cc8126dcf5abf}{operator=} (handler\-Type h)
+\begin{DoxyCompactList}\small\item\em \-Assignment operator. \end{DoxyCompactList}\item 
+void \hyperlink{class_k_event_handler_ab9b50c8a0052fa4d81a8d0ab37aac322}{operator()} (\hyperlink{class_k_object}{\-K\-Object} $\ast$sender, \-T arg)
+\begin{DoxyCompactList}\small\item\em \-Call operator. \end{DoxyCompactList}\item 
+bool \hyperlink{class_k_event_handler_afa349642138e78a7ecaa78a8c379adf0}{operator!} (void)
+\begin{DoxyCompactList}\small\item\em \-Logical negation operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{template$<$typename \-T$>$ class K\-Event\-Handler$<$ T $>$}
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_k_event_handler_a01e1477d2ec64a3c708da0a1582f61fa}{\index{\-K\-Event\-Handler@{\-K\-Event\-Handler}!\-K\-Event\-Handler@{\-K\-Event\-Handler}}
+\index{\-K\-Event\-Handler@{\-K\-Event\-Handler}!KEventHandler@{\-K\-Event\-Handler}}
+\subsubsection[{\-K\-Event\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf \-K\-Event\-Handler}$<$ \-T $>$\-::{\bf \-K\-Event\-Handler} (
+\begin{DoxyParamCaption}
+\item[{handler\-Type}]{handler = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{class_k_event_handler_a01e1477d2ec64a3c708da0a1582f61fa}
+
+\begin{DoxyParams}{\-Parameters}
+{\em handler} & \-The callback function \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_k_event_handler_ad56cb35c45f9962e3c4cc8126dcf5abf}{\index{\-K\-Event\-Handler@{\-K\-Event\-Handler}!operator=@{operator=}}
+\index{operator=@{operator=}!KEventHandler@{\-K\-Event\-Handler}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf \-K\-Event\-Handler}$<$ \-T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{handler\-Type}]{h}
+\end{DoxyParamCaption}
+)}}\label{class_k_event_handler_ad56cb35c45f9962e3c4cc8126dcf5abf}
+
+
+\-Assignment operator. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em handler} & the \-New callback function \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_k_event_handler_ab9b50c8a0052fa4d81a8d0ab37aac322}{\index{\-K\-Event\-Handler@{\-K\-Event\-Handler}!operator()@{operator()}}
+\index{operator()@{operator()}!KEventHandler@{\-K\-Event\-Handler}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf \-K\-Event\-Handler}$<$ \-T $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{{\bf \-K\-Object} $\ast$}]{sender, }
+\item[{\-T}]{arg}
+\end{DoxyParamCaption}
+)}}\label{class_k_event_handler_ab9b50c8a0052fa4d81a8d0ab37aac322}
+
+
+\-Call operator. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em sender} & \-The sender of the event \\
+\hline
+{\em arg} & \-The sent arguments \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_k_event_handler_afa349642138e78a7ecaa78a8c379adf0}{\index{\-K\-Event\-Handler@{\-K\-Event\-Handler}!operator!@{operator!}}
+\index{operator!@{operator!}!KEventHandler@{\-K\-Event\-Handler}}
+\subsubsection[{operator!}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ bool {\bf \-K\-Event\-Handler}$<$ \-T $>$\-::{\bf operator!} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_k_event_handler_afa349642138e78a7ecaa78a8c379adf0}
+
+
+\-Logical negation operator. 
+
+\begin{DoxyReturn}{\-Returns}
+whether the handler is null 
+\end{DoxyReturn}

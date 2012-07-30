@@ -1,0 +1,67 @@
+\hypertarget{class_audio_data}{\section{\-Audio\-Data \-Class \-Reference}
+\label{class_audio_data}\index{\-Audio\-Data@{\-Audio\-Data}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_audio_data_a811a95997a6c818705e84800ab62824f}{\-Audio\-Data} (byte $\ast$data, int length)
+\item 
+int \hyperlink{class_audio_data_a30c6ef26ceaae0a06fc2c31fb0e11505}{get\-Length} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the length of the buffer. \end{DoxyCompactList}\item 
+void \hyperlink{class_audio_data_ac283fa6abd1d0c475008a4368dc3a8dd}{\-Copy\-Pixel\-Data\-To} (byte $\ast$pixel\-Data) const 
+\begin{DoxyCompactList}\small\item\em \-Copies the audio data to a pre-\/allocated array of bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_audio_data_a811a95997a6c818705e84800ab62824f}{\index{\-Audio\-Data@{\-Audio\-Data}!\-Audio\-Data@{\-Audio\-Data}}
+\index{\-Audio\-Data@{\-Audio\-Data}!AudioData@{\-Audio\-Data}}
+\subsubsection[{\-Audio\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Audio\-Data\-::\-Audio\-Data} (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{data, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}\label{class_audio_data_a811a95997a6c818705e84800ab62824f}
+
+\begin{DoxyParams}{\-Parameters}
+{\em data} & \-A buffer that contains audio data \\
+\hline
+{\em length} & \-The length of the buffer (in bytes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{class_kinect_sensor_a53a200893268a24d1f8206e9056717b7}{\-Kinect\-Sensor\-::get\-Audio\-Source()}
+\end{DoxySeeAlso}
+\-For internal use {\itshape only\/} 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_audio_data_a30c6ef26ceaae0a06fc2c31fb0e11505}{\index{\-Audio\-Data@{\-Audio\-Data}!get\-Length@{get\-Length}}
+\index{get\-Length@{get\-Length}!AudioData@{\-Audio\-Data}}
+\subsubsection[{get\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Audio\-Data\-::get\-Length} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_audio_data_a30c6ef26ceaae0a06fc2c31fb0e11505}
+
+
+\-Gets the length of the buffer. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Length of the buffer 
+\end{DoxyReturn}
+\hypertarget{class_audio_data_ac283fa6abd1d0c475008a4368dc3a8dd}{\index{\-Audio\-Data@{\-Audio\-Data}!\-Copy\-Pixel\-Data\-To@{\-Copy\-Pixel\-Data\-To}}
+\index{\-Copy\-Pixel\-Data\-To@{\-Copy\-Pixel\-Data\-To}!AudioData@{\-Audio\-Data}}
+\subsubsection[{\-Copy\-Pixel\-Data\-To}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Audio\-Data\-::\-Copy\-Pixel\-Data\-To} (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{pixel\-Data}
+\end{DoxyParamCaption}
+) const}}\label{class_audio_data_ac283fa6abd1d0c475008a4368dc3a8dd}
+
+
+\-Copies the audio data to a pre-\/allocated array of bytes. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em pixel\-Data} & \-An array of bytes to receive the audio data\\
+\hline
+\end{DoxyParams}
+\-When creating the array, the array size must be equal to the \-Length property. 

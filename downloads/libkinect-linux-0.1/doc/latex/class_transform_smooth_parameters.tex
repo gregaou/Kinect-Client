@@ -1,0 +1,229 @@
+\hypertarget{class_transform_smooth_parameters}{\section{\-Transform\-Smooth\-Parameters \-Class \-Reference}
+\label{class_transform_smooth_parameters}\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_transform_smooth_parameters_a5a192c6aa0046d4fbea5e21de349b207}{\-Transform\-Smooth\-Parameters} (float correction=0.\-5, float jitter\-Radius=0.\-05, float max\-Deviation\-Radius=0.\-04, float prediction=0.\-5, float smoothing=0.\-5)
+\item 
+float \hyperlink{class_transform_smooth_parameters_a36e1de6cd8721a865cec97a99ed517a8}{get\-Correction} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the amount of correction, in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. \end{DoxyCompactList}\item 
+void \hyperlink{class_transform_smooth_parameters_a07ffe8a2ce2480325bd32fccd70b39d5}{set\-Correction} (float correction)
+\begin{DoxyCompactList}\small\item\em \-Sets the amount of correction, in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. \end{DoxyCompactList}\item 
+float \hyperlink{class_transform_smooth_parameters_afa9cdd6cd3458866e100c43c4b6b52c9}{get\-Jitter\-Radius} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the jitter-\/reduction radius, in meters, which determines how aggressively to remove jitter from the raw data. \end{DoxyCompactList}\item 
+void \hyperlink{class_transform_smooth_parameters_ae4b56a20bbf3aacd9115896fd51769f3}{set\-Jitter\-Radius} (float jitter\-Radius)
+\begin{DoxyCompactList}\small\item\em \-Sets the jitter-\/reduction radius, in meters, which determines how aggressively to remove jitter from the raw data. \end{DoxyCompactList}\item 
+float \hyperlink{class_transform_smooth_parameters_a6b09f5bd048295602203c150850adf10}{get\-Max\-Deviation\-Radius} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the maximum radius (in meters) that filtered positions can deviate from raw data. \end{DoxyCompactList}\item 
+void \hyperlink{class_transform_smooth_parameters_af60738964718dfef02ece5348e14c643}{set\-Max\-Deviation\-Radius} (float max\-Deviation\-Radius)
+\begin{DoxyCompactList}\small\item\em \-Sets the maximum radius (in meters) that filtered positions can deviate from raw data. \end{DoxyCompactList}\item 
+float \hyperlink{class_transform_smooth_parameters_aa2b0ade446dbda673507143b62441d95}{get\-Prediction} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the number of frames to predict into the future, which is a number $>$= 0. \end{DoxyCompactList}\item 
+void \hyperlink{class_transform_smooth_parameters_a0c919ee5d408b03b6e74e182d8a0fe07}{set\-Prediction} (float prediction)
+\begin{DoxyCompactList}\small\item\em \-Sets the number of frames to predict into the future, which is a number $>$= 0. \end{DoxyCompactList}\item 
+float \hyperlink{class_transform_smooth_parameters_a024d8cbaea387ac5e2b362bda987492e}{get\-Smoothing} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the smoothing parameter, which is in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. \end{DoxyCompactList}\item 
+void \hyperlink{class_transform_smooth_parameters_a9ea3bcff656194ee00acd6c9732dbfaa}{set\-Smoothing} (float smoothing)
+\begin{DoxyCompactList}\small\item\em \-Sets the smoothing parameter, which is in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. \end{DoxyCompactList}\item 
+bool \hyperlink{class_transform_smooth_parameters_a112f925100c3eec2fd3104edbe84c3d4}{equals} (const \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters} \&smooth\-Parameter)
+\begin{DoxyCompactList}\small\item\em \-Compares two \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters} to see if they contain the same data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_transform_smooth_parameters_a5a192c6aa0046d4fbea5e21de349b207}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}}
+\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{\-Transform\-Smooth\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Transform\-Smooth\-Parameters\-::\-Transform\-Smooth\-Parameters} (
+\begin{DoxyParamCaption}
+\item[{float}]{correction = {\ttfamily 0.5}, }
+\item[{float}]{jitter\-Radius = {\ttfamily 0.05}, }
+\item[{float}]{max\-Deviation\-Radius = {\ttfamily 0.04}, }
+\item[{float}]{prediction = {\ttfamily 0.5}, }
+\item[{float}]{smoothing = {\ttfamily 0.5}}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_a5a192c6aa0046d4fbea5e21de349b207}
+
+\begin{DoxyParams}{\-Parameters}
+{\em correction} & \-The amount of correction, in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive \\
+\hline
+{\em jitter\-Radius} & \-The jitter-\/reduction radius (in meters) \\
+\hline
+{\em max\-Deviation\-Radius} & \-The maximum radius (in meters) that filtered positions can deviate from raw data \\
+\hline
+{\em prediction} & \-The number of frames to predict into the future, which is a number $>$= 0 \\
+\hline
+{\em smoothing} & \-The smoothing parameter, which is in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_transform_smooth_parameters_a36e1de6cd8721a865cec97a99ed517a8}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!get\-Correction@{get\-Correction}}
+\index{get\-Correction@{get\-Correction}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{get\-Correction}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Transform\-Smooth\-Parameters\-::get\-Correction} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_transform_smooth_parameters_a36e1de6cd8721a865cec97a99ed517a8}
+
+
+\-Gets the amount of correction, in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Jitter\-Radius of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}
+\end{DoxyReturn}
+\-A higher value corrects toward the raw data more quickly, a lower value corrects more slowly and appears smoother. \hypertarget{class_transform_smooth_parameters_a07ffe8a2ce2480325bd32fccd70b39d5}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!set\-Correction@{set\-Correction}}
+\index{set\-Correction@{set\-Correction}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{set\-Correction}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Transform\-Smooth\-Parameters\-::set\-Correction} (
+\begin{DoxyParamCaption}
+\item[{float}]{correction}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_a07ffe8a2ce2480325bd32fccd70b39d5}
+
+
+\-Sets the amount of correction, in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em correction} & \-The \-Jitter\-Radius of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}\\
+\hline
+\end{DoxyParams}
+\-A higher value corrects toward the raw data more quickly, a lower value corrects more slowly and appears smoother. \hypertarget{class_transform_smooth_parameters_afa9cdd6cd3458866e100c43c4b6b52c9}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!get\-Jitter\-Radius@{get\-Jitter\-Radius}}
+\index{get\-Jitter\-Radius@{get\-Jitter\-Radius}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{get\-Jitter\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Transform\-Smooth\-Parameters\-::get\-Jitter\-Radius} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_transform_smooth_parameters_afa9cdd6cd3458866e100c43c4b6b52c9}
+
+
+\-Gets the jitter-\/reduction radius, in meters, which determines how aggressively to remove jitter from the raw data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Jitter\-Radius of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}
+\end{DoxyReturn}
+\-It determines how aggressively to remove jitter from the raw data. \-The jitter radius is a number $>$= 0. \-Any jitter beyond this radius is clamped to the jitter reduction radius. \hypertarget{class_transform_smooth_parameters_ae4b56a20bbf3aacd9115896fd51769f3}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!set\-Jitter\-Radius@{set\-Jitter\-Radius}}
+\index{set\-Jitter\-Radius@{set\-Jitter\-Radius}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{set\-Jitter\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Transform\-Smooth\-Parameters\-::set\-Jitter\-Radius} (
+\begin{DoxyParamCaption}
+\item[{float}]{jitter\-Radius}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_ae4b56a20bbf3aacd9115896fd51769f3}
+
+
+\-Sets the jitter-\/reduction radius, in meters, which determines how aggressively to remove jitter from the raw data. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em jitter\-Radius} & \-The \-Jitter\-Radius of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}\\
+\hline
+\end{DoxyParams}
+\-It determines how aggressively to remove jitter from the raw data. \-The jitter radius is a number $>$= 0. \-Any jitter beyond this radius is clamped to the jitter reduction radius. \hypertarget{class_transform_smooth_parameters_a6b09f5bd048295602203c150850adf10}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!get\-Max\-Deviation\-Radius@{get\-Max\-Deviation\-Radius}}
+\index{get\-Max\-Deviation\-Radius@{get\-Max\-Deviation\-Radius}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{get\-Max\-Deviation\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Transform\-Smooth\-Parameters\-::get\-Max\-Deviation\-Radius} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_transform_smooth_parameters_a6b09f5bd048295602203c150850adf10}
+
+
+\-Gets the maximum radius (in meters) that filtered positions can deviate from raw data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Max\-Deviation\-Radius of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}
+\end{DoxyReturn}
+\-The maximum deviation value is $>$= 0. \-A filtered value that would exceed this radius is clamped at the maximum radius in the direction of the filtered value. \hypertarget{class_transform_smooth_parameters_af60738964718dfef02ece5348e14c643}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!set\-Max\-Deviation\-Radius@{set\-Max\-Deviation\-Radius}}
+\index{set\-Max\-Deviation\-Radius@{set\-Max\-Deviation\-Radius}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{set\-Max\-Deviation\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Transform\-Smooth\-Parameters\-::set\-Max\-Deviation\-Radius} (
+\begin{DoxyParamCaption}
+\item[{float}]{max\-Deviation\-Radius}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_af60738964718dfef02ece5348e14c643}
+
+
+\-Sets the maximum radius (in meters) that filtered positions can deviate from raw data. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em max\-Deviation\-Radius} & \-The \-Max\-Deviation\-Radius of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}\\
+\hline
+\end{DoxyParams}
+\-The maximum deviation value is $>$= 0. \-A filtered value that would exceed this radius is clamped at the maximum radius in the direction of the filtered value. \hypertarget{class_transform_smooth_parameters_aa2b0ade446dbda673507143b62441d95}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!get\-Prediction@{get\-Prediction}}
+\index{get\-Prediction@{get\-Prediction}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{get\-Prediction}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Transform\-Smooth\-Parameters\-::get\-Prediction} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_transform_smooth_parameters_aa2b0ade446dbda673507143b62441d95}
+
+
+\-Gets the number of frames to predict into the future, which is a number $>$= 0. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Prediction of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}
+\end{DoxyReturn}
+\-A value greater than 0.\-5 will likely lead to overshoot when the data changes quickly; dampen the overshoot effect by using a smaller value of \-Max\-Deviation\-Radius. \hypertarget{class_transform_smooth_parameters_a0c919ee5d408b03b6e74e182d8a0fe07}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!set\-Prediction@{set\-Prediction}}
+\index{set\-Prediction@{set\-Prediction}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{set\-Prediction}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Transform\-Smooth\-Parameters\-::set\-Prediction} (
+\begin{DoxyParamCaption}
+\item[{float}]{prediction}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_a0c919ee5d408b03b6e74e182d8a0fe07}
+
+
+\-Sets the number of frames to predict into the future, which is a number $>$= 0. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em prediction} & \-The \-Prediction of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}\\
+\hline
+\end{DoxyParams}
+\-A value greater than 0.\-5 will likely lead to overshoot when the data changes quickly; dampen the overshoot effect by using a smaller value of \-Max\-Deviation\-Radius. \hypertarget{class_transform_smooth_parameters_a024d8cbaea387ac5e2b362bda987492e}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!get\-Smoothing@{get\-Smoothing}}
+\index{get\-Smoothing@{get\-Smoothing}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{get\-Smoothing}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Transform\-Smooth\-Parameters\-::get\-Smoothing} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_transform_smooth_parameters_a024d8cbaea387ac5e2b362bda987492e}
+
+
+\-Gets the smoothing parameter, which is in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Smoothing of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}
+\end{DoxyReturn}
+\-A higher value corresponds to more smoothing. \-Passing 0 causes the raw data to be returned. \-As the smoothing value is increased responsiveness to the raw data decreases; therefore, increased smoothing leads to increased latency. \hypertarget{class_transform_smooth_parameters_a9ea3bcff656194ee00acd6c9732dbfaa}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!set\-Smoothing@{set\-Smoothing}}
+\index{set\-Smoothing@{set\-Smoothing}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{set\-Smoothing}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Transform\-Smooth\-Parameters\-::set\-Smoothing} (
+\begin{DoxyParamCaption}
+\item[{float}]{smoothing}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_a9ea3bcff656194ee00acd6c9732dbfaa}
+
+
+\-Sets the smoothing parameter, which is in the range \mbox{[}0.\-0, 1.\-0\mbox{]} inclusive. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em smoothing} & \-The \-Smoothing of the \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters}\\
+\hline
+\end{DoxyParams}
+\-A higher value corresponds to more smoothing. \-Passing 0 causes the raw data to be returned. \-As the smoothing value is increased responsiveness to the raw data decreases; therefore, increased smoothing leads to increased latency. \hypertarget{class_transform_smooth_parameters_a112f925100c3eec2fd3104edbe84c3d4}{\index{\-Transform\-Smooth\-Parameters@{\-Transform\-Smooth\-Parameters}!equals@{equals}}
+\index{equals@{equals}!TransformSmoothParameters@{\-Transform\-Smooth\-Parameters}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Transform\-Smooth\-Parameters\-::equals} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Transform\-Smooth\-Parameters} \&}]{smooth\-Parameter}
+\end{DoxyParamCaption}
+)}}\label{class_transform_smooth_parameters_a112f925100c3eec2fd3104edbe84c3d4}
+
+
+\-Compares two \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters} to see if they contain the same data. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em smooth\-Parameter} & \-The second \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+{\itshape true\/} if the second \hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters} contains the same data as this instance; otherwise, {\itshape false\/}. 
+\end{DoxyReturn}

@@ -1,0 +1,47 @@
+\hypertarget{libkinect_8h}{\section{libkinect.\-h \-File \-Reference}
+\label{libkinect_8h}\index{libkinect.\-h@{libkinect.\-h}}
+}
+
+
+header included by the user  
+
+
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{libkinect_8h_a6ccc89ae2574c61d60cd3a82e8f71a85}{lib\-Kinect\-\_\-init} (std\-::string host, int port)
+\begin{DoxyCompactList}\small\item\em \-Initializes the library (must be called before any other function/method). \end{DoxyCompactList}\item 
+\hypertarget{libkinect_8h_afdc9bf3fca0acf8f23e1554efb607458}{void \hyperlink{libkinect_8h_afdc9bf3fca0acf8f23e1554efb607458}{lib\-Kinect\-\_\-quit} (void)}\label{libkinect_8h_afdc9bf3fca0acf8f23e1554efb607458}
+
+\begin{DoxyCompactList}\small\item\em \-Quits the library and frees memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+header included by the user \begin{DoxyAuthor}{\-Author}
+\-Gaëtan \-Champarnaud 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{\-Version}
+0.\-1
+\end{DoxyVersion}
+\-This is the only header that the users have to include. 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{libkinect_8h_a6ccc89ae2574c61d60cd3a82e8f71a85}{\index{libkinect.\-h@{libkinect.\-h}!lib\-Kinect\-\_\-init@{lib\-Kinect\-\_\-init}}
+\index{lib\-Kinect\-\_\-init@{lib\-Kinect\-\_\-init}!libkinect.h@{libkinect.\-h}}
+\subsubsection[{lib\-Kinect\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf lib\-Kinect\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{libkinect_8h_a6ccc89ae2574c61d60cd3a82e8f71a85}
+
+
+\-Initializes the library (must be called before any other function/method). 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em host} & \-The \-I\-P of the host. (\char`\"{}localhost\char`\"{} will not work, use \char`\"{}127.\-0.\-0.\-1\char`\"{} instead) \\
+\hline
+{\em port} & \-The port listened by the host \\
+\hline
+\end{DoxyParams}

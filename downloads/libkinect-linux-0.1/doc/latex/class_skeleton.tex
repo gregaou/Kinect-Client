@@ -1,0 +1,234 @@
+\hypertarget{class_skeleton}{\section{\-Skeleton \-Class \-Reference}
+\label{class_skeleton}\index{\-Skeleton@{\-Skeleton}}
+}
+\-Inheritance diagram for \-Skeleton\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skeleton}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skeleton_a4639e5b560a45da3f4c4ca73759499fa}{\-Skeleton} (std\-::vector$<$ \hyperlink{class_bone_orientation}{\-Bone\-Orientation} $>$ \&bone\-Orientations, \hyperlink{frame_edges_8h_a8d8e7a6cfaeb00386411494d5d9a23a0}{\-Frame\-Edges} clipped\-Edges, std\-::vector$<$ \hyperlink{class_joint}{\-Joint} $>$ \&joints, \hyperlink{class_skeleton_point}{\-Skeleton\-Point} position, int tracking\-Id, \hyperlink{skeleton_tracking_state_8h_a970dd6d8f4fed3a223e0ae2dca36435c}{\-Skeleton\-Tracking\-State} tracking\-State)
+\item 
+const std\-::vector\*
+$<$ \hyperlink{class_bone_orientation}{\-Bone\-Orientation} $>$ \& \hyperlink{class_skeleton_a700f66248954f988296f5a55754ae014}{get\-Bone\-Orientations} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the collection of bone orientations for a skeleton. \end{DoxyCompactList}\item 
+\hyperlink{frame_edges_8h_a8d8e7a6cfaeb00386411494d5d9a23a0}{\-Frame\-Edges} \hyperlink{class_skeleton_a5bd06b73dd54b7dfb136b385461c671a}{get\-Clipped\-Edges} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the edges (of a frame of depth data) that intersect with (and therefore clip) the skeleton data. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_a5ed1d23671bf355818bd3628b2105fec}{set\-Clipped\-Edges} (\hyperlink{frame_edges_8h_a8d8e7a6cfaeb00386411494d5d9a23a0}{\-Frame\-Edges} clipped\-Edges)
+\begin{DoxyCompactList}\small\item\em \-Sets the edges (of a frame of depth data) that intersect with (and therefore clip) the skeleton data. \end{DoxyCompactList}\item 
+const std\-::vector$<$ \hyperlink{class_joint}{\-Joint} $>$ \& \hyperlink{class_skeleton_a09de0e2d82ad94a62af0373fff583d64}{get\-Joints} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a collection of skeleton joints. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_a0aa2f000e4a4ebc72eb1b8035e895641}{set\-Joints} (const std\-::vector$<$ \hyperlink{class_joint}{\-Joint} $>$ \&joints)
+\begin{DoxyCompactList}\small\item\em \-Sets a collection of skeleton joints. \end{DoxyCompactList}\item 
+\hyperlink{class_skeleton_point}{\-Skeleton\-Point} \hyperlink{class_skeleton_ac6d578c69c73d547bef051042a7ce75c}{get\-Position} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the skeleton position. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_afc11765a6cb9bed99e3a6a8aae81ea53}{set\-Position} (\hyperlink{class_skeleton_point}{\-Skeleton\-Point} position)
+\begin{DoxyCompactList}\small\item\em \-Sets the skeleton position. \end{DoxyCompactList}\item 
+int \hyperlink{class_skeleton_af8910df6f4246e71aa239571ac4cbce1}{get\-Tracking\-Id} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a skeleton tracking \-I\-D. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_aa013cfc71fdbb441a1ff228ec287cb12}{set\-Tracking\-Id} (int tracking\-Id)
+\begin{DoxyCompactList}\small\item\em \-Sets a skeleton tracking \-I\-D. \end{DoxyCompactList}\item 
+\hyperlink{skeleton_tracking_state_8h_a970dd6d8f4fed3a223e0ae2dca36435c}{\-Skeleton\-Tracking\-State} \hyperlink{class_skeleton_a6f2302e9a82950bc472a59f14d2cd928}{get\-Tracking\-State} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the skeleton data tracking option. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_a7d36116cb6cf9d9bd6a96e3cae1fc52f}{set\-Tracking\-State} (\hyperlink{skeleton_tracking_state_8h_a970dd6d8f4fed3a223e0ae2dca36435c}{\-Skeleton\-Tracking\-State} tracking\-State)
+\begin{DoxyCompactList}\small\item\em \-Sets the skeleton data tracking option. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_skeleton_a4639e5b560a45da3f4c4ca73759499fa}{\index{\-Skeleton@{\-Skeleton}!\-Skeleton@{\-Skeleton}}
+\index{\-Skeleton@{\-Skeleton}!Skeleton@{\-Skeleton}}
+\subsubsection[{\-Skeleton}]{\setlength{\rightskip}{0pt plus 5cm}\-Skeleton\-::\-Skeleton (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Bone\-Orientation} $>$ \&}]{bone\-Orientations, }
+\item[{{\bf \-Frame\-Edges}}]{clipped\-Edges, }
+\item[{std\-::vector$<$ {\bf \-Joint} $>$ \&}]{joints, }
+\item[{{\bf \-Skeleton\-Point}}]{position, }
+\item[{int}]{tracking\-Id, }
+\item[{{\bf \-Skeleton\-Tracking\-State}}]{tracking\-State}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_a4639e5b560a45da3f4c4ca73759499fa}
+
+\begin{DoxyParams}{\-Parameters}
+{\em bone\-Orientations} & \-The collection of bone orientations for a skeleton \\
+\hline
+{\em clipped\-Edges} & \-The edges (of a frame of depth data) that intersect with (and therefore clip) the skeleton data \\
+\hline
+{\em joints} & \-A collection of skeleton joints \\
+\hline
+{\em position} & \-The skeleton position \\
+\hline
+{\em tracking\-Id} & \-A skeleton tracking \-I\-D \\
+\hline
+{\em tracking\-State} & \-The skeleton data tracking option\\
+\hline
+\end{DoxyParams}
+\-For internal use {\itshape only\/} 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_skeleton_a700f66248954f988296f5a55754ae014}{\index{\-Skeleton@{\-Skeleton}!get\-Bone\-Orientations@{get\-Bone\-Orientations}}
+\index{get\-Bone\-Orientations@{get\-Bone\-Orientations}!Skeleton@{\-Skeleton}}
+\subsubsection[{get\-Bone\-Orientations}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<${\bf \-Bone\-Orientation}$>$\& {\bf \-Skeleton\-::get\-Bone\-Orientations} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_a700f66248954f988296f5a55754ae014}
+
+
+\-Gets the collection of bone orientations for a skeleton. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Bone\-Orientations of the \hyperlink{class_skeleton}{\-Skeleton} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_a5bd06b73dd54b7dfb136b385461c671a}{\index{\-Skeleton@{\-Skeleton}!get\-Clipped\-Edges@{get\-Clipped\-Edges}}
+\index{get\-Clipped\-Edges@{get\-Clipped\-Edges}!Skeleton@{\-Skeleton}}
+\subsubsection[{get\-Clipped\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Frame\-Edges} {\bf \-Skeleton\-::get\-Clipped\-Edges} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_a5bd06b73dd54b7dfb136b385461c671a}
+
+
+\-Gets the edges (of a frame of depth data) that intersect with (and therefore clip) the skeleton data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Clipped\-Edges of the \hyperlink{class_skeleton}{\-Skeleton} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_a5ed1d23671bf355818bd3628b2105fec}{\index{\-Skeleton@{\-Skeleton}!set\-Clipped\-Edges@{set\-Clipped\-Edges}}
+\index{set\-Clipped\-Edges@{set\-Clipped\-Edges}!Skeleton@{\-Skeleton}}
+\subsubsection[{set\-Clipped\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-::set\-Clipped\-Edges} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Frame\-Edges}}]{clipped\-Edges}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_a5ed1d23671bf355818bd3628b2105fec}
+
+
+\-Sets the edges (of a frame of depth data) that intersect with (and therefore clip) the skeleton data. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em clipped\-Edges} & \-The \-Clipped\-Edges of the \hyperlink{class_skeleton}{\-Skeleton} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_a09de0e2d82ad94a62af0373fff583d64}{\index{\-Skeleton@{\-Skeleton}!get\-Joints@{get\-Joints}}
+\index{get\-Joints@{get\-Joints}!Skeleton@{\-Skeleton}}
+\subsubsection[{get\-Joints}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<${\bf \-Joint}$>$\& {\bf \-Skeleton\-::get\-Joints} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_a09de0e2d82ad94a62af0373fff583d64}
+
+
+\-Gets a collection of skeleton joints. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Bone\-Orientations of the \hyperlink{class_skeleton}{\-Skeleton}
+\end{DoxyReturn}
+\-Each joint contains data such as the joint type, position and whether or not the joint is being tracked. \hypertarget{class_skeleton_a0aa2f000e4a4ebc72eb1b8035e895641}{\index{\-Skeleton@{\-Skeleton}!set\-Joints@{set\-Joints}}
+\index{set\-Joints@{set\-Joints}!Skeleton@{\-Skeleton}}
+\subsubsection[{set\-Joints}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-::set\-Joints} (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ {\bf \-Joint} $>$ \&}]{joints}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_a0aa2f000e4a4ebc72eb1b8035e895641}
+
+
+\-Sets a collection of skeleton joints. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em joints} & \-The \-Bone\-Orientations of the \hyperlink{class_skeleton}{\-Skeleton}\\
+\hline
+\end{DoxyParams}
+\-Each joint contains data such as the joint type, position and whether or not the joint is being tracked. \hypertarget{class_skeleton_ac6d578c69c73d547bef051042a7ce75c}{\index{\-Skeleton@{\-Skeleton}!get\-Position@{get\-Position}}
+\index{get\-Position@{get\-Position}!Skeleton@{\-Skeleton}}
+\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Point} {\bf \-Skeleton\-::get\-Position} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_ac6d578c69c73d547bef051042a7ce75c}
+
+
+\-Gets the skeleton position. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Position of the \hyperlink{class_skeleton}{\-Skeleton} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_afc11765a6cb9bed99e3a6a8aae81ea53}{\index{\-Skeleton@{\-Skeleton}!set\-Position@{set\-Position}}
+\index{set\-Position@{set\-Position}!Skeleton@{\-Skeleton}}
+\subsubsection[{set\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-::set\-Position} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton\-Point}}]{position}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_afc11765a6cb9bed99e3a6a8aae81ea53}
+
+
+\-Sets the skeleton position. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em position} & \-The \-Position of the \hyperlink{class_skeleton}{\-Skeleton} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_af8910df6f4246e71aa239571ac4cbce1}{\index{\-Skeleton@{\-Skeleton}!get\-Tracking\-Id@{get\-Tracking\-Id}}
+\index{get\-Tracking\-Id@{get\-Tracking\-Id}!Skeleton@{\-Skeleton}}
+\subsubsection[{get\-Tracking\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Skeleton\-::get\-Tracking\-Id} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_af8910df6f4246e71aa239571ac4cbce1}
+
+
+\-Gets a skeleton tracking \-I\-D. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Tracking\-Id of the \hyperlink{class_skeleton}{\-Skeleton}
+\end{DoxyReturn}
+\-The id is unique for each tracked skeleton. \hypertarget{class_skeleton_aa013cfc71fdbb441a1ff228ec287cb12}{\index{\-Skeleton@{\-Skeleton}!set\-Tracking\-Id@{set\-Tracking\-Id}}
+\index{set\-Tracking\-Id@{set\-Tracking\-Id}!Skeleton@{\-Skeleton}}
+\subsubsection[{set\-Tracking\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-::set\-Tracking\-Id} (
+\begin{DoxyParamCaption}
+\item[{int}]{tracking\-Id}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_aa013cfc71fdbb441a1ff228ec287cb12}
+
+
+\-Sets a skeleton tracking \-I\-D. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em tracking\-Id} & \-The \-Tracking\-Id of the \hyperlink{class_skeleton}{\-Skeleton}\\
+\hline
+\end{DoxyParams}
+\-The id is unique for each tracked skeleton. \hypertarget{class_skeleton_a6f2302e9a82950bc472a59f14d2cd928}{\index{\-Skeleton@{\-Skeleton}!get\-Tracking\-State@{get\-Tracking\-State}}
+\index{get\-Tracking\-State@{get\-Tracking\-State}!Skeleton@{\-Skeleton}}
+\subsubsection[{get\-Tracking\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Tracking\-State} {\bf \-Skeleton\-::get\-Tracking\-State} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_a6f2302e9a82950bc472a59f14d2cd928}
+
+
+\-Gets the skeleton data tracking option. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Tracking\-State of the \hyperlink{class_skeleton}{\-Skeleton} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_a7d36116cb6cf9d9bd6a96e3cae1fc52f}{\index{\-Skeleton@{\-Skeleton}!set\-Tracking\-State@{set\-Tracking\-State}}
+\index{set\-Tracking\-State@{set\-Tracking\-State}!Skeleton@{\-Skeleton}}
+\subsubsection[{set\-Tracking\-State}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-::set\-Tracking\-State} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton\-Tracking\-State}}]{tracking\-State}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_a7d36116cb6cf9d9bd6a96e3cae1fc52f}
+
+
+\-Sets the skeleton data tracking option. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em tracking\-State} & \-The \-Tracking\-State of the \hyperlink{class_skeleton}{\-Skeleton} \\
+\hline
+\end{DoxyParams}
