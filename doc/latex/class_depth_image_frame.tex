@@ -1,0 +1,182 @@
+\hypertarget{class_depth_image_frame}{\section{\-Depth\-Image\-Frame \-Class \-Reference}
+\label{class_depth_image_frame}\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}}
+}
+\-Inheritance diagram for \-Depth\-Image\-Frame\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_depth_image_frame}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_depth_image_frame_aa27dfb16b9401098aaee2c275536e95b}{\-Depth\-Image\-Frame} (int bytes\-Per\-Pixel, int pixel\-Data\-Length, byte $\ast$pixel\-Data, int frame\-Number, int width, int height, int timestamp, \hyperlink{depth_image_format_8h_a00bd0eac7784357ebca4c1e6a50b51af}{\-Depth\-Image\-Format} format, int player\-Index\-Bitmask, int player\-Index\-Bitmask\-Width, int id=-\/1)
+\item 
+int \hyperlink{class_depth_image_frame_af7db8c69e8d08b62b8a7549a5dbf4e50}{get\-Player\-Index\-Bitmask} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a bitmask for extracting the player index from the depth data. \end{DoxyCompactList}\item 
+int \hyperlink{class_depth_image_frame_a0fe301e09e741b7a64b4563e2a7cec68}{get\-Player\-Index\-Bitmask\-Width} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the width, or number of bits, in the player index bitmask. \end{DoxyCompactList}\item 
+\hyperlink{depth_image_format_8h_a00bd0eac7784357ebca4c1e6a50b51af}{\-Depth\-Image\-Format} \hyperlink{class_depth_image_frame_a313e3b5b1eeb6a6b6aa829e081b8cde6}{get\-Format} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the format for the depth data, which includes the data type, the resolution, and the frame rate. \end{DoxyCompactList}\item 
+\hyperlink{class_depth_image_point}{\-Depth\-Image\-Point} \hyperlink{class_depth_image_frame_a11f56bc4dcbd12226b48b4c60fb8e79a}{\-Map\-From\-Skeleton\-Point} (\hyperlink{class_skeleton_point}{\-Skeleton\-Point} skeleton\-Point)
+\begin{DoxyCompactList}\small\item\em \-Looks up the depth point from skeleton point. \end{DoxyCompactList}\item 
+\hyperlink{class_color_image_point}{\-Color\-Image\-Point} \hyperlink{class_depth_image_frame_a2dd6ed5a1729adec7ac9296189dbb339}{\-Map\-To\-Color\-Image\-Point} (int depth\-X, int depth\-Y, \hyperlink{color_image_format_8h_a77f719572c3c368859dd2ec3153d8452}{\-Color\-Image\-Format} color\-Image\-Format)
+\begin{DoxyCompactList}\small\item\em \-Maps a depth point to a color point. \end{DoxyCompactList}\item 
+\hyperlink{class_skeleton_point}{\-Skeleton\-Point} \hyperlink{class_depth_image_frame_a5437ee92580b35f951d467a3efacd3b7}{\-Map\-To\-Skeleton\-Point} (int depth\-X, int depth\-Y)
+\begin{DoxyCompactList}\small\item\em \-Looks up the skeleton point from a depth point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_depth_image_frame_aa27dfb16b9401098aaee2c275536e95b}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}}
+\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{\-Depth\-Image\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Depth\-Image\-Frame\-::\-Depth\-Image\-Frame} (
+\begin{DoxyParamCaption}
+\item[{int}]{bytes\-Per\-Pixel, }
+\item[{int}]{pixel\-Data\-Length, }
+\item[{byte $\ast$}]{pixel\-Data, }
+\item[{int}]{frame\-Number, }
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{timestamp, }
+\item[{{\bf \-Depth\-Image\-Format}}]{format, }
+\item[{int}]{player\-Index\-Bitmask, }
+\item[{int}]{player\-Index\-Bitmask\-Width, }
+\item[{int}]{id = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{class_depth_image_frame_aa27dfb16b9401098aaee2c275536e95b}
+
+\begin{DoxyParams}{\-Parameters}
+{\em bytes\-Per\-Pixel} & \-The size of a pixel of data (in bytes per pixel) \\
+\hline
+{\em pixel\-Data\-Length} & \-The length of the pixel data buffer \\
+\hline
+{\em pixel\-Data} & \-Buffer containing the pixel data \\
+\hline
+{\em frame\-Number} & \-The frame number \\
+\hline
+{\em width} & \-The data buffer width (in pixels) \\
+\hline
+{\em height} & \-The data buffer height (in pixels \\
+\hline
+{\em timestamp} & \-The time the data was captured (in milliseconds) \mbox{[}always 0\mbox{]} \\
+\hline
+{\em format} & \-The format for the depth data, which includes the data type, the resolution, and the frame rate \\
+\hline
+{\em player\-Index\-Bitmask} & \-A bitmask for extracting the player index from the depth data; the player index is stored in the lowest order bits \\
+\hline
+{\em player\-Index\-Bitmask\-Width} & \-The width, or number of bits, in the player index bitmask. \-This is the number of low order bits in the depth data that stores the player index \\
+\hline
+{\em id} & \-The sensor id (index in the sensors collection) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_depth_image_frame_af7db8c69e8d08b62b8a7549a5dbf4e50}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!get\-Player\-Index\-Bitmask@{get\-Player\-Index\-Bitmask}}
+\index{get\-Player\-Index\-Bitmask@{get\-Player\-Index\-Bitmask}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{get\-Player\-Index\-Bitmask}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Depth\-Image\-Frame\-::get\-Player\-Index\-Bitmask} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_depth_image_frame_af7db8c69e8d08b62b8a7549a5dbf4e50}
+
+
+\-Gets a bitmask for extracting the player index from the depth data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Player\-Index\-Bitmask of the \hyperlink{class_depth_image_frame}{\-Depth\-Image\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_depth_image_frame_a0fe301e09e741b7a64b4563e2a7cec68}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!get\-Player\-Index\-Bitmask\-Width@{get\-Player\-Index\-Bitmask\-Width}}
+\index{get\-Player\-Index\-Bitmask\-Width@{get\-Player\-Index\-Bitmask\-Width}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{get\-Player\-Index\-Bitmask\-Width}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Depth\-Image\-Frame\-::get\-Player\-Index\-Bitmask\-Width} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_depth_image_frame_a0fe301e09e741b7a64b4563e2a7cec68}
+
+
+\-Gets the width, or number of bits, in the player index bitmask. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Player\-Index\-Bitmask\-Width of the \hyperlink{class_depth_image_frame}{\-Depth\-Image\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_depth_image_frame_a313e3b5b1eeb6a6b6aa829e081b8cde6}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!get\-Format@{get\-Format}}
+\index{get\-Format@{get\-Format}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{get\-Format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Depth\-Image\-Format} {\bf \-Depth\-Image\-Frame\-::get\-Format} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_depth_image_frame_a313e3b5b1eeb6a6b6aa829e081b8cde6}
+
+
+\-Gets the format for the depth data, which includes the data type, the resolution, and the frame rate. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Format of the \hyperlink{class_depth_image_frame}{\-Depth\-Image\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_depth_image_frame_a11f56bc4dcbd12226b48b4c60fb8e79a}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!\-Map\-From\-Skeleton\-Point@{\-Map\-From\-Skeleton\-Point}}
+\index{\-Map\-From\-Skeleton\-Point@{\-Map\-From\-Skeleton\-Point}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{\-Map\-From\-Skeleton\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Depth\-Image\-Point} {\bf \-Depth\-Image\-Frame\-::\-Map\-From\-Skeleton\-Point} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton\-Point}}]{skeleton\-Point}
+\end{DoxyParamCaption}
+)}}\label{class_depth_image_frame_a11f56bc4dcbd12226b48b4c60fb8e79a}
+
+
+\-Looks up the depth point from skeleton point. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em skeleton\-Point} & \-The skeleton point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The depth point 
+\end{DoxyReturn}
+\hypertarget{class_depth_image_frame_a2dd6ed5a1729adec7ac9296189dbb339}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!\-Map\-To\-Color\-Image\-Point@{\-Map\-To\-Color\-Image\-Point}}
+\index{\-Map\-To\-Color\-Image\-Point@{\-Map\-To\-Color\-Image\-Point}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{\-Map\-To\-Color\-Image\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Color\-Image\-Point} {\bf \-Depth\-Image\-Frame\-::\-Map\-To\-Color\-Image\-Point} (
+\begin{DoxyParamCaption}
+\item[{int}]{depth\-X, }
+\item[{int}]{depth\-Y, }
+\item[{{\bf \-Color\-Image\-Format}}]{color\-Image\-Format}
+\end{DoxyParamCaption}
+)}}\label{class_depth_image_frame_a2dd6ed5a1729adec7ac9296189dbb339}
+
+
+\-Maps a depth point to a color point. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em depth\-X} & \-The depth point \-X coordinate \\
+\hline
+{\em depth\-Y} & \-The depth point \-Y coordinate \\
+\hline
+{\em color\-Image\-Format} & \-The color format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The color point 
+\end{DoxyReturn}
+\hypertarget{class_depth_image_frame_a5437ee92580b35f951d467a3efacd3b7}{\index{\-Depth\-Image\-Frame@{\-Depth\-Image\-Frame}!\-Map\-To\-Skeleton\-Point@{\-Map\-To\-Skeleton\-Point}}
+\index{\-Map\-To\-Skeleton\-Point@{\-Map\-To\-Skeleton\-Point}!DepthImageFrame@{\-Depth\-Image\-Frame}}
+\subsubsection[{\-Map\-To\-Skeleton\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Point} {\bf \-Depth\-Image\-Frame\-::\-Map\-To\-Skeleton\-Point} (
+\begin{DoxyParamCaption}
+\item[{int}]{depth\-X, }
+\item[{int}]{depth\-Y}
+\end{DoxyParamCaption}
+)}}\label{class_depth_image_frame_a5437ee92580b35f951d467a3efacd3b7}
+
+
+\-Looks up the skeleton point from a depth point. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em depth\-X} & \-The depth point \-X coordinate \\
+\hline
+{\em depth\-Y} & \-The depth point \-Y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A skeleton point 
+\end{DoxyReturn}

@@ -1,0 +1,55 @@
+==============================================
+=                 libkinect                  =
+==============================================
+
+I - What is libkinect ?
+***********************
+
+libkinect is a C++ open, cross-platform, object-oriented 
+library which goal is to provide manipulation of the Kinect 
+For Windows on any computer.
+It works in collaboration with a Windows executable, so you
+have to download it in order to use libkinect (github
+repository : https://github.com/gregaou/Kinect-Server)
+This executable is a server that waits for a client to 
+connect (using libkinect) and communication with it using 
+the connected Kinect(s).
+The libkinect API is based on Windows C# API 
+(http://msdn.microsoft.com/en-us/library/hh855419)
+
+II - How to install it ?
+************************
+
+Download the archive corresponding to your OS in the 'archives'
+directory, and then proceed like any other library.
+
+III - How to build it ?
+***********************
+
+To generate the makefile, a premake script is available in
+the 'build' directory. You can download premake for free at 
+http://industriousone.com/premake/download.
+Once it is done, you just have to generate the Makefile and
+launch it.
+The project needs pthread (and winsock2 on Windows).
+
+IV - Development and authors
+****************************
+
+This library was developed during a traineeship at Marseille's
+LIF.
+Main developer : Gaëtan Champarnaud (gaetan_champarnaud@hotmail.com)
+Other developer : Grégoire Rit (gregoire.rit@gmail.com)
+
+V - How to contribute ?
+***********************
+
+There are several ways to contribute to this project :
+- Send us suggestions, bugs
+- Correct english mistakes
+- Fork the project
+- Any other way you think you can help
+
+
+
+

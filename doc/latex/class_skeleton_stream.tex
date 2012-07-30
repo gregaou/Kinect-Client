@@ -1,0 +1,205 @@
+\hypertarget{class_skeleton_stream}{\section{\-Skeleton\-Stream \-Class \-Reference}
+\label{class_skeleton_stream}\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}}
+}
+\-Inheritance diagram for \-Skeleton\-Stream\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skeleton_stream}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skeleton_stream_a2686e692f6cdee9db86fda04fbc84a60}{\-Skeleton\-Stream} (int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skeleton_stream_af0cb428efdfe65ab51c539352b019f1a}{get\-App\-Chooses\-Skeletons} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets or sets a value indicating whether the application or the runtime chooses which skeletons to track. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_stream_a4152adc04d86656ff5d2ed8440045778}{set\-App\-Chooses\-Skeletons} (bool app\-Chooses\-Skeletons)
+\begin{DoxyCompactList}\small\item\em \-Sets or sets a value indicating whether the application or the runtime chooses which skeletons to track. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skeleton_stream_a9c9c7f50cc87a923a28974797e0c21eb}{get\-Enable\-Tracking\-In\-Near\-Range} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a value indicating whether skeleton tracking is enabled when the depth range is set to near mode. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_stream_a1837078cfed89afe3e5a9c64ac773646}{set\-Enable\-Tracking\-In\-Near\-Range} (bool enable\-Tracking\-In\-Near\-Range)
+\begin{DoxyCompactList}\small\item\em \-Sets a value indicating whether skeleton tracking is enabled when the depth range is set to near mode. \end{DoxyCompactList}\item 
+int \hyperlink{class_skeleton_stream_a138912e8e8de6c127c47418c1a999f9f}{get\-Frame\-Skeleton\-Array\-Length} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the maximum number of skeletons that can be tracked. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skeleton_stream_af93d51f792d8f624aa297cffd52fc3bd}{is\-Enabled} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a value indicating whether output data streaming is enabled. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skeleton_stream_a6dd909b0e543827e24fc5a8b5d808c0f}{is\-Smoothing\-Enabled} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets a value indicating whether smoothing is enabled, which reduces the amount of variation in the skeleton position data. \end{DoxyCompactList}\item 
+\hyperlink{class_transform_smooth_parameters}{\-Transform\-Smooth\-Parameters} \hyperlink{class_skeleton_stream_a2e98eaad17a8a15275209a512d13535f}{get\-Smooth\-Parameters} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets custom smoothing parameters for smoothing raw skeleton data. \end{DoxyCompactList}\item 
+\hyperlink{skeleton_tracking_mode_8h_a87402166ea87cd8993f36e03802e3742}{\-Skeleton\-Tracking\-Mode} \hyperlink{class_skeleton_stream_a263083a65b5e0d7534050ff63ae12af8}{get\-Tracking\-Mode} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the tracking mode which detemines how many joints to track. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_stream_a236384a51ff63af213e3d719218bbaa6}{set\-Tracking\-Mode} (\hyperlink{skeleton_tracking_mode_8h_a87402166ea87cd8993f36e03802e3742}{\-Skeleton\-Tracking\-Mode} tracking\-Mode) const 
+\begin{DoxyCompactList}\small\item\em \-Sets the tracking mode which detemines how many joints to track. \end{DoxyCompactList}\item 
+\hypertarget{class_skeleton_stream_a9dac265d95a15609ae695dfbbecc0916}{void \hyperlink{class_skeleton_stream_a9dac265d95a15609ae695dfbbecc0916}{enable} ()}\label{class_skeleton_stream_a9dac265d95a15609ae695dfbbecc0916}
+
+\begin{DoxyCompactList}\small\item\em \-Enables the \-Kinect to stream out skeleton data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_skeleton_stream_a2686e692f6cdee9db86fda04fbc84a60}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!\-Skeleton\-Stream@{\-Skeleton\-Stream}}
+\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{\-Skeleton\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Stream\-::\-Skeleton\-Stream} (
+\begin{DoxyParamCaption}
+\item[{int}]{id = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_stream_a2686e692f6cdee9db86fda04fbc84a60}
+
+
+\-Constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em id} & \-The sensor id (index in the sensors collection) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_skeleton_stream_af0cb428efdfe65ab51c539352b019f1a}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!get\-App\-Chooses\-Skeletons@{get\-App\-Chooses\-Skeletons}}
+\index{get\-App\-Chooses\-Skeletons@{get\-App\-Chooses\-Skeletons}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{get\-App\-Chooses\-Skeletons}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Skeleton\-Stream\-::get\-App\-Chooses\-Skeletons} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_af0cb428efdfe65ab51c539352b019f1a}
+
+
+\-Gets or sets a value indicating whether the application or the runtime chooses which skeletons to track. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-App\-Chooses\-Skeletons of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_a4152adc04d86656ff5d2ed8440045778}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!set\-App\-Chooses\-Skeletons@{set\-App\-Chooses\-Skeletons}}
+\index{set\-App\-Chooses\-Skeletons@{set\-App\-Chooses\-Skeletons}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{set\-App\-Chooses\-Skeletons}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Stream\-::set\-App\-Chooses\-Skeletons} (
+\begin{DoxyParamCaption}
+\item[{bool}]{app\-Chooses\-Skeletons}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_stream_a4152adc04d86656ff5d2ed8440045778}
+
+
+\-Sets or sets a value indicating whether the application or the runtime chooses which skeletons to track. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em app\-Chooses\-Skeletons} & \-The \-App\-Chooses\-Skeletons of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_stream_a9c9c7f50cc87a923a28974797e0c21eb}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!get\-Enable\-Tracking\-In\-Near\-Range@{get\-Enable\-Tracking\-In\-Near\-Range}}
+\index{get\-Enable\-Tracking\-In\-Near\-Range@{get\-Enable\-Tracking\-In\-Near\-Range}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{get\-Enable\-Tracking\-In\-Near\-Range}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Skeleton\-Stream\-::get\-Enable\-Tracking\-In\-Near\-Range} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_a9c9c7f50cc87a923a28974797e0c21eb}
+
+
+\-Gets a value indicating whether skeleton tracking is enabled when the depth range is set to near mode. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Enable\-Tracking\-In\-Near\-Range of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_a1837078cfed89afe3e5a9c64ac773646}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!set\-Enable\-Tracking\-In\-Near\-Range@{set\-Enable\-Tracking\-In\-Near\-Range}}
+\index{set\-Enable\-Tracking\-In\-Near\-Range@{set\-Enable\-Tracking\-In\-Near\-Range}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{set\-Enable\-Tracking\-In\-Near\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Stream\-::set\-Enable\-Tracking\-In\-Near\-Range} (
+\begin{DoxyParamCaption}
+\item[{bool}]{enable\-Tracking\-In\-Near\-Range}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_stream_a1837078cfed89afe3e5a9c64ac773646}
+
+
+\-Sets a value indicating whether skeleton tracking is enabled when the depth range is set to near mode. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em enable\-Tracking\-In\-Near\-Range} & \-The \-Enable\-Tracking\-In\-Near\-Range of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_stream_a138912e8e8de6c127c47418c1a999f9f}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!get\-Frame\-Skeleton\-Array\-Length@{get\-Frame\-Skeleton\-Array\-Length}}
+\index{get\-Frame\-Skeleton\-Array\-Length@{get\-Frame\-Skeleton\-Array\-Length}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{get\-Frame\-Skeleton\-Array\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Skeleton\-Stream\-::get\-Frame\-Skeleton\-Array\-Length} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_a138912e8e8de6c127c47418c1a999f9f}
+
+
+\-Gets the maximum number of skeletons that can be tracked. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Frame\-Skeleton\-Array\-Length of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_af93d51f792d8f624aa297cffd52fc3bd}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!is\-Enabled@{is\-Enabled}}
+\index{is\-Enabled@{is\-Enabled}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{is\-Enabled}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Skeleton\-Stream\-::is\-Enabled} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_af93d51f792d8f624aa297cffd52fc3bd}
+
+
+\-Gets a value indicating whether output data streaming is enabled. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Is\-Enabled of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_a6dd909b0e543827e24fc5a8b5d808c0f}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!is\-Smoothing\-Enabled@{is\-Smoothing\-Enabled}}
+\index{is\-Smoothing\-Enabled@{is\-Smoothing\-Enabled}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{is\-Smoothing\-Enabled}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Skeleton\-Stream\-::is\-Smoothing\-Enabled} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_a6dd909b0e543827e24fc5a8b5d808c0f}
+
+
+\-Gets a value indicating whether smoothing is enabled, which reduces the amount of variation in the skeleton position data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Is\-Smoothing\-Enabled of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_a2e98eaad17a8a15275209a512d13535f}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!get\-Smooth\-Parameters@{get\-Smooth\-Parameters}}
+\index{get\-Smooth\-Parameters@{get\-Smooth\-Parameters}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{get\-Smooth\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Transform\-Smooth\-Parameters} {\bf \-Skeleton\-Stream\-::get\-Smooth\-Parameters} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_a2e98eaad17a8a15275209a512d13535f}
+
+
+\-Gets custom smoothing parameters for smoothing raw skeleton data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Smooth\-Parameters of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_a263083a65b5e0d7534050ff63ae12af8}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!get\-Tracking\-Mode@{get\-Tracking\-Mode}}
+\index{get\-Tracking\-Mode@{get\-Tracking\-Mode}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{get\-Tracking\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Tracking\-Mode} {\bf \-Skeleton\-Stream\-::get\-Tracking\-Mode} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_a263083a65b5e0d7534050ff63ae12af8}
+
+
+\-Gets the tracking mode which detemines how many joints to track. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Tracking\-Mode of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_stream_a236384a51ff63af213e3d719218bbaa6}{\index{\-Skeleton\-Stream@{\-Skeleton\-Stream}!set\-Tracking\-Mode@{set\-Tracking\-Mode}}
+\index{set\-Tracking\-Mode@{set\-Tracking\-Mode}!SkeletonStream@{\-Skeleton\-Stream}}
+\subsubsection[{set\-Tracking\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Stream\-::set\-Tracking\-Mode} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton\-Tracking\-Mode}}]{tracking\-Mode}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_stream_a236384a51ff63af213e3d719218bbaa6}
+
+
+\-Sets the tracking mode which detemines how many joints to track. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em tracking\-Mode} & \-The \-Tracking\-Mode of the \hyperlink{class_skeleton_stream}{\-Skeleton\-Stream} \\
+\hline
+\end{DoxyParams}

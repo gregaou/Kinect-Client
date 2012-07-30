@@ -1,12 +1,14 @@
--- A solution contains projects, and defines the available configurations
-solution "kinect"
+solution "libkinect"
     configurations "Release"
 	links = iif (os.is("windows"), { "pthread", "ws2_32" }, "pthread")
+	language "C++"
+	files { "../src/**.h", "../src/**.cpp" }
+	excludes "../src/main.cpp" 
 
-	-- A project defines one build target
-	project "kinect"
+	project "kinect_static"
 		kind "StaticLib"
-		--kind "SharedLib"
-		language "C++"
-		files { "../src/**.h", "../src/**.cpp" }
-		excludes "../src/main.cpp" 
+		targetname "kinect"
+
+	project "kinect_shared"
+		kind "SharedLib"
+		targetname "kinect"

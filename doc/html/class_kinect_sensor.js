@@ -16,7 +16,7 @@ var class_kinect_sensor =
     [ "getStatus", "class_kinect_sensor.html#ad7d67f65e253b9d57735efe1d6190bc7", null ],
     [ "getUniqueKinectId", "class_kinect_sensor.html#a91d6feb6ef199bb80b4166059934e19c", null ],
     [ "dispose", "class_kinect_sensor.html#a81aa6180ab4bed59e83b5e1bd4e60ebb", null ],
-    [ "MapDepthFrameToColorFrame", "class_kinect_sensor.html#a594a81ecfbc54af97cf6d45d9f980ce6", null ],
+    [ "MapDepthFrameToColorFrame", "class_kinect_sensor.html#a8967dc608f839c287364f35915e6d1f1", null ],
     [ "MapDepthToColorImagePoint", "class_kinect_sensor.html#a6a227ba5603eeeed31099ed5137362c5", null ],
     [ "MapDepthToSkeletonPoint", "class_kinect_sensor.html#a29a6ac16153328c7a8268bcca406b6a5", null ],
     [ "MapSkeletonPointToColor", "class_kinect_sensor.html#ad3868523f6623b18ac41aa1425dc4f0c", null ],

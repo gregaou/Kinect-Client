@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libkinect: kObjects/kinectSensor.h Source File</title>
+<title>libkinect: src/kObjects/kinectSensor.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -71,7 +71,7 @@
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">kObjects/kinectSensor.h</div>  </div>
+<div class="title">src/kObjects/kinectSensor.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="kinect_sensor_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef KINECTSENSOR_H</span>
@@ -118,10 +118,10 @@
 <a name="l00078"></a>00078         <span class="comment">/* Methods */</span>
 <a name="l00080"></a><a class="code" href="class_kinect_sensor.html#a81aa6180ab4bed59e83b5e1bd4e60ebb">00080</a>         <span class="keywordtype">void</span> <a class="code" href="class_kinect_sensor.html#a81aa6180ab4bed59e83b5e1bd4e60ebb" title="Terminates all data streaming and frees all memory associated with the Kinect.">dispose</a>(<span class="keywordtype">void</span>)                              { processQuery(buildQuery(__func__)); }
 <a name="l00081"></a>00081 
-<a name="l00091"></a>00091         <span class="keywordtype">void</span> <a class="code" href="class_kinect_sensor.html#a594a81ecfbc54af97cf6d45d9f980ce6" title="Maps every point in a depth frame to the specified ColorImageFormat coordinate space.">MapDepthFrameToColorFrame</a>
+<a name="l00091"></a>00091         <span class="keywordtype">void</span> <a class="code" href="class_kinect_sensor.html#a8967dc608f839c287364f35915e6d1f1" title="Maps every point in a depth frame to the specified ColorImageFormat coordinate space.">MapDepthFrameToColorFrame</a>
 <a name="l00092"></a>00092         (
 <a name="l00093"></a>00093             <a class="code" href="depth_image_format_8h.html#a00bd0eac7784357ebca4c1e6a50b51af">DepthImageFormat</a> depthImageFormat,
-<a name="l00094"></a>00094             std::vector&lt;short&gt; depthPixelData,
+<a name="l00094"></a>00094             std::vector&lt;short&gt;&amp; depthPixelData,
 <a name="l00095"></a>00095             <a class="code" href="color_image_format_8h.html#a77f719572c3c368859dd2ec3153d8452">ColorImageFormat</a> colorImageFormat,
 <a name="l00096"></a>00096             std::vector&lt;ColorImagePoint&gt;* colorCoordinates
 <a name="l00097"></a>00097         );
@@ -189,7 +189,7 @@
     <ul>
       <li class="navelem"><a class="el" href="kinect_sensor_8h.html">kinectSensor.h</a>      </li>
 
-    <li class="footer">Generated on Thu Jul 26 2012 17:10:12 for libkinect by
+    <li class="footer">Generated on Mon Jul 30 2012 14:06:50 for libkinect by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

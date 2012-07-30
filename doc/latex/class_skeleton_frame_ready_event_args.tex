@@ -1,0 +1,63 @@
+\hypertarget{class_skeleton_frame_ready_event_args}{\section{\-Skeleton\-Frame\-Ready\-Event\-Args \-Class \-Reference}
+\label{class_skeleton_frame_ready_event_args}\index{\-Skeleton\-Frame\-Ready\-Event\-Args@{\-Skeleton\-Frame\-Ready\-Event\-Args}}
+}
+\-Inheritance diagram for \-Skeleton\-Frame\-Ready\-Event\-Args\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skeleton_frame_ready_event_args}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skeleton_frame_ready_event_args_ae1bb2ae3caac515b6ea3c682c27c5b7f}{\-Skeleton\-Frame\-Ready\-Event\-Args} (float floor\-Clip\-Plane\mbox{[}4\mbox{]}, int frame\-Number, int skeleton\-Array\-Length, int timestamp, \hyperlink{skeleton_tracking_mode_8h_a87402166ea87cd8993f36e03802e3742}{\-Skeleton\-Tracking\-Mode} tracking\-Mode, \hyperlink{class_skeleton}{\-Skeleton} $\ast$skeleton\-Data)
+\item 
+const \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} \& \hyperlink{class_skeleton_frame_ready_event_args_aee1c27fa300a98e61b9f5433f07bdac4}{open\-Skeleton\-Frame} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Opens a \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame}, which contains one frame of skeleton data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_skeleton_frame_ready_event_args_ae1bb2ae3caac515b6ea3c682c27c5b7f}{\index{\-Skeleton\-Frame\-Ready\-Event\-Args@{\-Skeleton\-Frame\-Ready\-Event\-Args}!\-Skeleton\-Frame\-Ready\-Event\-Args@{\-Skeleton\-Frame\-Ready\-Event\-Args}}
+\index{\-Skeleton\-Frame\-Ready\-Event\-Args@{\-Skeleton\-Frame\-Ready\-Event\-Args}!SkeletonFrameReadyEventArgs@{\-Skeleton\-Frame\-Ready\-Event\-Args}}
+\subsubsection[{\-Skeleton\-Frame\-Ready\-Event\-Args}]{\setlength{\rightskip}{0pt plus 5cm}\-Skeleton\-Frame\-Ready\-Event\-Args\-::\-Skeleton\-Frame\-Ready\-Event\-Args (
+\begin{DoxyParamCaption}
+\item[{float}]{floor\-Clip\-Plane\mbox{[}4\mbox{]}, }
+\item[{int}]{frame\-Number, }
+\item[{int}]{skeleton\-Array\-Length, }
+\item[{int}]{timestamp, }
+\item[{{\bf \-Skeleton\-Tracking\-Mode}}]{tracking\-Mode, }
+\item[{{\bf \-Skeleton} $\ast$}]{skeleton\-Data}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_frame_ready_event_args_ae1bb2ae3caac515b6ea3c682c27c5b7f}
+
+\begin{DoxyParams}{\-Parameters}
+{\em floor\-Clip\-Plane} & \-The clip plane of the floor in the form of a four component tuple (x, y, z, w) \\
+\hline
+{\em frame\-Number} & \-The frame number \\
+\hline
+{\em skeleton\-Array\-Length} & \-The maximum number of skeletons that can be tracked \\
+\hline
+{\em timestamp} & \-The time that the frame was created \mbox{[}always 0\mbox{]} \\
+\hline
+{\em tracking\-Mode} & \-The skeleton tracking mode \\
+\hline
+{\em skeleton\-Data} & \-An array of skeletons\\
+\hline
+\end{DoxyParams}
+\-For internal use {\itshape only\/} 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_skeleton_frame_ready_event_args_aee1c27fa300a98e61b9f5433f07bdac4}{\index{\-Skeleton\-Frame\-Ready\-Event\-Args@{\-Skeleton\-Frame\-Ready\-Event\-Args}!open\-Skeleton\-Frame@{open\-Skeleton\-Frame}}
+\index{open\-Skeleton\-Frame@{open\-Skeleton\-Frame}!SkeletonFrameReadyEventArgs@{\-Skeleton\-Frame\-Ready\-Event\-Args}}
+\subsubsection[{open\-Skeleton\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Skeleton\-Frame} \& {\bf \-Skeleton\-Frame\-Ready\-Event\-Args\-::open\-Skeleton\-Frame} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_frame_ready_event_args_aee1c27fa300a98e61b9f5433f07bdac4}
+
+
+\-Opens a \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame}, which contains one frame of skeleton data. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The skeleton frame that corresponds to this event 
+\end{DoxyReturn}

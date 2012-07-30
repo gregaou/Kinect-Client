@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libkinect: kActions/kKinectSensorCollectionStatusChangedAction.h Source File</title>
+<title>libkinect: src/kActions/kKinectSensorCollectionStatusChangedAction.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -71,7 +71,7 @@
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">kActions/kKinectSensorCollectionStatusChangedAction.h</div>  </div>
+<div class="title">src/kActions/kKinectSensorCollectionStatusChangedAction.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef KKINECTSENSORCOLLECTIONSTATUSCHANGEDACTION_H</span>
@@ -94,7 +94,7 @@
 <a name="l00018"></a>00018             std::vector&lt;std::string&gt;* res = <a class="code" href="class_k_object.html#a9e6f91f3ad4ce80bf3baf15a566ced35" title="Splits a string into a vector of strings using a specified separator.">KObject::splitString</a>(_paquet-&gt;stringData(), SEP);
 <a name="l00019"></a>00019             <a class="code" href="kinect_status_8h.html#a485fe7473bcf235f8c51dda0754afd9f">KinectStatus</a> newStatus = (<a class="code" href="kinect_status_8h.html#a485fe7473bcf235f8c51dda0754afd9f">KinectStatus</a>)valueOf&lt;int&gt;((*res)[1]);
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021             <a class="code" href="class_kinect_sensor_collection.html">KinectSensorCollection</a>* sensors = KinectSensorCollection::instance();
+<a name="l00021"></a>00021             <a class="code" href="class_kinect_sensor_collection.html">KinectSensorCollection</a>* sensors = <a class="code" href="class_kinect_sensor_collection.html#a2f80ad52f4b2ffeb08ac0f4340ee0549" title="Gets the intance.">KinectSensorCollection::instance</a>();
 <a name="l00022"></a>00022             <a class="code" href="class_k_event_handler.html">KEventHandler&lt;KinectStatus&gt;</a> handler = sensors-&gt;statusChangedCb();
 <a name="l00023"></a>00023             handler(sensors, newStatus);
 <a name="l00024"></a>00024 
@@ -112,7 +112,7 @@
     <ul>
       <li class="navelem"><b>kKinectSensorCollectionStatusChangedAction.h</b>      </li>
 
-    <li class="footer">Generated on Thu Jul 26 2012 15:46:17 for libkinect by
+    <li class="footer">Generated on Mon Jul 30 2012 14:06:50 for libkinect by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

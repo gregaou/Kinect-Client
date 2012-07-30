@@ -1,0 +1,199 @@
+\hypertarget{class_skeleton_frame}{\section{\-Skeleton\-Frame \-Class \-Reference}
+\label{class_skeleton_frame}\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}}
+}
+\-Inheritance diagram for \-Skeleton\-Frame\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skeleton_frame}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skeleton_frame_a1ad4979b38d63f40e7ce495338e94033}{\-Skeleton\-Frame} (float floor\-Clip\-Plane\mbox{[}4\mbox{]}, int frame\-Number, int skeleton\-Array\-Length, int timestamp, \hyperlink{skeleton_tracking_mode_8h_a87402166ea87cd8993f36e03802e3742}{\-Skeleton\-Tracking\-Mode} tracking\-Mode, \hyperlink{class_skeleton}{\-Skeleton} $\ast$skeleton\-Data)
+\item 
+const float $\ast$ \hyperlink{class_skeleton_frame_a1945b555d0d3ed49264dc075f911443a}{get\-Floor\-Clip\-Plane} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the clip plane of the floor in the form of a four component tuple (x, y, z, w). \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_frame_a149efe9c98cdee9de53c36bdfa70d1e3}{set\-Floor\-Clip\-Plane} (float $\ast$floor\-Clip\-Plane)
+\begin{DoxyCompactList}\small\item\em \-Sets the clip plane of the floor in the form of a four component tuple (x, y, z, w). \end{DoxyCompactList}\item 
+int \hyperlink{class_skeleton_frame_a798377f52f7576f61531c0a7056bfd50}{get\-Frame\-Number} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the frame number. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_frame_a32a7c688aefd9009c08541ff8df48b41}{set\-Frame\-Number} (int frame\-Number)
+\begin{DoxyCompactList}\small\item\em \-Sets the frame number. \end{DoxyCompactList}\item 
+int \hyperlink{class_skeleton_frame_a06b456ec4de73f9c2363bdb64eeb928f}{get\-Skeleton\-Array\-Length} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the maximum number of skeletons that can be tracked. \end{DoxyCompactList}\item 
+int \hyperlink{class_skeleton_frame_a3a4cde1c8941896f79ae95811286e051}{get\-Timestamp} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the time that the frame was created. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_frame_a9b11c3e80c796a18ef82df52d770441a}{set\-Timestamp} (int timestamp)
+\begin{DoxyCompactList}\small\item\em \-Sets the time that the frame was created. \end{DoxyCompactList}\item 
+\hyperlink{skeleton_tracking_mode_8h_a87402166ea87cd8993f36e03802e3742}{\-Skeleton\-Tracking\-Mode} \hyperlink{class_skeleton_frame_a65b55ef3e1cdf7d9b0ac0c85bd2f8b01}{get\-Tracking\-Mode} (void) const 
+\begin{DoxyCompactList}\small\item\em \-Gets the tracking mode. \end{DoxyCompactList}\item 
+void \hyperlink{class_skeleton_frame_aef5306389602cbf6eceb77dd8425c1ab}{\-Copy\-Skeleton\-Data\-To} (\hyperlink{class_skeleton}{\-Skeleton} $\ast$skeleton\-Data)
+\begin{DoxyCompactList}\small\item\em \-Copies skeleton data to an array of \-Skeletons, where each \hyperlink{class_skeleton}{\-Skeleton} contains a collection of the joints in that skeleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_skeleton_frame_a1ad4979b38d63f40e7ce495338e94033}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!\-Skeleton\-Frame@{\-Skeleton\-Frame}}
+\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{\-Skeleton\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}\-Skeleton\-Frame\-::\-Skeleton\-Frame (
+\begin{DoxyParamCaption}
+\item[{float}]{floor\-Clip\-Plane\mbox{[}4\mbox{]}, }
+\item[{int}]{frame\-Number, }
+\item[{int}]{skeleton\-Array\-Length, }
+\item[{int}]{timestamp, }
+\item[{{\bf \-Skeleton\-Tracking\-Mode}}]{tracking\-Mode, }
+\item[{{\bf \-Skeleton} $\ast$}]{skeleton\-Data}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_frame_a1ad4979b38d63f40e7ce495338e94033}
+
+\begin{DoxyParams}{\-Parameters}
+{\em floor\-Clip\-Plane} & \-The clip plane of the floor in the form of a four component tuple (x, y, z, w) \\
+\hline
+{\em frame\-Number} & \-The frame number \\
+\hline
+{\em skeleton\-Array\-Length} & \-The maximum number of skeletons that can be tracked \\
+\hline
+{\em timestamp} & \-The time that the frame was created \mbox{[}always 0\mbox{]} \\
+\hline
+{\em tracking\-Mode} & \-The skeleton tracking mode \\
+\hline
+{\em skeleton\-Data} & \-An array of skeletons \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_skeleton_frame_a1945b555d0d3ed49264dc075f911443a}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!get\-Floor\-Clip\-Plane@{get\-Floor\-Clip\-Plane}}
+\index{get\-Floor\-Clip\-Plane@{get\-Floor\-Clip\-Plane}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{get\-Floor\-Clip\-Plane}]{\setlength{\rightskip}{0pt plus 5cm}const float$\ast$ {\bf \-Skeleton\-Frame\-::get\-Floor\-Clip\-Plane} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_frame_a1945b555d0d3ed49264dc075f911443a}
+
+
+\-Gets the clip plane of the floor in the form of a four component tuple (x, y, z, w). 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Floor\-Clip\-Plane of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_frame_a149efe9c98cdee9de53c36bdfa70d1e3}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!set\-Floor\-Clip\-Plane@{set\-Floor\-Clip\-Plane}}
+\index{set\-Floor\-Clip\-Plane@{set\-Floor\-Clip\-Plane}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{set\-Floor\-Clip\-Plane}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Frame\-::set\-Floor\-Clip\-Plane} (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{floor\-Clip\-Plane}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_frame_a149efe9c98cdee9de53c36bdfa70d1e3}
+
+
+\-Sets the clip plane of the floor in the form of a four component tuple (x, y, z, w). 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em floor\-Clip\-Plane} & \-The \-Floor\-Clip\-Plane of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_frame_a798377f52f7576f61531c0a7056bfd50}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!get\-Frame\-Number@{get\-Frame\-Number}}
+\index{get\-Frame\-Number@{get\-Frame\-Number}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{get\-Frame\-Number}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Skeleton\-Frame\-::get\-Frame\-Number} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_frame_a798377f52f7576f61531c0a7056bfd50}
+
+
+\-Gets the frame number. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Frame\-Number of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_frame_a32a7c688aefd9009c08541ff8df48b41}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!set\-Frame\-Number@{set\-Frame\-Number}}
+\index{set\-Frame\-Number@{set\-Frame\-Number}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{set\-Frame\-Number}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Frame\-::set\-Frame\-Number} (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\-Number}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_frame_a32a7c688aefd9009c08541ff8df48b41}
+
+
+\-Sets the frame number. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em frame\-Number} & \-The \-Frame\-Number of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_frame_a06b456ec4de73f9c2363bdb64eeb928f}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!get\-Skeleton\-Array\-Length@{get\-Skeleton\-Array\-Length}}
+\index{get\-Skeleton\-Array\-Length@{get\-Skeleton\-Array\-Length}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{get\-Skeleton\-Array\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Skeleton\-Frame\-::get\-Skeleton\-Array\-Length} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_frame_a06b456ec4de73f9c2363bdb64eeb928f}
+
+
+\-Gets the maximum number of skeletons that can be tracked. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Skeleton\-Array\-Length of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_frame_a3a4cde1c8941896f79ae95811286e051}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!get\-Timestamp@{get\-Timestamp}}
+\index{get\-Timestamp@{get\-Timestamp}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{get\-Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Skeleton\-Frame\-::get\-Timestamp} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_frame_a3a4cde1c8941896f79ae95811286e051}
+
+
+\-Gets the time that the frame was created. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Timestamp of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} 
+\end{DoxyReturn}
+\hypertarget{class_skeleton_frame_a9b11c3e80c796a18ef82df52d770441a}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!set\-Timestamp@{set\-Timestamp}}
+\index{set\-Timestamp@{set\-Timestamp}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{set\-Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Frame\-::set\-Timestamp} (
+\begin{DoxyParamCaption}
+\item[{int}]{timestamp}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_frame_a9b11c3e80c796a18ef82df52d770441a}
+
+
+\-Sets the time that the frame was created. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em timestamp} & \-The \-Timestamp of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skeleton_frame_a65b55ef3e1cdf7d9b0ac0c85bd2f8b01}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!get\-Tracking\-Mode@{get\-Tracking\-Mode}}
+\index{get\-Tracking\-Mode@{get\-Tracking\-Mode}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{get\-Tracking\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Skeleton\-Tracking\-Mode} {\bf \-Skeleton\-Frame\-::get\-Tracking\-Mode} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_skeleton_frame_a65b55ef3e1cdf7d9b0ac0c85bd2f8b01}
+
+
+\-Gets the tracking mode. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-Tracking\-Mode of the \hyperlink{class_skeleton_frame}{\-Skeleton\-Frame}
+\end{DoxyReturn}
+\-Do not use this property; this value may change in a future release. \hypertarget{class_skeleton_frame_aef5306389602cbf6eceb77dd8425c1ab}{\index{\-Skeleton\-Frame@{\-Skeleton\-Frame}!\-Copy\-Skeleton\-Data\-To@{\-Copy\-Skeleton\-Data\-To}}
+\index{\-Copy\-Skeleton\-Data\-To@{\-Copy\-Skeleton\-Data\-To}!SkeletonFrame@{\-Skeleton\-Frame}}
+\subsubsection[{\-Copy\-Skeleton\-Data\-To}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Skeleton\-Frame\-::\-Copy\-Skeleton\-Data\-To} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Skeleton} $\ast$}]{skeleton\-Data}
+\end{DoxyParamCaption}
+)}}\label{class_skeleton_frame_aef5306389602cbf6eceb77dd8425c1ab}
+
+
+\-Copies skeleton data to an array of \-Skeletons, where each \hyperlink{class_skeleton}{\-Skeleton} contains a collection of the joints in that skeleton. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em skeleton\-Data} & \-An array of \hyperlink{class_skeleton}{\-Skeleton} to receive the skeleton data. \\
+\hline
+\end{DoxyParams}

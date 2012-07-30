@@ -124,8 +124,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81aa6180ab4bed59e83b5e1bd4e60ebb"></a><!-- doxytag: member="KinectSensor::dispose" ref="a81aa6180ab4bed59e83b5e1bd4e60ebb" args="(void)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kinect_sensor.html#a81aa6180ab4bed59e83b5e1bd4e60ebb">dispose</a> (void)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminates all data streaming and frees all memory associated with the Kinect. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kinect_sensor.html#a594a81ecfbc54af97cf6d45d9f980ce6">MapDepthFrameToColorFrame</a> (<a class="el" href="depth_image_format_8h.html#a00bd0eac7784357ebca4c1e6a50b51af">DepthImageFormat</a> depthImageFormat, std::vector&lt; short &gt; depthPixelData, <a class="el" href="color_image_format_8h.html#a77f719572c3c368859dd2ec3153d8452">ColorImageFormat</a> colorImageFormat, std::vector&lt; <a class="el" href="class_color_image_point.html">ColorImagePoint</a> &gt; *colorCoordinates)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps every point in a depth frame to the specified ColorImageFormat coordinate space.  <a href="#a594a81ecfbc54af97cf6d45d9f980ce6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kinect_sensor.html#a8967dc608f839c287364f35915e6d1f1">MapDepthFrameToColorFrame</a> (<a class="el" href="depth_image_format_8h.html#a00bd0eac7784357ebca4c1e6a50b51af">DepthImageFormat</a> depthImageFormat, std::vector&lt; short &gt; &amp;depthPixelData, <a class="el" href="color_image_format_8h.html#a77f719572c3c368859dd2ec3153d8452">ColorImageFormat</a> colorImageFormat, std::vector&lt; <a class="el" href="class_color_image_point.html">ColorImagePoint</a> &gt; *colorCoordinates)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps every point in a depth frame to the specified ColorImageFormat coordinate space.  <a href="#a8967dc608f839c287364f35915e6d1f1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color_image_point.html">ColorImagePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kinect_sensor.html#a6a227ba5603eeeed31099ed5137362c5">MapDepthToColorImagePoint</a> (<a class="el" href="depth_image_format_8h.html#a00bd0eac7784357ebca4c1e6a50b51af">DepthImageFormat</a> depthImageFormat, int depthX, int depthY, short depthPixelValue, <a class="el" href="color_image_format_8h.html#a77f719572c3c368859dd2ec3153d8452">ColorImageFormat</a> colorImageFormat)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Map a depth coordinate with depth value to a color coordinate.  <a href="#a6a227ba5603eeeed31099ed5137362c5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skeleton_point.html">SkeletonPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kinect_sensor.html#a29a6ac16153328c7a8268bcca406b6a5">MapDepthToSkeletonPoint</a> (<a class="el" href="depth_image_format_8h.html#a00bd0eac7784357ebca4c1e6a50b51af">DepthImageFormat</a> depthImageFormat, int depthX, int depthY, short depthPixelValue)</td></tr>
@@ -443,12 +443,12 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a594a81ecfbc54af97cf6d45d9f980ce6"></a><!-- doxytag: member="KinectSensor::MapDepthFrameToColorFrame" ref="a594a81ecfbc54af97cf6d45d9f980ce6" args="(DepthImageFormat depthImageFormat, std::vector&lt; short &gt; depthPixelData, ColorImageFormat colorImageFormat, std::vector&lt; ColorImagePoint &gt; *colorCoordinates)" -->
+<a class="anchor" id="a8967dc608f839c287364f35915e6d1f1"></a><!-- doxytag: member="KinectSensor::MapDepthFrameToColorFrame" ref="a8967dc608f839c287364f35915e6d1f1" args="(DepthImageFormat depthImageFormat, std::vector&lt; short &gt; &amp;depthPixelData, ColorImageFormat colorImageFormat, std::vector&lt; ColorImagePoint &gt; *colorCoordinates)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_kinect_sensor.html#a594a81ecfbc54af97cf6d45d9f980ce6">KinectSensor::MapDepthFrameToColorFrame</a> </td>
+          <td class="memname">void <a class="el" href="class_kinect_sensor.html#a8967dc608f839c287364f35915e6d1f1">KinectSensor::MapDepthFrameToColorFrame</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="depth_image_format_8h.html#a00bd0eac7784357ebca4c1e6a50b51af">DepthImageFormat</a>&#160;</td>
           <td class="paramname"><em>depthImageFormat</em>, </td>
@@ -456,7 +456,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; short &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; short &gt; &amp;&#160;</td>
           <td class="paramname"><em>depthPixelData</em>, </td>
         </tr>
         <tr>
@@ -787,7 +787,7 @@ Static Public Member Functions</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="class_kinect_sensor.html">KinectSensor</a>      </li>
 
-    <li class="footer">Generated on Thu Jul 26 2012 17:10:13 for libkinect by
+    <li class="footer">Generated on Mon Jul 30 2012 14:06:52 for libkinect by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>
